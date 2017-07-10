@@ -20,5 +20,13 @@
     "webpack-dev-server": "^2.5.0"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DTRudd/QAC.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DTRudd/QAC/issues"
+  },
+  "homepage": "https://github.com/DTRudd/QAC#readme",
   "description": ""
 }
