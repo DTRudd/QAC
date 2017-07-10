@@ -7,18 +7,18 @@ export default class Footer extends React.Component{
 			<div>
 				<a href="localhost:8080/">Home</a>
 				<p></p>
-				Films
+				<a href="">Films</a>
 				<p></p>
-				Find us
+				<a href="">Find us</a>
 				<p></p>
 				Information
-					-Prices
-					-FAQ's
-					-Contact
+					- <a href="">Prices</a>
+					- <a href="">FAQ's </a>
+					- <a href="">Contact</a>
 				<p></p>
-				Log In
+				<a href="">Log In</a>
 				<p></p>
-				Email : cinema@Email.co.uk
+				Email : <a href="">cinema@Email.co.uk</a>
 			</div>
 		);
 	}
