@@ -5,8 +5,6 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import Index1 from './components/Index1';
 import Index2 from './components/Index2';
 
-
-
 ReactDOM.render(
 	<Router history={browserHistory} >
 		<Route path="/" component={App}>
