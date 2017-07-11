@@ -1,31 +1,58 @@
 import React from 'react';
-import {GMaps, Marker} from 'react-gmaps';
+import {withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
+
+const GettingStartedGoogleMap = withGoogleMap(props => (
+	<GoogleMap
+		ref={props.onMapLoad}
+		defaultZoom={3}
+		defaultCenter={{ lat: 0.00102, lng: 53.02210 }}
+	>
+		{props.markers.map(marker => (
+			<Marker
+				{...marker}
+			/>
+		))}
+	</GoogleMap>
+));
 
 export default class Map extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			markers: [{
+				position: {
+					lat: 0.00102,
+					lng: 53.02210
+				},
+				key: 'NE Lincs',
+				defaultAnimation: 2
+			}]
+		};
+		this.handleMapLoad = this.handleMapLoad.bind(this);
+	}
 
-	//const params = {v:3, key:AIzaSyD4tmng1Wc3Sw50e7x9IYsUefFaGC_iVv4};  
-	//const coords = {lat: 0.00102, lng: 53.2};
 
-	onMapCreated(map) {
-		map.setOptions({
-			disableDefaultUI: true
-		});
+	handleMapLoad(map) {
+		this._mapComponent = map;
+		if (map) {
+			console.log(map.getZoom());
+		}
 	}
 
 	render() {
 		return (
-			<Gmaps
-				width={'800px'}
-				height={'600px'}
-				zoom={12}
-				loadingMessage="Finding QA Cinemas"
-				params="{v:3, key:AIzaSyD4tmng1Wc3Sw50e7x9IYsUefFaGC_iVv4}"
-				onMapCreated={this.onMapCreated}>
-				<Marker
-					lat={0.00102}
-					lng={53.2100}
-					draggable={false} />
-			</Gmaps>
+			<div>
+				<GettingStartedGoogleMap
+					containerElement={
+						<div />
+					}
+					mapElement={
+						<div />
+					}
+					onMapLoad={this.handleMapLoad}
+					markers={this.state.markers}
+				/>
+			</div>
 		);
 	}
 }
