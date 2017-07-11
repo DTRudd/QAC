@@ -1,5 +1,4 @@
 import React from 'react';
-import Nav from './Nav';
 
 export default class Home extends React.Component {
   render() {
@@ -7,12 +6,10 @@ export default class Home extends React.Component {
 	<div>
       <h2>Home</h2>
             
-    
         <div id = "content">
-
-
+            
+            
         <hr width="75%" align="center">
-        
         <table align = "center">
             <tr>
                 <th>Adults</th>
