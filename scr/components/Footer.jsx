@@ -4,7 +4,7 @@ export default class Footer extends React.Component{
 
 	render(){
 		return(
-			<div>
+			<footer>
 				<a href="localhost:8080/">Home</a>
 				<p></p>
 				<a href="">Films</a>
@@ -19,7 +19,7 @@ export default class Footer extends React.Component{
 				<a href="">Log In</a>
 				<p></p>
 				Email : <a href="">cinema@Email.co.uk</a>
-			</div>
+			</footer>
 		);
 	}
 }
