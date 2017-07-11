@@ -13,6 +13,16 @@ export default class Map extends React.Component {
 			lng: this.props.lng,
 			zoom: 16
 		});
+		maps.addMarker({
+			lat: this.props.lat,
+			lng: this.props.lng,
+			title: 'QA Cinemas',
+			animation: google.maps.Animation.DROP,
+			label: 'A',
+			infoWindow: {
+				content: 'QAC,<br />Meridian Showground,<br />Cleethorpes,<br />Lincs.,<br />DN35 0AR'
+			}
+		});
 	}
 
 	render() {
