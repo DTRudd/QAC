@@ -4,6 +4,7 @@ import Index1 from './components/Index1';
 import Index2 from './components/Index2';
 import React from 'react';
 import App from './components/App';
+import FindUs from './components/FindUs';
 
 ReactDOM.render(
 	<Router history={browserHistory} >
@@ -11,6 +12,7 @@ ReactDOM.render(
 		<IndexRoute component={Index1} />
 			<Route path="/Index1" component={Index1} />
 			<Route path="/Index2" component={Index2} />
+			<Route path="/FindUs" component={FindUs} />
 		</Route>
 	</Router>,
    document.querySelector('#app')
