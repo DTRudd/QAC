@@ -12,7 +12,6 @@ ReactDOM.render(
 		<IndexRoute component={Index1} />
 			<Route path="/Index1" component={Index1} />
 			<Route path="/Index2" component={Index2} />
-			<Route path="/FindUs" component={FindUs} />
 		</Route>
 	</Router>,
    document.querySelector('#app')
