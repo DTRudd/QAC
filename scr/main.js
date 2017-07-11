@@ -5,6 +5,11 @@ import Index2 from './components/Index2';
 import React from 'react';
 import App from './components/App';
 import FindUs from './components/FindUs';
+import Booking from './components/Booking';
+import FAQ from './components/FAQ';
+import Films from './components/Films';
+import InformationPage from './components/InformationPage';
+import Login from './components/Login';
 
 ReactDOM.render(
 	<Router history={browserHistory} >
@@ -13,6 +18,11 @@ ReactDOM.render(
 			<Route path="/Index1" component={Index1} />
 			<Route path="/Index2" component={Index2} />
 			<Route path="/FindUs" component={FindUs} />
+			<Route path="/Booking" component={Booking} />
+			<Route path="/FAQ" component={FAQ} />
+			<Route path="/Films" component={Films} />
+			<Route path="/Info" component={InformationPage} />
+			<Route path="/Login" component={Login} />
 		</Route>
 	</Router>,
    document.querySelector('#app')

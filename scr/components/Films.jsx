@@ -4,22 +4,22 @@ import FilmTile from './FilmTile';
 export default class Home extends React.Component {
   render() {
     return (
-	<div>
-      <h2>Home</h2>
+      <div>
+        <h2>Home</h2>
             
         <div id = "content">
             
-            <FilmTile />
-            <FilmTile />
-            <FilmTile />
+          <FilmTile />
+          <FilmTile />
+          <FilmTile />
             
-        <hr width="75%" align="center">
+          <hr width="75%" style={{align:"center"}} />
             
-            <FilmTile />
-            <FilmTile />
-            <FilmTile />
-    
-    </div>
-	);
+          <FilmTile />
+          <FilmTile />
+          <FilmTile />
+        </div>
+      </div>
+    );
   }
 }

@@ -12,6 +12,11 @@ export default class Nav extends React.Component{
 					<li><Link to="/Index1" className="pageLink" activeClassName="active">Index Page</Link></li>
 					<li><Link to="/Index2" className="pageLink" activeClassName="active">Index</Link></li>
 					<li><Link to="/FindUs" className="pageLink" activeClassName="active">Find us</Link></li>
+					<li><Link to="/Booking" className="pageLink" activeClassName="active">Booking</Link></li>
+					<li><Link to="/FAQ" className="pageLink" activeClassName="active">FAQs</Link></li>
+					<li><Link to="/Films" className="pageLink" activeClassName="active">Films</Link></li>
+					<li><Link to="/Info" className="pageLink" activeClassName="active">Information</Link></li>
+					<li><Link to="/Login" className="pageLink" activeClassName="active">Log in</Link></li>
 				</ul>
 			</nav>
 		);
