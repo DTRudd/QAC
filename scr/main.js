@@ -9,11 +9,12 @@ import FAQ from './components/FAQ';
 import Films from './components/Films';
 import InformationPage from './components/InformationPage';
 import Login from './components/Login';
+import Home from './components/Home';
 
 ReactDOM.render(
 	<Router history={browserHistory} >
 		<Route path="/" component={App}>
-		<IndexRoute component={Index1} />
+		<IndexRoute component={Home} />
 			<Route path="/Index1" component={Index1} />
 			<Route path="/FindUs" component={FindUs} />
 			<Route path="/Booking" component={Booking} />
