@@ -14,9 +14,13 @@ export default class Nav extends React.Component{
             <Link to="/Index2" className="pageLink mdl-navigation__link" activeClassName="active">Index</Link>
             <Link to="/FindUs" className="pageLink mdl-navigation__link" activeClassName="active">Find us</Link>
             <Link to="/Booking" className="pageLink mdl-navigation__link" activeClassName="active">Booking</Link>
-            <Link to="/FAQ" className="pageLink mdl-navigation__link" activeClassName="active">FAQs</Link>
+            <span id="info-menu-lower-left" className="mdl-js-button mdl-navigation__link">Information</span>
+            <ul className="mdl-menu mdl-menu--buttom-left mdl-js-menu" for="info-menu-lower-left">
+              <li><Link to="/Info" className="pageLink mdl-menu__item" activeClassName="active">Information</Link></li>
+              <li><Link to="/FAQ" className="pageLink mdl-menu__item" activeClassName="active">FAQs</Link></li>
+              <li><Link to="/Contact" className="pageLink mdl-menu__item" activeClassName="active">Contact</Link></li>
+            </ul>
             <Link to="/Films" className="pageLink mdl-navigation__link" activeClassName="active">Films</Link>
-            <Link to="/Info" className="pageLink mdl-navigation__link" activeClassName="active">Information</Link>
             <Link to="/Login" className="pageLink mdl-navigation__link" activeClassName="active"><button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Log in</button></Link>
           </nav>
         </nav>
