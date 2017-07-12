@@ -14,9 +14,11 @@ import React from 'react';
 								<img id="1" className="pic"  src={props.pic}/>
 							</div>
 							
-						<h4>{props.titles[props.value-1]}</h4>
-						<img id="2" className="age"  src={props.ageRating}/>
+							<h4 className="film-title">{props.titles[props.value-1]}</h4>
 						
+						</div>
+						<div className="age-rating">
+							<img id="2" className="age-rating-logo" src={props.ageRating}/>
 						</div>
 					</div>
 				</div>

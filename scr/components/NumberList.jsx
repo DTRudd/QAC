@@ -8,7 +8,7 @@ import ListItem from './ListItem';
 	  const ageRating = props.ageRating;
 	  const pic = props.pic;
 	  return (
-		<ul>
+		<ul className="Display-film-tiles">
 		  {numbers.map((number) =>
 			<ListItem key={number.toString()}
 					  value={number} 

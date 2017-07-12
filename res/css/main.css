@@ -8,3 +8,62 @@ footer {
 nav {
 	background-color: #3cf;
 }
+
+ body {
+    background-color:whitesmoke;
+}
+
+.Display-film-tiles{
+	list-style-type: none;
+}
+       
+.pic{
+	width:255px;
+	height:369px;
+}
+
+.age-rating{
+    position: relative;
+    left: 150px;
+	bottom:50px;
+}
+
+.age-rating-logo{
+	width:25%;
+}
+
+
+	   
+.mdl-grid{
+    align-items: center;
+    justify-content: center;
+    }
+    
+.film-tile-padding{
+    padding:20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    align-items: center;
+    justify-content: center;
+}
+	   
+.film-title{
+	padding-top:45px;
+}
+       
+.container {
+    position:relative;
+    margin: auto;
+    height: 450px;
+    width: 270px;
+    padding: 10px;
+    background-color: white;
+    display: inline-grid;
+    }
+ 
+.background {
+    background-color: lightgrey; 
+	margin: auto;
+	height: 300px;
+	width: 255px;
+}
