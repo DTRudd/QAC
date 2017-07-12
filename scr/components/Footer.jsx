@@ -1,24 +1,36 @@
 import React from 'react';
-
+import {Link} from 'react-router';
 export default class Footer extends React.Component{
 
 	render(){
 		return(
-			<footer>
-				<a href="localhost:8080/">Home</a>
-				<p></p>
-				<a href="">Films</a>
-				<p></p>
-				<a href="">Find us</a>
-				<p></p>
-				Information
-					- <a href="">Prices</a>
-					- <a href="">FAQ's </a>
-					- <a href="">Contact</a>
-				<p></p>
-				<a href="">Log In</a>
-				<p></p>
-				Email : <a href="">cinema@Email.co.uk</a>
+			<footer className="mdl-mega-footer">
+				<div className="mdl-mega-footer__drop-down-section">
+					<h4 className="mdl-mega-footer__heading"></h4>
+					<ul className="mdl-mega-footer__link-list">
+						<li><Link to="/">Home</Link></li>
+						<li><Link to="/Films">Films</Link></li>
+						<li><Link to="/FindUs">Find us</Link></li>
+					</ul>
+				</div>
+				<div className="mdl-mega-footer__drop-down-section">
+					<h4 className="mdl-mega-footer__heading">Information</h4>
+					<ul className="mdl-mega-footer__link-list">
+						<li><Link to="/Prices">Prices</Link></li>
+						<li><Link to="/FAQ">FAQs</Link></li>
+						<li><Link to="/Contact">Contact</Link></li>
+					</ul>
+				</div>
+				<div className="mdl-mega-footer__drop-down-section">
+					<ul className="mdl-mega-footer__link-list">
+						<li><Link to="/Login">Log In</Link></li>
+					</ul>
+				</div>
+				<div className="mdl-mega-footer__drop-down-section">
+					<ul className="mdl-mega-footer__link-list">
+						<li>Email : <a href="mailto:cinema@email.co.uk">cinema@email.co.uk</a></li>
+					</ul>
+				</div>
 			</footer>
 		);
 	}

@@ -13,6 +13,7 @@
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
+    "material-design-lite": "^1.3.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-google-maps": "^7.1.0",

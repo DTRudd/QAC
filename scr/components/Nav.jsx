@@ -3,22 +3,24 @@ import {IndexLink} from 'react-router';
 import {Link} from 'react-router';
 
 export default class Nav extends React.Component{
-	render(){
-		return(
-			<nav className="top-bar-right navbar" id="menu">
-				<h1 className="hide"> "Site Navigation" </h1>
-				<ul className="vertical medium-horizontal menu">
-					<li><IndexLink to="/" className="pageLink" activeClassName="active">Home</IndexLink></li>
-					<li><Link to="/Index1" className="pageLink" activeClassName="active">Index Page</Link></li>
-					<li><Link to="/Index2" className="pageLink" activeClassName="active">Index</Link></li>
-					<li><Link to="/FindUs" className="pageLink" activeClassName="active">Find us</Link></li>
-					<li><Link to="/Booking" className="pageLink" activeClassName="active">Booking</Link></li>
-					<li><Link to="/FAQ" className="pageLink" activeClassName="active">FAQs</Link></li>
-					<li><Link to="/Films" className="pageLink" activeClassName="active">Films</Link></li>
-					<li><Link to="/Info" className="pageLink" activeClassName="active">Information</Link></li>
-					<li><Link to="/Login" className="pageLink" activeClassName="active">Log in</Link></li>
-				</ul>
-			</nav>
-		);
-	}
+  render(){
+    return(
+      <header className="mdl-layout__header" id="menu">
+        <nav className="mdl-layout__header-row">
+          <h1 className="mdl-layout-title">QA Cinemas</h1>
+          <nav className="mdl-navigation">
+            <IndexLink to="/" className="pageLink mdl-navigation__link" activeClassName="active">Home</IndexLink>
+            <Link to="/Index1" className="pageLink mdl-navigation__link" activeClassName="active">Index Page</Link>
+            <Link to="/Index2" className="pageLink mdl-navigation__link" activeClassName="active">Index</Link>
+            <Link to="/FindUs" className="pageLink mdl-navigation__link" activeClassName="active">Find us</Link>
+            <Link to="/Booking" className="pageLink mdl-navigation__link" activeClassName="active">Booking</Link>
+            <Link to="/FAQ" className="pageLink mdl-navigation__link" activeClassName="active">FAQs</Link>
+            <Link to="/Films" className="pageLink mdl-navigation__link" activeClassName="active">Films</Link>
+            <Link to="/Info" className="pageLink mdl-navigation__link" activeClassName="active">Information</Link>
+            <Link to="/Login" className="pageLink mdl-navigation__link" activeClassName="active"><button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Log in</button></Link>
+          </nav>
+        </nav>
+      </header>
+    );
+  }
 }

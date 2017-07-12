@@ -5,9 +5,9 @@ import Footer from './Footer';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 		<Nav />
-		{this.props.children}
+		<div className="mdl-layout__content page-content">{this.props.children}</div>
 		<Footer />
       </div>
     );
