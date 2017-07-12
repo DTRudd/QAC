@@ -6,7 +6,7 @@ export default class Footer extends React.Component{
 		return(
 			<footer className="mdl-mega-footer">
 				<div className="mdl-mega-footer__drop-down-section">
-					<h4 className="mdl-mega-footer__heading"></h4>
+					<h4 className="mdl-mega-footer__heading">QA Cinemas</h4>
 					<ul className="mdl-mega-footer__link-list">
 						<li><Link to="/">Home</Link></li>
 						<li><Link to="/Films">Films</Link></li>
@@ -22,11 +22,13 @@ export default class Footer extends React.Component{
 					</ul>
 				</div>
 				<div className="mdl-mega-footer__drop-down-section">
+					<h4 className="mdl-mega-footer__heading">Account</h4>
 					<ul className="mdl-mega-footer__link-list">
 						<li><Link to="/Login">Log In</Link></li>
 					</ul>
 				</div>
 				<div className="mdl-mega-footer__drop-down-section">
+					<h4 className="mdl-mega-footer__heading">Contact</h4>
 					<ul className="mdl-mega-footer__link-list">
 						<li>Email : <a href="mailto:cinema@email.co.uk">cinema@email.co.uk</a></li>
 					</ul>
