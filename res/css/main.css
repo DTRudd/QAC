@@ -77,3 +77,15 @@ table {
 	height: 300px;
 	width: 255px;
 }
+
+.mdl-layout__container {
+	position: relative;
+}
+
+.mdl-layout--fixed-header>.mdl-layout__header {
+	position: fixed;
+}
+
+.mdl-layout__content {
+	margin-top: 56px;
+}
