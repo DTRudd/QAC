@@ -13,6 +13,7 @@ import Home from './components/Pages/Home';
 import contact from './components/Pages/contacts';
 import Prices from './components/Pages/Prices';
 
+
 ReactDOM.render(
 	<Router history={browserHistory} >
 		<Route path="/" component={App}>
