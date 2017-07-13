@@ -1,6 +1,7 @@
 {"films":[
-		{"id":"1", "Film_Name":"Goodfellas", "Release_Date":"2016", "age_rating":"18", "img":"./img/goodFellas.jpg"},
-		{"id":"2", "Film_Name":"War for the planet of the Apes", "Release_Date":"2017","age_rating":"12A", "img":"./img/apesposter.jpg"},
-		{"id":"3", "Film_Name":"Spider-man: Homecoming", "Release_Date":"2017","age_rating":"12A", "img":"./img/apesposter.jpg"}
+		{"id":"1", "Film_Name":"Goodfellas", "Release_Date":"2016", "age_rating":"../../res/img/ratings/BBFC_18_(2002).svg", "img":"../../res/img/goodFellas.jpg"},
+		{"id":"2", "Film_Name":"War for the planet of the Apes", "Release_Date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg", "img":"./../../res/img/apesposter.jpg"},
+		{"id":"3", "Film_Name":"Spider-man: Homecoming", "Release_Date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg", "img":"./../../res/img/spiderman.jpg"},
+		{"id":"4", "Film_Name":"Baby Driver", "Release_Date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg", "img":"./../../res/img/babydriver.jpg"}
 	]
 }

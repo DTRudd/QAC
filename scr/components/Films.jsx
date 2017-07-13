@@ -4,21 +4,15 @@ import FilmTile from './FilmTile';
 export default class Home extends React.Component {
   render() {
     return (
-      <div>
-        <h2>Home</h2>
-            
-        <div id = "content">
-            
+      <div className="mdl-grid">
           <FilmTile />
           <FilmTile />
           <FilmTile />
-            
-          <hr width="75%" style={{align:"center"}} />
-            
           <FilmTile />
           <FilmTile />
           <FilmTile />
-        </div>
+          <FilmTile />
+          <FilmTile />
       </div>
     );
   }

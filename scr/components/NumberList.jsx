@@ -6,16 +6,16 @@ import ListItem from './ListItem';
 	  const numbers = props.numbers;
 	  const titles = props.titles;
 	  const ageRating = props.ageRating;
-	  const img = props.img;
+	  const pic = props.pic;
 	  return (
-		<ul>
+		<div className="mdl-grid">
 		  {numbers.map((number) =>
 			<ListItem key={number.toString()}
 					  value={number} 
 					  titles={titles}
-					  ageRating={ageRating}
-					  img={img}/>
+					  ageRating={ageRating[number-1]}
+					  pic={pic[number-1]}/>
 		  )}
-		</ul>
+		</div>
 	  );
 	}

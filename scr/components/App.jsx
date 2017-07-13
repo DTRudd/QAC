@@ -8,7 +8,6 @@ class App extends React.Component {
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 		<Nav />
 		<div className="mdl-layout__content page-content">{this.props.children}</div>
-		<Footer />
       </div>
     );
   }

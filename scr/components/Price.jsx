@@ -35,18 +35,7 @@ export default class Prices extends React.Component{
 
         <section>
   
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+     
             
         <table>
             <thead>
