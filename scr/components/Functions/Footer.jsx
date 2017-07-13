@@ -14,6 +14,9 @@ export default class Footer extends React.Component{
             <li>Email : <a href="mailto:cinema@email.co.uk">cinema@email.co.uk</a></li>
           </ul>
         </div>
+        <div className="mdl-mini-footer__right-section">
+          <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Book now!</button>
+        </div>
       </footer>
     );
   }

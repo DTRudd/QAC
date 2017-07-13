@@ -9,6 +9,7 @@ class App extends React.Component {
         <Nav />
         <Drawer />
         <div className="mdl-layout__content page-content">{this.props.children}</div>
+        <Footer />
       </div>
     );
   }
