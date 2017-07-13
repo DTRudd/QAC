@@ -21,16 +21,19 @@ export default class Home extends React.Component {
 	
 	getInfo(){
 		var myFilmList = filmsList;
+		
 		var idArray =[];
 		var titleArray =[];
 		var ageRatingArray=[];
 		var picArray=[];
+		
 		for(let i=0; i<myFilmList.films.length; i++){ 
 			idArray.push(myFilmList.films[i].id);
 			titleArray.push(myFilmList.films[i].Film_Name);
 			ageRatingArray.push(myFilmList.films[i].age_rating);
 			picArray.push(myFilmList.films[i].img);
 		}
+		
 		this.setState({ids: idArray});
 		this.setState({titles: titleArray});
 		this.setState({ageRating: ageRatingArray});
