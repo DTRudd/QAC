@@ -1,17 +1,16 @@
 import React from 'react';
-import Price from './Prices';
+import Prices from './Prices';
 import FAQ from './FAQ';
 
 export default class InformationPage extends React.Component{
     
-    
-    render(){
+  render(){
     return(
-		<div>
-			<h4>Information page</h4>
-			<Prices />
-			<FAQ />
-		</div>
+      <div>
+        <h4>Information page</h4>
+        <Prices />
+        <FAQ />
+      </div>
     );    
-    }
+  }
 }
