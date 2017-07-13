@@ -11,6 +11,7 @@ export default class Home extends React.Component {
 			titles:[],
 			ageRating:[],
 			pic:[],
+			quote:[]
 		}
 	}
 	
@@ -25,16 +26,19 @@ export default class Home extends React.Component {
 		var titleArray =[];
 		var ageRatingArray=[];
 		var picArray=[];
+		var quoteArray=[];
 		for(let i=0; i<myFilmList.films.length; i++){ 
 			idArray.push(myFilmList.films[i].id);
 			titleArray.push(myFilmList.films[i].Film_Name);
 			ageRatingArray.push(myFilmList.films[i].age_rating);
 			picArray.push(myFilmList.films[i].img);
+			quoteArray.push(myFilmList.films[i].quote);
 		}
 		this.setState({ids: idArray});
 		this.setState({titles: titleArray});
 		this.setState({ageRating: ageRatingArray});
 		this.setState({pic: picArray});
+		this.setState({quote: quoteArray});
 	}
 
   render() {
@@ -43,7 +47,8 @@ export default class Home extends React.Component {
 	<div>
       <h2>Home</h2>
 	  <NumberList numbers={this.state.ids} titles={this.state.titles} 
-		ageRating={this.state.ageRating} pic={this.state.pic}/>
+		ageRating={this.state.ageRating} pic={this.state.pic}
+		    quote={this.state.quote}/>
 	</div>
 	);
   }

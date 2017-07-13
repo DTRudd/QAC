@@ -7,14 +7,15 @@ import ListItem from './ListItem';
 	  const titles = props.titles;
 	  const ageRating = props.ageRating;
 	  const pic = props.pic;
+	  const quote = props.quote;
 	  return (
 		<div className="mdl-grid">
 		  {numbers.map((number) =>
 			<ListItem key={number.toString()}
-					  value={number} 
-					  titles={titles}
+					  titles={titles[number-1]}
 					  ageRating={ageRating[number-1]}
-					  pic={pic[number-1]}/>
+					  pic={pic[number-1]}
+				  	  quote={quote[number-1]}/>
 		  )}
 		</div>
 	  );
