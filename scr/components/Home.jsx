@@ -22,6 +22,7 @@ export default class Home extends React.Component {
 	
 	getInfo(){
 		var myFilmList = filmsList;
+		
 		var idArray =[];
 		var titleArray =[];
 		var ageRatingArray=[];
@@ -34,6 +35,7 @@ export default class Home extends React.Component {
 			picArray.push(myFilmList.films[i].img);
 			quoteArray.push(myFilmList.films[i].quote);
 		}
+		
 		this.setState({ids: idArray});
 		this.setState({titles: titleArray});
 		this.setState({ageRating: ageRatingArray});
