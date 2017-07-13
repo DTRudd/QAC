@@ -1,5 +1,5 @@
 import React from 'react';
-import Map from './Map';
+import Map from './../Functions/Map';
 
 export default class FindUs extends React.Component {
 	render() {

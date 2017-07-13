@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from './Nav';
-import Footer from './Footer';
+import Nav from './../Functions/Nav';
+import Footer from './../Functions/Footer';
 
 class App extends React.Component {
   render() {

@@ -1,16 +1,17 @@
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import Index1 from './components/Index1';
+import Index1 from './components/Pages/Index1';
 import React from 'react';
-import App from './components/App';
-import FindUs from './components/FindUs';
-import Booking from './components/Booking';
-import FAQ from './components/FAQ';
-import Films from './components/Films';
-import InformationPage from './components/InformationPage';
-import Login from './components/Login';
-import Home from './components/Home';
-import contact from './components/contacts';
+import App from './components/Pages/App';
+import FindUs from './components/Pages/FindUs';
+import Booking from './components/Pages/Booking';
+import FAQ from './components/Pages/FAQ';
+import Films from './components/Pages/Films';
+import InformationPage from './components/Pages/InformationPage';
+import Login from './components/Pages/Login';
+import Home from './components/Pages/Home';
+import contact from './components/Pages/contacts';
+import Prices from './components/Pages/Prices';
 
 ReactDOM.render(
 	<Router history={browserHistory} >
@@ -24,6 +25,7 @@ ReactDOM.render(
 			<Route path="/Info" component={InformationPage} />
 			<Route path="/Login" component={Login} />
 			<Route path="/contact" component={contact} />
+			<Route path="/Prices" component={Prices} />
 		</Route>
 	</Router>,
    document.querySelector('#app')

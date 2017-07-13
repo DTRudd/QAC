@@ -4,6 +4,7 @@ export default class Prices extends React.Component{
     render(){
     return(
         <div>
+		<h3>Prices page</h3>
         <section>
         <table>
             <thead>
