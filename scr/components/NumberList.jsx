@@ -8,7 +8,7 @@ import ListItem from './ListItem';
 	  const ageRating = props.ageRating;
 	  const pic = props.pic;
 	  return (
-		<ul className="Display-film-tiles">
+		<div className="mdl-grid">
 		  {numbers.map((number) =>
 			<ListItem key={number.toString()}
 					  value={number} 
@@ -16,6 +16,6 @@ import ListItem from './ListItem';
 					  ageRating={ageRating[number-1]}
 					  pic={pic[number-1]}/>
 		  )}
-		</ul>
+		</div>
 	  );
 	}

@@ -6,8 +6,12 @@ nav {
 	background-color: #3cf;
 }
 
- body {
+body {
     background-color:whitesmoke;
+}
+
+table {
+	border:2px solid black;
 }
 
 .Display-film-tiles{
