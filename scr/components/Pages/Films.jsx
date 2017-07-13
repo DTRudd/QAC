@@ -5,7 +5,7 @@ export default class Home extends React.Component {
   render() {
     return (
 	<div>
-		<h3>Film page</h3>
+		<h4>Film page</h4>
       <div className="mdl-grid">
           <FilmTile />
           <FilmTile />

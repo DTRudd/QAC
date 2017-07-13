@@ -8,7 +8,7 @@ export default class InformationPage extends React.Component{
     render(){
     return(
 		<div>
-			<h3>Information page</h3>
+			<h4>Information page</h4>
 			<Prices />
 			<FAQ />
 		</div>

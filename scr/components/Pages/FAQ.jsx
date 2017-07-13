@@ -4,7 +4,7 @@ export default class FAQ extends React.Component{
     render(){
     return(
         <div>
-			<h3>Frequently asked questions</h3>
+			<h4>Frequently asked questions</h4>
             <ul>
                 <li>How can I contact customer services?</li>
                 <li>How do I get a refund?</li>

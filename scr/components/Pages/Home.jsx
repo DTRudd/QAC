@@ -44,7 +44,7 @@ export default class Home extends React.Component {
     return (
 	
 	<div>
-      <h2>Home</h2>
+      <h4>Home</h4>
 	  <NumberList numbers={this.state.ids} titles={this.state.titles} 
 		ageRating={this.state.ageRating} pic={this.state.pic}/>
 	</div>
