@@ -19,7 +19,7 @@ export default class Nav extends React.Component{
             <ul className="mdl-menu mdl-menu--buttom-left mdl-js-menu" htmlFor="info-menu-lower-left">
               <li><Link to="/Price" className="pageLink mdl-menu__item" activeClassName="active">Pricing</Link></li>
               <li><Link to="/FAQ" className="pageLink mdl-menu__item" activeClassName="active">FAQs</Link></li>
-              <li><Link to="/Contact" className="pageLink mdl-menu__item" activeClassName="active">Contact</Link></li>
+              <li><Link to="/contact" className="pageLink mdl-menu__item" activeClassName="active">Contact</Link></li>
             </ul>
             <Link to="/Booking" className="pageLink mdl-navigation__link" activeClassName="active">Booking</Link>
 

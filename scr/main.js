@@ -10,6 +10,7 @@ import Films from './components/Films';
 import InformationPage from './components/InformationPage';
 import Login from './components/Login';
 import Home from './components/Home';
+import contact from './components/contacts';
 
 ReactDOM.render(
 	<Router history={browserHistory} >
@@ -22,6 +23,7 @@ ReactDOM.render(
 			<Route path="/Films" component={Films} />
 			<Route path="/Info" component={InformationPage} />
 			<Route path="/Login" component={Login} />
+			<Route path="/contact" component={contact} />
 		</Route>
 	</Router>,
    document.querySelector('#app')
