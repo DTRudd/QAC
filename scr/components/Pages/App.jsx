@@ -5,7 +5,7 @@ import Drawer from './../Functions/Drawer';
 class App extends React.Component {
   render() {
     return (
-      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
         <Nav />
         <Drawer />
         <div className="mdl-layout__content page-content">{this.props.children}</div>
