@@ -13,7 +13,7 @@ import Prices from './components/pages/Prices';
 import Films from './components/pages/films';
 
 ReactDOM.render(
-  <Router history={browserHistory} >
+  <Router history={browserHistory}>
     <Route path="/" component={App}>
     <IndexRoute component={Home} />
       <Route path="/FindUs" component={FindUs} />
@@ -26,5 +26,5 @@ ReactDOM.render(
       <Route path="/Films" component={Films} />
     </Route>
   </Router>,
-   document.querySelector('#app')
+  document.querySelector('#app')
 );
