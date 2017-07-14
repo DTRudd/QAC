@@ -1,7 +1,17 @@
 {"films":[
-		{"id":"1", "Film_Name":"Goodfellas", "Release_Date":"2016", "age_rating":"../../res/img/ratings/BBFC_18_(2002).svg", "img":"../../res/img/goodFellas.jpg"},
-		{"id":"2", "Film_Name":"War for the planet of the Apes", "Release_Date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg", "img":"./../../res/img/apesposter.jpg"},
-		{"id":"3", "Film_Name":"Spider-man: Homecoming", "Release_Date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg", "img":"./../../res/img/spiderman.jpg"},
-		{"id":"4", "Film_Name":"Baby Driver", "Release_Date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg", "img":"./../../res/img/babydriver.jpg"}
+		{"id":"1", "film_name":"Goodfellas", "release_date":"2016", "age_rating":"../../res/img/ratings/BBFC_18_(2002).svg",
+			"img":"../../res/img/goodFellas.jpg", "quote":"Do I amuse you?"},
+			
+		{"id":"2", "film_name":"War for the Planet of the Apes", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg",
+			"img":"./../../res/img/apesposter.jpg", "quote":"Get your stinking paws off me, you damn dirty ape!"},
+		
+		{"id":"3", "film_name":"Spider-man: Homecoming", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg",
+			"img":"./../../res/img/spiderman.jpg", "quote":"I'm your friendly neighbourhood spider-man!"},
+		
+		{"id":"4", "film_name":"Baby Driver", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg",
+			"img":"./../../res/img/babydriver.jpg", "quote":"All you need is one killer track."},
+		
+		{"id":"5", "film_name":"Fargo", "release_date":"1996","age_rating":"../../res/img/ratings/BBFC_18_(2002).svg",
+			"img":"./../../res/img/fargo.jpg", "quote":"Yah, you betcha."}
 	]
 }

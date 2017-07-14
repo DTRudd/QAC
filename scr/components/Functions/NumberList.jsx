@@ -2,20 +2,14 @@ import React from 'react';
 import ListItem from './ListItem';
 
 //code to show tiles in order on home page - shouldn't need changing.
-	export default function NumberList(props) {
-	  const numbers = props.numbers;
-	  const titles = props.titles;
-	  const ageRating = props.ageRating;
-	  const pic = props.pic;
-	  return (
-		<div className="mdl-grid">
-		  {numbers.map((number) =>
-			<ListItem key={number.toString()}
-					  value={number} 
-					  titles={titles}
-					  ageRating={ageRating[number-1]}
-					  pic={pic[number-1]}/>
-		  )}
-		</div>
-	  );
-	}
+  export default function NumberList(props) {
+    const films = props.films;
+    return (
+    <div className="mdl-grid">
+      {films.map((film) =>
+      <ListItem key={film.id}
+             film={film}/>
+      )}
+    </div>
+    );
+  }
