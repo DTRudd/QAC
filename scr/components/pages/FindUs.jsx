@@ -29,18 +29,18 @@ export default class FindUs extends React.Component {
         <div style={{height: "100%", width: "100%"}}>
           <h3 className="mdl-layout-title">We are located at Meridian Showground, Cleethorpes, Lincs.</h3>
           <br />
-          <h3 className="mdl-layout-title">Find your nearest QA Cinema</h3>       
-          <div className = 'cinema-selection'>
-            <label>Select a cinema location...</label>
-            <select id = "locationList"
-              onChange = {this.getLocationInformation.bind(this)}>
-              <option value = "0">Manchester</option>
-              <option value = "1">Scarborough</option>
-              <option value = "2">London</option>
-              <option value = "3">Edinburgh</option>
-            </select>
-          </div>        
           <div className="find-us-map">
+            <h3 className="mdl-layout-title">Find your nearest QA Cinema</h3>       
+            <div className = 'cinema-selection'> 
+              <label>Select a cinema location...</label>
+              <select id="locationList" className="mdl-textfield__input"
+                onChange = {this.getLocationInformation.bind(this)}>
+                <option value = "0">Manchester</option>
+                <option value = "1">Scarborough</option>
+                <option value = "2">London</option>
+                <option value = "3">Edinburgh</option>
+              </select>
+            </div>        
             <Map lat="53.5426" lng="-0.00623" zoom="18"/>
             <Map lat= {this.state.Lat} lng= {this.state.Lng} zoom="18"/>
           </div>       
