@@ -16,6 +16,11 @@ ReactDOM.render(
 	<Router history={browserHistory} >
 		<Route path="/" component={App}>
 		<IndexRoute component={Home} />
+<<<<<<< HEAD
+=======
+			<Route path="/Index1" component={Index1} />
+			<Route path="/Films" component={Films} />
+>>>>>>> Michael
 			<Route path="/FindUs" component={FindUs} />
 			<Route path="/Booking" component={Booking} />
 			<Route path="/FAQ" component={FAQ} />

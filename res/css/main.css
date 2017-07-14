@@ -90,10 +90,22 @@ table {
     flex-direction: column;
 	height: 500px;
 	box-shadow: 3px 3px 5px #888888;
+	border-radius: 5px;
 }
 	
 .mdl-grid {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: inline-flex;
+}
+
+.Drop-down-information{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    z-index: 9998;
+    background: rgba(0, 0, 0, 0.5);
+	color:#fff;
+	padding: 20px 20px 20px 20px;
 }
