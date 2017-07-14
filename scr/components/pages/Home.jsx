@@ -1,9 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD:scr/components/pages/Home.jsx
-import filmsList from './../../../res/films.json';
-=======
-import films from './../../../res/Films.json';
->>>>>>> origin/Michael:scr/components/Pages/Home.jsx
+import films from './../../../res/films.json';
 import NumberList from './../functions/NumberList'
 
 export default class Home extends React.Component {
