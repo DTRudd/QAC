@@ -6,7 +6,7 @@ export default class Footer extends React.Component{
     super(props);
     this.state = {
       film: 'Goodfellas',
-      location: 'Cleethorpes',
+      location: 'Manchester',
       time: '2:30pm'
     };
     this.handleFilmChange = this.handleFilmChange.bind(this);
@@ -40,7 +40,9 @@ export default class Footer extends React.Component{
             </li>
             <li>
               <select className="mdl-textfield__input" value={this.state.location} onChange={this.handleLocationChange}>
-                <option className="mdl-textfield__input" value={this.state.location}>{this.state.location}</option>
+                {this.props.locations.map((location) =>
+                  <option className="mdl-textfield__input" value={location.location}>{location.location}</option>
+                )}
               </select>
             </li>
             <li>
