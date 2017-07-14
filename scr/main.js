@@ -12,25 +12,6 @@ import Contact from './components/pages/Contacts';
 import Prices from './components/pages/Prices';
 
 ReactDOM.render(
-<<<<<<< HEAD
-	<Router history={browserHistory} >
-		<Route path="/" component={App}>
-		<IndexRoute component={Home} />
-<<<<<<< HEAD
-=======
-			<Route path="/Index1" component={Index1} />
-			<Route path="/Films" component={Films} />
->>>>>>> Michael
-			<Route path="/FindUs" component={FindUs} />
-			<Route path="/Booking" component={Booking} />
-			<Route path="/FAQ" component={FAQ} />
-			<Route path="/Info" component={InformationPage} />
-			<Route path="/Login" component={Login} />
-			<Route path="/Contact" component={Contact} />
-			<Route path="/Prices" component={Prices} />
-		</Route>
-	</Router>,
-=======
   <Router history={browserHistory} >
     <Route path="/" component={App}>
     <IndexRoute component={Home} />
@@ -43,6 +24,5 @@ ReactDOM.render(
       <Route path="/Prices" component={Prices} />
     </Route>
   </Router>,
->>>>>>> 4b98a685ac7f45260b1fb90426c91fac8521c531
-   document.querySelector('#app')
+  document.querySelector('#app')
 );
