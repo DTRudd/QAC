@@ -11,7 +11,7 @@ export default class Map extends React.Component {
 			el: '#map',
 			lat: this.props.lat,
 			lng: this.props.lng,
-			zoom: 16
+			zoom: 14
 		});
 		maps.addMarker({
 			lat: this.props.lat,
@@ -28,7 +28,7 @@ export default class Map extends React.Component {
 	render() {
 		return (
 			<div className="map-overlay" >
-				<div id="map" style={{height: 600, width:600}} ></div>
+				<div id="map" style={{height: 400, width:400}} ></div>
 			</div>
 		);
 	}

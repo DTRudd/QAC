@@ -1,5 +1,5 @@
 import React from 'react';
-import Price from './Price';
+import Prices from './Prices';
 import FAQ from './FAQ';
 
 export default class InformationPage extends React.Component{
@@ -9,7 +9,7 @@ export default class InformationPage extends React.Component{
     return(
 <div>
 
-        <Price />
+        <Prices />
 		<FAQ />
 		
     </div>

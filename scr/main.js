@@ -9,7 +9,7 @@ import FAQ from './components/FAQ';
 import Films from './components/Films';
 import InformationPage from './components/InformationPage';
 import Login from './components/Login';
-import Price from './components/Price';
+import Prices from './components/Prices';
 import Home from './components/Home';
 
 ReactDOM.render(
@@ -23,7 +23,7 @@ ReactDOM.render(
 			<Route path="/Films" component={Films} />
 			<Route path="/Info" component={InformationPage} />
 			<Route path="/Login" component={Login} />
-            <Route path = "/Price" component = {Price} />
+            <Route path = "/Prices" component = {Prices} />
 		</Route>
 	</Router>,
    document.querySelector('#app')
