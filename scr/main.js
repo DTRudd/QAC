@@ -13,7 +13,6 @@ import Prices from './components/pages/Prices';
 import Films from './components/pages/films';
 
 ReactDOM.render(
-<<<<<<< HEAD
   <Router history={browserHistory} >
     <Route path="/" component={App}>
     <IndexRoute component={Home} />
