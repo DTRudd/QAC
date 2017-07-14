@@ -14,4 +14,8 @@ export default function ListItem(props) {
       <div className="mdl-card__supporting-text">{props.film.quote}</div>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Michael

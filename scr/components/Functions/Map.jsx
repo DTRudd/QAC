@@ -32,4 +32,8 @@ export default class Map extends React.Component {
       </div>
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Michael

@@ -77,3 +77,23 @@ table {
 	height: 300px;
 	width: 255px;
 }
+
+.mdl-card__title-text{
+	font-size: 18px;
+}
+
+.mdl-card {
+	display: inline-flex;
+	width: 515px;
+	display: -webkit-flex;
+    display: -ms-flexbox;
+    flex-direction: column;
+	height: 500px;
+	box-shadow: 3px 3px 5px #888888;
+}
+	
+.mdl-grid {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: inline-flex;
+}
