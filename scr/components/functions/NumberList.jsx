@@ -12,8 +12,4 @@ import ListItem from './ListItem';
       )}
     </div>
     );
-<<<<<<< HEAD
   }
-=======
-  }
->>>>>>> Michael
