@@ -3,11 +3,11 @@ footer {
 }
 
 nav {
-	background-color: #3cf;
+	background-color: black;
 }
 
 body {
-    background-color:whitesmoke;
+    background-color:#444;
 }
 
 table {
@@ -42,6 +42,12 @@ table {
 .find-us-text{
 	position:absolute;
 	margin-left:700px;
+    margin-right: 50px;
+    color: whitesmoke;
+}
+
+.cinema-selection{
+    align-content: center;
 }
 
 .mdl-grid{
@@ -78,6 +84,7 @@ table {
 	width: 255px;
 }
 
+<<<<<<< HEAD
 #login-box .mdl-layout {
 	align-items: center;
   justify-content: center;
@@ -85,4 +92,24 @@ table {
 #login-box .mdl-layout__content {
 	padding: 24px;
 	flex: none;
+=======
+.mdl-card__title-text{
+	font-size: 18px;
+}
+
+.mdl-card {
+	display: inline-flex;
+	width: 515px;
+	display: -webkit-flex;
+    display: -ms-flexbox;
+    flex-direction: column;
+	height: 500px;
+	box-shadow: 3px 3px 5px #888888;
+}
+	
+.mdl-grid {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: inline-flex;
+>>>>>>> 0bd5cf772ce58caf59342dcbbc2781ee88eba1c0
 }
