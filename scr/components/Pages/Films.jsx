@@ -1,5 +1,5 @@
 import React from 'react';
-import filmsList from './../../../res/Films.json';
+import films from './../../../res/Films_All.json';
 import NumberList from './../functions/NumberList';
 
 export default class Home extends React.Component {
@@ -17,8 +17,8 @@ export default class Home extends React.Component {
   }
   
   getInfo(){
-    var myFilmList = filmsList;
-    this.setState({films: myFilmList.films});
+    var myFilmList = films;
+    this.setState({films: myFilmList.films_All});
   }
 
   render() {
