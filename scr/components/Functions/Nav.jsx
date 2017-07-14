@@ -9,6 +9,7 @@ export default class Nav extends React.Component{
         <nav className="mdl-layout__header-row mdl-layout--large-screen-only">
           <IndexLink to="/" className="pageLink mdl-navigation__link" activeClassName="active">QA</IndexLink>
           <nav className="mdl-navigation">
+			<Link to="/Films" className="pageLink mdl-navigation__link" activeClassName="active">Films</Link> 
             <Link to="/FindUs" className="pageLink mdl-navigation__link" activeClassName="active">Find us</Link>         
             <span id="info-menu-lower-left" className="mdl-js-button mdl-navigation__link">Information</span>
             <ul className="mdl-menu mdl-menu--buttom-left mdl-js-menu" htmlFor="info-menu-lower-left">

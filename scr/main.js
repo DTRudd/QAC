@@ -18,6 +18,7 @@ ReactDOM.render(
 		<Route path="/" component={App}>
 		<IndexRoute component={Home} />
 			<Route path="/Index1" component={Index1} />
+			<Route path="/Films" component={Films} />
 			<Route path="/FindUs" component={FindUs} />
 			<Route path="/Booking" component={Booking} />
 			<Route path="/FAQ" component={FAQ} />
