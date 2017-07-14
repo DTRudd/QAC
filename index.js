@@ -8371,7 +8371,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Price = __webpack_require__(261);
+var _Price = __webpack_require__(262);
 
 var _Price2 = _interopRequireDefault(_Price);
 
@@ -8415,8 +8415,8 @@ var Prices = function (_React$Component) {
             }
             console.log(Prices_Temp_Array);
             console.log(Ticket_Temp_Array);
-            // this.setState({TicketCategory:Ticket_Temp_Array});
-            //this.setState({PricesArray:Prices_Temp_Array});
+            this.setState({ TicketCategory: Ticket_Temp_Array });
+            this.setState({ PricesArray: Prices_Temp_Array });
             console.log(this.state.PricesArray);
             console.log(this.state.TicketCategory);
         }
@@ -14222,7 +14222,7 @@ exports.default = Home;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -14230,6 +14230,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _Locations = __webpack_require__(261);
+
+var _Locations2 = _interopRequireDefault(_Locations);
 
 var _Map = __webpack_require__(130);
 
@@ -14244,56 +14248,106 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var FindUs = function (_React$Component) {
-	_inherits(FindUs, _React$Component);
+  _inherits(FindUs, _React$Component);
 
-	function FindUs() {
-		_classCallCheck(this, FindUs);
+  function FindUs() {
+    _classCallCheck(this, FindUs);
 
-		return _possibleConstructorReturn(this, (FindUs.__proto__ || Object.getPrototypeOf(FindUs)).apply(this, arguments));
-	}
+    var _this = _possibleConstructorReturn(this, (FindUs.__proto__ || Object.getPrototypeOf(FindUs)).call(this));
 
-	_createClass(FindUs, [{
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement(
-				'div',
-				{ style: { height: "100%", width: "100%" } },
-				_react2.default.createElement(
-					'h3',
-					null,
-					'We are located at Meridian Showground, Cleethorpes, Lincs.'
-				),
-				_react2.default.createElement('br', null),
-				_react2.default.createElement(
-					'div',
-					{ className: 'find-us-map' },
-					_react2.default.createElement(_Map2.default, { lat: '53.5426', lng: '-0.00623', zoom: '18' })
-				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'find-us-text' },
-					'Driving:',
-					_react2.default.createElement(
-						'p',
-						null,
-						'From the North: head east along the M180 towards Grimsby, continue along the A180 in to Grimsby. From Grimsby follow the A180 along the coast towards Cleethorpes. Take the A1098 down the coast, passing the leisure center. We are based oppostite the Cleethorpes Coast light Railway. '
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'From the South: Take the A16 towards Grimsby. After passing New Waltham take the A1098 eastwards. Follow this road passing through Cleethorpes until you reach the coast, when at the coast take the A1098 South. Pass the leisure center and continue, We are based oppostite the Cleethorpes Coast light Railway. '
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'Public transport: The easiest way to find us via public transport is taking the train to Cleethropes train station, then taking the bus down the A1098 to the ligth railway. There are many local buses from local towns and villages.'
-					)
-				)
-			);
-		}
-	}]);
+    _this.state = {
+      Location: "Manchester",
+      Lat: "53.475617",
+      Lng: "-2.243872"
+    };
+    return _this;
+  }
 
-	return FindUs;
+  _createClass(FindUs, [{
+    key: 'getLocationInformation',
+    value: function getLocationInformation(e) {
+      var _this2 = this;
+
+      var selected_location = e.target[e.target.value].text;
+      _Locations2.default.Location.filter(function (location_data_row) {
+        return location_data_row.location === selected_location;
+      }).map(function (location_data_row) {
+        _this2.setState({
+          Location: selected_location,
+          Lat: location_data_row.lat,
+          Lng: location_data_row.lng
+        });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { style: { height: "100%", width: "100%" } },
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Find your nearest QA Cinema'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'cinema-selection' },
+          _react2.default.createElement(
+            'label',
+            null,
+            'Select a cinema location...'
+          ),
+          _react2.default.createElement(
+            'select',
+            { id: 'locationList',
+              onChange: this.getLocationInformation.bind(this) },
+            _react2.default.createElement(
+              'option',
+              { value: '0' },
+              'Manchester'
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: '1' },
+              'Scarborough'
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: '2' },
+              'London'
+            ),
+            _react2.default.createElement(
+              'option',
+              { value: '3' },
+              'Edinburgh'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'find-us-map' },
+          _react2.default.createElement(_Map2.default, { lat: this.state.Lat, lng: this.state.Lng, zoom: '18' })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'find-us-text' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Driving:'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'From the North: head east along the M180 towards Grimsby, continue along the A180 in to Grimsby. From Grimsby follow the A180 along the coast towards Cleethorpes. Take the A1098 down the coast, passing the leisure center. We are based oppostite the Cleethorpes Coast light Railway.'
+          )
+        )
+      );
+    }
+  }]);
+
+  return FindUs;
 }(_react2.default.Component);
 
 exports.default = FindUs;
@@ -14471,9 +14525,9 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Price = __webpack_require__(73);
+var _Prices = __webpack_require__(73);
 
-var _Price2 = _interopRequireDefault(_Price);
+var _Prices2 = _interopRequireDefault(_Prices);
 
 var _FAQ = __webpack_require__(72);
 
@@ -14502,7 +14556,7 @@ var InformationPage = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement(_Price2.default, null),
+                _react2.default.createElement(_Prices2.default, null),
                 _react2.default.createElement(_FAQ2.default, null)
             );
         }
@@ -14831,7 +14885,7 @@ var Map = function (_React$Component) {
 				el: '#map',
 				lat: this.props.lat,
 				lng: this.props.lng,
-				zoom: 16
+				zoom: 14
 			});
 			maps.addMarker({
 				lat: this.props.lat,
@@ -14850,7 +14904,7 @@ var Map = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				{ className: 'map-overlay' },
-				_react2.default.createElement('div', { id: 'map', style: { height: 600, width: 600 } })
+				_react2.default.createElement('div', { id: 'map', style: { height: 400, width: 400 } })
 			);
 		}
 	}]);
@@ -14936,7 +14990,7 @@ var Nav = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                   _reactRouter.Link,
-                  { to: '/Price', className: 'pageLink mdl-menu__item', activeClassName: 'active' },
+                  { to: '/Prices', className: 'pageLink mdl-menu__item', activeClassName: 'active' },
                   'Pricing'
                 )
               ),
@@ -15147,9 +15201,9 @@ var _Login = __webpack_require__(125);
 
 var _Login2 = _interopRequireDefault(_Login);
 
-var _Price = __webpack_require__(73);
+var _Prices = __webpack_require__(73);
 
-var _Price2 = _interopRequireDefault(_Price);
+var _Prices2 = _interopRequireDefault(_Prices);
 
 var _Home = __webpack_require__(122);
 
@@ -15171,7 +15225,7 @@ _reactDom2.default.render(_react2.default.createElement(
 		_react2.default.createElement(_reactRouter.Route, { path: '/Films', component: _Films2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: '/Info', component: _InformationPage2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: '/Login', component: _Login2.default }),
-		_react2.default.createElement(_reactRouter.Route, { path: '/Price', component: _Price2.default })
+		_react2.default.createElement(_reactRouter.Route, { path: '/Prices', component: _Prices2.default })
 	)
 ), document.querySelector('#app'));
 
@@ -28733,6 +28787,35 @@ module.exports = {
 
 /***/ }),
 /* 261 */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"Location": [
+		{
+			"location": "Manchester",
+			"lat": "53.475617",
+			"lng": "-2.243872"
+		},
+		{
+			"location": "Scarborough",
+			"lat": "54.287233",
+			"lng": "-0.387611"
+		},
+		{
+			"location": "London",
+			"lat": "51.507351",
+			"lng": "-0.127758"
+		},
+		{
+			"location": "Edinburgh",
+			"lat": "55.953252",
+			"lng": "-3.188267"
+		}
+	]
+};
+
+/***/ }),
+/* 262 */
 /***/ (function(module, exports) {
 
 module.exports = {
