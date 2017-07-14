@@ -13,17 +13,17 @@ import Prices from './components/pages/Prices';
 
 
 ReactDOM.render(
-	<Router history={browserHistory} >
-		<Route path="/" component={App}>
-		<IndexRoute component={Home} />
-			<Route path="/FindUs" component={FindUs} />
-			<Route path="/Booking" component={Booking} />
-			<Route path="/FAQ" component={FAQ} />
-			<Route path="/Info" component={InformationPage} />
-			<Route path="/Login" component={Login} />
-			<Route path="/Contact" component={Contact} />
-			<Route path="/Prices" component={Prices} />
-		</Route>
-	</Router>,
+  <Router history={browserHistory} >
+    <Route path="/" component={App}>
+    <IndexRoute component={Home} />
+      <Route path="/FindUs" component={FindUs} />
+      <Route path="/Booking" component={Booking} />
+      <Route path="/FAQ" component={FAQ} />
+      <Route path="/Info" component={InformationPage} />
+      <Route path="/Login" component={Login} />
+      <Route path="/Contact" component={Contact} />
+      <Route path="/Prices" component={Prices} />
+    </Route>
+  </Router>,
    document.querySelector('#app')
 );
