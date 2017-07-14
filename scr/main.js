@@ -8,6 +8,7 @@ import Booking from './components/pages/Booking';
 import FAQ from './components/pages/FAQ';
 import InformationPage from './components/pages/InformationPage';
 import Login from './components/pages/Login';
+import AccountCreation from './components/pages/AccountCreation';
 import Home from './components/pages/Home';
 import Contact from './components/pages/Contacts';
 import Prices from './components/pages/Prices';
@@ -22,6 +23,7 @@ ReactDOM.render(
       <Route path="/FAQ" component={FAQ} />
       <Route path="/Info" component={InformationPage} />
       <Route path="/Login" component={Login} />
+	  <Route path="/AccountCreation" component={AccountCreation} />
       <Route path="/Contact" component={Contact} />
       <Route path="/Prices" component={Prices} />
     </Route>
