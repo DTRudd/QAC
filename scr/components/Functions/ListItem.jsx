@@ -28,7 +28,7 @@ export default class ListItem extends React.Component{
 		  </div>
 		  <div className="mdl-card__supporting-text">{this.props.film.quote}</div>
 		  
-		  { this.state.isActive ? <DropDownInfo /> : ''}
+		  { this.state.isActive ? <DropDownInfo film_name={this.props.film.film_name} film_description={this.props.film.film_description}/> : ''}
 		</div>
 	  );
 	}
