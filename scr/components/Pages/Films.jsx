@@ -1,5 +1,5 @@
 import React from 'react';
-import filmsList from './../../../res/films.json';
+import films from './../../../res/Films_All.json';
 import NumberList from './../functions/NumberList';
 
 export default class Home extends React.Component {
