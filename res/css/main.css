@@ -77,3 +77,12 @@ table {
 	height: 300px;
 	width: 255px;
 }
+
+#login-box .mdl-layout {
+	align-items: center;
+  justify-content: center;
+}
+#login-box .mdl-layout__content {
+	padding: 24px;
+	flex: none;
+}
