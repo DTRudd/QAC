@@ -84,7 +84,7 @@ table {
 	width: 255px;
 }
 
-<<<<<<< HEAD
+
 #login-box .mdl-layout {
 	align-items: center;
   justify-content: center;
@@ -92,7 +92,7 @@ table {
 #login-box .mdl-layout__content {
 	padding: 24px;
 	flex: none;
-=======
+}
 .mdl-card__title-text{
 	font-size: 18px;
 }
@@ -112,7 +112,7 @@ table {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: inline-flex;
->>>>>>> 0bd5cf772ce58caf59342dcbbc2781ee88eba1c0
+ 
 }
 
 .Drop-down-information{

@@ -10,8 +10,10 @@ import Login from './components/pages/Login';
 import Home from './components/pages/Home';
 import Contact from './components/pages/Contacts';
 import Prices from './components/pages/Prices';
+import Films from './components/pages/films';
 
 ReactDOM.render(
+<<<<<<< HEAD
   <Router history={browserHistory} >
     <Route path="/" component={App}>
     <IndexRoute component={Home} />
@@ -22,7 +24,8 @@ ReactDOM.render(
       <Route path="/Login" component={Login} />
       <Route path="/Contact" component={Contact} />
       <Route path="/Prices" component={Prices} />
+      <Route path="/Films" component={Films} />
     </Route>
   </Router>,
-  document.querySelector('#app')
+   document.querySelector('#app')
 );

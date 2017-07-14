@@ -24,7 +24,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-	  <h1>--Carosel goes here--</h1>
+	  <h1>--Carosel goes here-- only show new films</h1>
         <NumberList films={this.state.films}/>
       </div>
     );
