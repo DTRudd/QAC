@@ -2,14 +2,17 @@ import React from 'react';
 import Nav from './../functions/Nav';
 import Footer from './../functions/Footer';
 import Drawer from './../functions/Drawer';
-import filmsList from './../../../res/Films.json';
 import NumberList from './../functions/NumberList'
+
+import filmsList from './../../../res/films.json';
+import locsList from './../../../res/Locations.json';
 
 export default class App extends React.Component {
   constructor(){
     super();
     this.state={
-      films:[]
+      films:[],
+      locations:[]
     }
   }
   
@@ -21,6 +24,8 @@ export default class App extends React.Component {
   getInfo(){
     var myFilmList = filmsList.films;
     this.setState({films:myFilmList});
+    var myLocsList = locsList.Location;
+    this.setState({locations:myLocsList});
   }
 
   render() {
@@ -29,7 +34,7 @@ export default class App extends React.Component {
         <Nav />
         <Drawer />
         <div className="mdl-layout__content page-content">{this.props.children}</div>
-        <Footer films={this.state.films}/>
+        <Footer films={this.state.films} locations={this.state.locations}/>
       </div>
     );
   }

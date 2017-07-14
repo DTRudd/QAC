@@ -1,5 +1,5 @@
 import React from 'react';
-import price from '../../../res/price.json';
+import price from '../../../res/prices.json';
 
 export default class Prices extends React.Component{
     

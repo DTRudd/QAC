@@ -4,16 +4,33 @@ import {Link} from 'react-router';
 export default class Footer extends React.Component{
   constructor(props) {
     super(props);
+    var d = new Date();
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; 
     this.state = {
       film: 'Goodfellas',
-      location: 'Cleethorpes',
+      location: 'Manchester',
+      date: days[d.getDay()] + ' ' + d.getDate() + this.getSuffix(d.getDate()) + ' ' + months[d.getMonth()],
       time: '2:30pm'
     };
     this.handleFilmChange = this.handleFilmChange.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
+    console.log(this.state.date);
   }
 
+  getSuffix(dayNum) {
+    if (dayNum === 1 || dayNum === 21 || dayNum === 31) {
+      return "st";
+    } else if (dayNum === 2 || dayNum === 22) {
+      return "nd";
+    } else if (dayNum === 3 || dayNum === 23) {
+      return "rd";
+    } else {
+      return "th";
+    }
+  }
   handleFilmChange(event) {
     this.setState({film: event.target.value});
   }
@@ -24,6 +41,10 @@ export default class Footer extends React.Component{
   
   handleTimeChange(event) {
     this.setState({time: event.target.value});
+  }
+
+  handleDateChange(event) {
+    this.setState({date: event.target.value});
   }
 
   render(){
@@ -40,7 +61,14 @@ export default class Footer extends React.Component{
             </li>
             <li>
               <select className="mdl-textfield__input" value={this.state.location} onChange={this.handleLocationChange}>
-                <option className="mdl-textfield__input" value={this.state.location}>{this.state.location}</option>
+                {this.props.locations.map((location) =>
+                  <option className="mdl-textfield__input"  value={location.location}>{location.location}</option>
+                )}
+              </select>
+            </li>
+            <li>
+              <select className="mdl-textfield__input" value={this.state.date} onChange={this.handleDateChange}>
+                <option className="mdl-textfield__input" value={this.state.date}>{this.state.date}</option>
               </select>
             </li>
             <li>
