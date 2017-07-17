@@ -2,6 +2,9 @@ import React from 'react';
 import films from './../../../res/films.json';
 import NumberList from './../functions/NumberList'
 
+import CarouselN from './../functions/CarouselN';
+import Carousel from './../functions/Carousel';
+
 export default class Home extends React.Component {
   
   constructor(){
@@ -24,8 +27,14 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <h1>--Carosel goes here-- only show new films</h1>
-        <NumberList films={this.state.films}/>
+		<div id="carousel">
+			<Carousel />
+	    </div>
+		
+		<NumberList films={this.state.films} />
+		
+		
+        
       </div>
     );
   }
