@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-export default class DropDownInfo extends React.Component{
+export default class PopUpInfo extends React.Component{
 	
 	constructor(props){
 		super(props);
