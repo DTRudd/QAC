@@ -7,9 +7,9 @@ import ListItem from './ListItem';
     return (
     <div className="mdl-grid">
       {films.map((film) =>
-      <ListItem key={film.id}
-             film={film} />
+        <ListItem key={film.id}
+          film={film} />
       )}
     </div>
-    );
-  }
+  );
+}
