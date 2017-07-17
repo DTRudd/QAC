@@ -1,6 +1,7 @@
 import React from 'react';
 import films from './../../../res/Films_All.json';
 import NumberList from './../functions/NumberList';
+import FilmPageList from './../functions/FilmPageList';
 
 export default class Home extends React.Component {
    
@@ -24,8 +25,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-		<h4> Films page </h4>
-        <NumberList films={this.state.films} />
+        <FilmPageList films={this.state.films} />
       </div>
     );
   }

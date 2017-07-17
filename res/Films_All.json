@@ -17,7 +17,7 @@
 		
 		{"id":"5", "film_name":"Fargo", "release_date":"1996","age_rating":"../../res/img/ratings/BBFC_18_(2002).svg",
 			"img":"./../../res/img/fargo.jpg", "quote":"Yah, you betcha.",
-			"film_description":"The all new \"true crime\" case of Fargo's new chapter travels back to 1979 in Sioux Falls, South Dakota where a young State Police Officer Lou Solverson, investigates a case involving a local crime gang and a major Mob syndicate. The investigation will lead them to a colorful cast of characters that includes Karl Weathers, the town lawyer of Luverne, Minnesota. The new face of corporate crime, Joe's bringing a Walmart mentality to small town America. His number two is Mike Milligan. Part enforcer, part detective, Mike is always smiling - but the joke is usually on you. "},
+			"film_description":"The all new \"true crime\" case of Fargo's new chapter travels back to 1979 in Sioux Falls, South Dakota where a young State Police Officer Lou Solverson, investigates a case involving a local crime gang and a major Mob syndicate. The investigation will lead them to a colorful cast of characters that includes Karl Weathers, the town lawyer of Luverne, Minnesota. The new face of corporate crime, Joe's bringing a Walmart mentality to small town America."},
 	
 		{"id":"6", "film_name":"Lego Batman Movie", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_U_(2002).svg",
 			"img":"./../../res/img/LegoBatman.jpg", "quote":"He's taking them under his wing... of awesomeness!",

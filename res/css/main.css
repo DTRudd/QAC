@@ -142,3 +142,7 @@ table {
 .footer-sub-list li{
 	margin-left: -15px;
 }
+
+.Pop-Up-information{
+    position: fixed;
+}
