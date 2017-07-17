@@ -1,21 +1,11 @@
 import React from 'react';
-import DropDownInfo from './../functions/DropDownInfo';
 
 //shows the tiles on home page - part of the NumberList function
-export default class ListItem extends React.Component{
+export default class FilmPageListItem extends React.Component{
 	
-	constructor(props){
-		super(props);
-		this.state={
-			isActive:false
-		}
-	}
-	
-  
   onSelect(){
-	  this.setState({isActive: !this.state.isActive});
+	  this.props.onClick(this.props.film.film_name, this.props.film.film_description);
   }
-  
 	render(){
 	  return (    
 		<div className="mdl-cell mdl-card" style={{width:"255px"}} onClick={this.onSelect.bind(this)}>
@@ -27,8 +17,6 @@ export default class ListItem extends React.Component{
 			<img id="2" height="30px" width="30px" className="age-rating-logo" src={this.props.film.age_rating}/>
 		  </div>
 		  <div className="mdl-card__supporting-text">{this.props.film.quote}</div>
-		  
-		  { this.state.isActive ? <DropDownInfo film_name={this.props.film.film_name} film_description={this.props.film.film_description}/> : ''}
 		</div>
 	  );
 	}
