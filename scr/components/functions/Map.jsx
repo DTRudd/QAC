@@ -28,7 +28,7 @@ export default class Map extends React.Component {
   render() {
     return (
       <div className="map-overlay" >
-        <div id="map" style={{height: 600, width:600}} ></div>
+        <div id="map" style={{height:"100vh", width:"100wh"}}></div>
       </div>
     );
   }

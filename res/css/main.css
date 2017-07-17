@@ -33,23 +33,6 @@ table {
     width:25%;
 }
 
-.find-us-map{
-    position:absolute;
-    padding:10px 10px 10px 10px;
-    margin-left:10px;
-}
-
-.find-us-text{
-    position:absolute;
-    margin-left:700px;
-    margin-right: 50px;
-    color: whitesmoke;
-}
-
-.cinema-selection{
-    align-content: center;
-}
-
 .mdl-grid{
     align-items: center;
     justify-content: center;
