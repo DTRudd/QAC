@@ -3,8 +3,8 @@ import Nav from './../functions/Nav';
 import Footer from './../functions/Footer';
 import Drawer from './../functions/Drawer';
 import NumberList from './../functions/NumberList'
-
-import filmsList from './../../../res/films.json';
+import filmsList from './../../../res/Films.json';
+import Sitemap from './../functions/Sitemap';
 import locsList from './../../../res/Locations.json';
 
 export default class App extends React.Component {
@@ -35,6 +35,7 @@ export default class App extends React.Component {
         <Drawer />
         <div className="mdl-layout__content page-content">{this.props.children}</div>
         <Footer films={this.state.films} locations={this.state.locations}/>
+		<Sitemap />
       </div>
     );
   }
