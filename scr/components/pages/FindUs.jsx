@@ -32,7 +32,7 @@ export default class FindUs extends React.Component {
           <div className="find-us-map">
             <h3 className="mdl-layout-title">Find your nearest QA Cinema</h3>       
             <div className = 'cinema-selection'> 
-              <label>Select a cinema location...</label>
+              <label className="mdl-layout-title">Select a cinema location...</label>
               <select id="locationList" className="mdl-textfield__input"
                 onChange = {this.getLocationInformation.bind(this)}>
                 <option value = "0">Manchester</option>
