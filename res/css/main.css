@@ -1,9 +1,9 @@
 footer {
-	background-color: #09f;
+    background-color: #09f;
 }
 
 nav {
-	background-color: black;
+    background-color: black;
 }
 
 body {
@@ -11,37 +11,37 @@ body {
 }
 
 table {
-	border:2px solid black;
+    border:2px solid black;
 }
 
 .Display-film-tiles{
-	list-style-type: none;
+    list-style-type: none;
 }
        
 .pic{
-	width:255px;
-	height:369px;
+    width:255px;
+    height:369px;
 }
 
 .age-rating{
     position: relative;
     left: 150px;
-	bottom:50px;
+    bottom:50px;
 }
 
 .age-rating-logo{
-	width:25%;
+    width:25%;
 }
 
 .find-us-map{
-	position:absolute;
-	padding:10px 10px 10px 10px;
-	margin-left:10px;
+    position:absolute;
+    padding:10px 10px 10px 10px;
+    margin-left:10px;
 }
 
 .find-us-text{
-	position:absolute;
-	margin-left:700px;
+    position:absolute;
+    margin-left:700px;
     margin-right: 50px;
     color: whitesmoke;
 }
@@ -67,7 +67,7 @@ table {
 }
 	   
 .film-title{
-	padding-top:45px;
+    padding-top:45px;
 }
        
 .container {
@@ -82,55 +82,55 @@ table {
  
 .background {
     background-color: lightgrey; 
-	margin: auto;
-	height: 300px;
-	width: 255px;
+    margin: auto;
+    height: 300px;
+    width: 255px;
 }
 
 #login-box .mdl-layout {
-	align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 #login-box .mdl-layout__content {
-	padding: 24px;
-	flex: none;
+    padding: 24px;
+    flex: none;
 }
 
 .mdl-card__title-text{
-	font-size: 18px;
+    font-size: 18px;
 }
 
 .mdl-card {
-	display: inline-flex;
-	width: 515px;
-	display: -webkit-flex;
+    display: inline-flex;
+    width: 515px;
+    display: -webkit-flex;
     display: -ms-flexbox;
     flex-direction: column;
-	height: 500px;
-	box-shadow: 3px 3px 5px #888888;
-	border-radius: 5px;
+    height: 500px;
+    box-shadow: 3px 3px 5px #888888;
+    border-radius: 5px;
 }
 
 #account-box .mdl-layout {
-	align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 #account-box .mdl-layout__content {
-	padding: 24px;
-	flex: none;
+    padding: 24px;
+    flex: none;
 }
 
 #account-box .mdl-card {
-	margin: auto;
-	width: 330px;
-	height: auto;
-	border-radius: 0px;
-	box-shadow: 1px 1px 10px -1px rgba(0, 0, 0, 0.5);
+    margin: auto;
+    width: 330px;
+    height: auto;
+    border-radius: 0px;
+    box-shadow: 1px 1px 10px -1px rgba(0, 0, 0, 0.5);
 }
 
 #account-box .mdl-textfield {
-	padding: 14px 0;
+    padding: 14px 0;
 }
 
 #account-box .mdl-textfield__input {
@@ -142,12 +142,12 @@ table {
 }
 
 #account-box .mdl-textfield__input:focus {
-	border: 1px solid #3f51b5;
-	box-shadow: 0px 0px 0px #000;
+    border: 1px solid #3f51b5;
+    box-shadow: 0px 0px 0px #000;
 }
 
 #account-box .mdl-textfield__input:focus {
-	color: #3f51b5;
+    color: #3f51b5;
 }
 
 #account-box .mdl-button:active, #account-box .mdl-button:hover  {
@@ -156,7 +156,7 @@ table {
 }
 
 #account-box .mdl-button {
-	border: 1px solid #3f51b5;
+    border: 1px solid #3f51b5;
     box-shadow: 0px 0px 6px -2px #3f51b5;
 }
 
@@ -174,6 +174,6 @@ table {
     height: 100%;
     z-index: 9998;
     background: rgba(0, 0, 0, 0.7);
-	color:#fff;
-	padding: 20px 20px 20px 20px;
+    color:#fff;
+    padding: 20px 20px 20px 20px;
 }

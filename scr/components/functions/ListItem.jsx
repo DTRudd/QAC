@@ -18,7 +18,7 @@ export default class ListItem extends React.Component{
   
   render(){
     return (
-      <div className="mdl-cell mdl-cell--4-col">
+      <div className="mdl-cell mdl-cell--4-col" style={{width:"255px"}} >
         <div className="mdl-card" style={{width:"255px"}} onClick={this.onSelect.bind(this)}>
           <div className="mdl-card__media">
             <img id="1" className="pic"  src={this.props.film.img}/>
