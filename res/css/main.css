@@ -177,3 +177,21 @@ table {
 	color:#fff;
 	padding: 20px 20px 20px 20px;
 }
+
+.sitemap-footer-list{
+	list-style-type:none;
+	display: inline-flex;
+	color:#FFF;
+}
+
+.sitemap-footer-list li{
+	margin-left: 30px;
+}
+
+.footer-sub-list{
+	list-style-type:square;
+}
+
+.footer-sub-list li{
+	margin-left: -15px;
+}

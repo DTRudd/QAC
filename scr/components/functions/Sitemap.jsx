@@ -5,13 +5,12 @@ export default class Sitemap extends React.Component{
 	render(){
 		return(
 			<div>
-				Sitemap:
-				<ul>
+				<ul className="sitemap-footer-list">
 					<li>Home</li>
 					<li>Films</li>
 					<li>Find us</li>
 					<li>Information
-						<ul>
+						<ul className="footer-sub-list">
 							<li>Price</li>
 							<li>FAQ</li>
 							<li>Contacts</li>
