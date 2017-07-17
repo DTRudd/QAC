@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import React from 'react';
-
 import App from './components/pages/App';
 import FindUs from './components/pages/FindUs';
 import Booking from './components/pages/Booking';
@@ -12,10 +11,10 @@ import AccountCreation from './components/pages/AccountCreation';
 import Home from './components/pages/Home';
 import Contact from './components/pages/Contacts';
 import Prices from './components/pages/Prices';
-
+import Films from './components/pages/films';
 
 ReactDOM.render(
-  <Router history={browserHistory} >
+  <Router history={browserHistory}>
     <Route path="/" component={App}>
     <IndexRoute component={Home} />
       <Route path="/FindUs" component={FindUs} />
@@ -26,7 +25,8 @@ ReactDOM.render(
 	  <Route path="/AccountCreation" component={AccountCreation} />
       <Route path="/Contact" component={Contact} />
       <Route path="/Prices" component={Prices} />
+      <Route path="/Films" component={Films} />
     </Route>
   </Router>,
-   document.querySelector('#app')
+  document.querySelector('#app')
 );

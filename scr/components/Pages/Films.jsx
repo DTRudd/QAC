@@ -1,13 +1,13 @@
 import React from 'react';
-import films from './../../../res/films.json';
-import NumberList from './../functions/NumberList'
+import films from './../../../res/Films_All.json';
+import NumberList from './../functions/NumberList';
 
 export default class Home extends React.Component {
-  
+   
   constructor(){
     super();
     this.state={
-      films:[]
+      films:[],
     }
   }
   
@@ -18,14 +18,14 @@ export default class Home extends React.Component {
   
   getInfo(){
     var myFilmList = films;
-    this.setState({films: myFilmList.films});
+    this.setState({films: myFilmList.films_All});
   }
 
   render() {
     return (
       <div>
-        <h1>--Carosel goes here-- only show new films</h1>
-        <NumberList films={this.state.films}/>
+        <h1> Films page - showing all films available</h1>
+        <NumberList films={this.state.films} />
       </div>
     );
   }

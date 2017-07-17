@@ -1,0 +1,27 @@
+{"films_All":[
+		{"id":"1", "film_name":"Goodfellas", "release_date":"2016", "age_rating":"../../res/img/ratings/BBFC_18_(2002).svg",
+			"img":"../../res/img/goodFellas.jpg", "quote":"Do I amuse you?",
+			"film_description":"Henry Hill might be a small time gangster, who may have taken part in a robbery with Jimmy Conway and Tommy De Vito, two other gangsters who might have set their sights a bit higher. His two partners could kill off everyone else involved in the robbery, and slowly start to think about climbing up through the hierarchy of the Mob. Henry, however, might be badly affected by his partners' success, but will he consider stooping low enough to bring about the downfall of Jimmy and Tommy?"},
+			
+		{"id":"2", "film_name":"War for the Planet of the Apes", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg",
+			"img":"./../../res/img/apesposter.jpg", "quote":"Get your stinking paws off me, you damn dirty ape!",
+			"film_description":"Caesar and his apes are forced into a deadly conflict with an army of humans led by a ruthless Colonel. After the apes suffer unimaginable losses, Caesar wrestles with his darker instincts and begins his own mythic quest to avenge his kind. As the journey finally brings them face to face, Caesar and the Colonel are pitted against each other in an epic battle that will determine the fate of the planet."},
+		
+		{"id":"3", "film_name":"Spider-man: Homecoming", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg",
+			"img":"./../../res/img/spiderman.jpg", "quote":"I'm your friendly neighbourhood spider-man!",
+			"film_description":"Thrilled by his experience with the Avengers, Peter returns home, where he lives with his Aunt May, under the watchful eye of his new mentor Tony Stark, Peter tries to fall back into his normal daily routine - distracted by thoughts of proving himself to be more than just your friendly neighborhood Spider-Man - but when the Vulture emerges as a new villain, everything that Peter holds most important will be threatened."},
+		
+		{"id":"4", "film_name":"Baby Driver", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg",
+			"img":"./../../res/img/babydriver.jpg", "quote":"All you need is one killer track.",
+			"film_description":"Baby is a partially hearing impaired getaway driver who can make any wild move while the right track is playing. It's a critical talent he needs to survive his indentured servitude to the crime boss, Doc. However, just when Baby thinks he is finally free and clear, Baby finds himself in terrible danger. To survive and escape the coming maelstrom, it will take all of Baby's skill, but can he make it when life is forcing him to face the music?"},
+
+		{"id":"5", "film_name":"Fargo", "release_date":"1996","age_rating":"../../res/img/ratings/BBFC_18_(2002).svg",
+			"img":"./../../res/img/fargo.jpg", "quote":"Yah, you betcha.",
+			"film_description":"The all new \"true crime\" case of Fargo's new chapter travels back to 1979 in Sioux Falls, South Dakota where a young State Police Officer Lou Solverson, investigates a case involving a local crime gang and a major Mob syndicate. The investigation will lead them to a colorful cast of characters that includes Karl Weathers, the town lawyer of Luverne, Minnesota. The new face of corporate crime, Joe's bringing a Walmart mentality to small town America. His number two is Mike Milligan. Part enforcer, part detective, Mike is always smiling - but the joke is usually on you. "},
+	
+		{"id":"6", "film_name":"Lego Batman Movie", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_U_(2002).svg",
+			"img":"./../../res/img/LegoBatman.jpg", "quote":"He's taking them under his wing... of awesomeness!",
+			"film_description":"There are big changes brewing in Gotham City, and if he wants to save the city from The Joker's hostile takeover, Batman may have to drop the lone vigilante thing, try to work with others and maybe, just maybe, learn to lighten up."}		
+
+	]
+}
