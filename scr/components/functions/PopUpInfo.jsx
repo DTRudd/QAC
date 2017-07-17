@@ -14,12 +14,12 @@ export default class PopUpInfo extends React.Component{
 		return(
 		<div className="popUpInfoBox">
 			<div className="Pop-Up-information"> 
-				<p>{this.props.film_name}</p>
+				<h2>{this.props.film_name}</h2>
 				<p>{this.props.film_description}</p>
 				<Link to="/Login" activeClassName="active">
 					<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" > Book now </button>
 				</Link>
-				<h1>Trailer goes here</h1>
+				<iframe width="560" height="315" src={this.props.trailer} frameborder="0" allowfullscreen></iframe>
 				<button onClick={this.props.onClose}> close </button>
 			</div>
 		</div>
