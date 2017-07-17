@@ -178,3 +178,21 @@ table {
 .footer-sub-list li{
 	margin-left: -15px;
 }
+
+
+.popUpInfoBox{
+	position: inherit;
+    top: 0px;
+    width: 100%;
+}
+
+.Pop-Up-information{
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    height: 100%;
+    z-index: 9998;
+    background: rgba(0, 0, 0, 0.7);
+	color:#fff;
+	padding: 20px 20px 20px 20px;
+}

@@ -22,6 +22,9 @@ import PopUpInfo from './../functions/PopUpInfo';
 		});
 	}
 	
+	onClose(){
+		this.setState({isActive:false});		
+	}	
 	
 	render() {
     const films = this.props.films;
@@ -31,7 +34,7 @@ import PopUpInfo from './../functions/PopUpInfo';
 			  <FilmPageListItem key={film.id}
 					 film={film} onClick={this.onSelect.bind(this)} />
 			  )}
-			{ this.state.isActive ? <PopUpInfo film_name={this.state.filmName} film_description={this.state.filmDesc}/> : ''}
+			{ this.state.isActive ? <PopUpInfo film_name={this.state.filmName} film_description={this.state.filmDesc} onClose={this.onClose.bind(this)}/> : ''}
 			</div>
 		);
 	}
