@@ -33,9 +33,8 @@ export default class App extends React.Component {
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
         <Nav />
         <Drawer />
-        <div className="mdl-layout__content page-content">{this.props.children}</div>
+        <div className="mdl-layout__content page-content">{this.props.children}<Sitemap /></div>
         <Footer films={this.state.films} locations={this.state.locations}/>
-		<Sitemap />
       </div>
     );
   }
