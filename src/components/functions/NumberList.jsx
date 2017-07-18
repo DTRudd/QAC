@@ -9,7 +9,6 @@ export default class NumberList extends React.Component {
     for (let ii = 0; ii < props.films.length; ii++) {
       filmArray[ii].active = false;
     }
-    filmArray[0].active = true;
     this.state = {
       films:filmArray
     };
