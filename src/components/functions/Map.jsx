@@ -6,7 +6,7 @@ export default class Map extends Component {
 		this.loadMap(this.props);
 	}
   
-  	componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
 		this.loadMap(nextProps);
 	}
 	
@@ -18,23 +18,19 @@ export default class Map extends Component {
 		  lng: props.lng,
 		  zoom: 16
 		});
-		
-		maps.addMarker({
-		  lat: props.lat,
-		  lng: props.lng,
-		  title: 'QA Cinemas',
-		  animation: window.google.maps.Animation.DROP,
-		  label: 'A',
-		  infoWindow: {
-			content: 'QAC,<br />Meridian Showground,<br />Cleethorpes,<br />Lincs.,<br />DN35 0AR'
-		  }
-		});
-	}
+    maps.addMarker({
+  	  lat: props.lat,
+  	  lng: props.lng,
+  	  title: 'QA Cinemas',
+  	  animation: window.google.maps.Animation.DROP,
+  	  label: 'A',
+  	});
+  }
 
   render() {
     return (
       <div className="map-overlay" >
-		<div id="map" style={{height: 600, width:600}}></div>
+		    <div id="map" style={{height: 600, width:600}}></div>
       </div>
     );
   }

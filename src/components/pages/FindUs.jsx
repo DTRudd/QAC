@@ -7,20 +7,20 @@ export default class FindUs extends Component {
   constructor(){
     super();
     this.state = {
-      Location : "Manchester",
-      Lat : "53.475617",
-      Lng : "-2.243872"
-    }
+      Location : Locations.Location[0].location,
+      Lat: Locations.Location[0].lat,
+      Lng: Locations.Location[0].lng,
+      locations: Locations.Location
+    };
+    this.getLocationInformation = this.getLocationInformation.bind(this);
   }
          
   getLocationInformation(e){
-    var selected_location = e.target[e.target.value].text;
-    Locations.Location.filter(location_data_row => location_data_row.location === selected_location).map(location_data_row => {
-      this.setState({
-        Location : selected_location,    
-        Lat : location_data_row.lat,
-        Lng : location_data_row.lng
-      })
+    let locations = this.state.locations;
+    this.setState({
+      Location:locations[e.target.value].location,
+      Lat:locations[e.target.value].lat,
+      Lng:locations[e.target.value].lng
     });
   }
     
@@ -33,7 +33,7 @@ export default class FindUs extends Component {
         <label className="mdl-layout-title mdl-cell mdl-cell--12-col">Select a cinema location...</label>
         <div className="mdl-cell mdl-cell--12-col">
           <select id="locationList" className="mdl-textfield__input"
-            onChange = {this.getLocationInformation.bind(this)}>
+            onChange = {this.getLocationInformation}>
             <option value = "0">Manchester</option>
             <option value = "1">Scarborough</option>
             <option value = "2">London</option>
