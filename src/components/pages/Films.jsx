@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import films from '../../json/Films_All.json';
 import NumberList from '../functions/NumberList';
 import FilmPageList from '../functions/FilmPageList';
-export default class Home extends React.Component {
+export default class Films extends Component {
    
   constructor(){
     super();

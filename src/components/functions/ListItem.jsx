@@ -1,5 +1,5 @@
 import React from 'react';
-import DropDownInfo from './../functions/DropDownInfo';
+import DropDownInfo from './DropDownInfo';
 
 //shows the tiles on home page - part of the NumberList function
 export default class ListItem extends React.Component{
