@@ -1,7 +1,6 @@
 import React from 'react';
 import Login from '../../components/pages/Login';
-import AccountCreation from '../../components/pages/AccountCreation';
-
+import AccountCreation from '../pages/AccountCreation';
 const AccountWidget = (props) => {
 		switch(props.accountsPage) {
 			case 'LOGIN':

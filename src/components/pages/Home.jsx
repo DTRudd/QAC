@@ -2,7 +2,6 @@ import React from 'react';
 import films from '../../json/films.json';
 import NumberList from '../functions/NumberList'
 
-import CarouselN from './../functions/CarouselN';
 import Carousel from './../functions/Carousel';
 
 export default class Home extends React.Component {
@@ -27,14 +26,10 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-		<div id="carousel">
-			<Carousel />
-	    </div>
-		
-		<NumberList films={this.state.films} />
-		
-		
-        
+        <div id="carousel">
+          <Carousel />
+        </div>
+        <NumberList films={this.state.films} />
       </div>
     );
   }
