@@ -1,46 +1,40 @@
-import React from 'react';
-import Locations from '../../json/Locations.json'
+import React, { Component } from 'react';
 
-export default class Map extends React.Component {
+export default class Map extends Component {
   
-  componentDidMount() {
-    var maps = new window.GMaps({
-      el: '#map',
-      lat: Locations.Location[0].lat,
-      lng: Locations.Location[0].lng,
-      zoom: 16
-    });
-    maps.addMarker({
-      lat: Locations.Location[0].lat,
-      lng: Locations.Location[0].lng,
-      title: 'QA Cinemas',
-      animation: window.google.maps.Animation.DROP,
-      label: 'A',
-    });
-    
-  }
+	componentDidMount() {
+		this.loadMap(this.props);
+	}
   
-  componentWillUpdate(nextProps) {
-    console.log(nextProps);
-    var maps = new window.GMaps({
-      el: '#map',
-      lat: nextProps.lat,
-      lng: nextProps.lng,
-      zoom: 16
-    });
-    maps.addMarker({
-      lat: nextProps.lat,
-      lng: nextProps.lng,
-      title: 'QA Cinemas',
-      animation: window.google.maps.Animation.DROP,
-      label: 'A',
-    });
-  }
+  	componentWillReceiveProps(nextProps) {
+		this.loadMap(nextProps);
+	}
+	
+	loadMap(props) {
+		console.log(props.lat);
+		var maps = new window.GMaps({
+		  el: '#map',
+		  lat: props.lat,
+		  lng: props.lng,
+		  zoom: 16
+		});
+		
+		maps.addMarker({
+		  lat: props.lat,
+		  lng: props.lng,
+		  title: 'QA Cinemas',
+		  animation: window.google.maps.Animation.DROP,
+		  label: 'A',
+		  infoWindow: {
+			content: 'QAC,<br />Meridian Showground,<br />Cleethorpes,<br />Lincs.,<br />DN35 0AR'
+		  }
+		});
+	}
 
   render() {
     return (
       <div className="map-overlay" >
-        <div id="map" style={{height: 600, width:600}}></div>
+		<div id="map" style={{height: 600, width:600}}></div>
       </div>
     );
   }

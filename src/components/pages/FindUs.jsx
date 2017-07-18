@@ -1,29 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Locations from '../../json/Locations.json';
 import Map from '../functions/Map';
   
-export default class FindUs extends React.Component {
+export default class FindUs extends Component {
    
   constructor(){
     super();
     this.state = {
-      Location:Locations.Location[0].location,
-      Lat:Locations.Location[0].lat,
-      Lng:Locations.Location[0].lng,
-      locations:Locations.Location
+      Location : "Manchester",
+      Lat : "53.475617",
+      Lng : "-2.243872"
     }
-    this.getLocationInformation = this.getLocationInformation.bind(this);
   }
          
   getLocationInformation(e){
-    let locations = this.state.locations;
-    this.setState({
-      Location:locations[e.target.value].location,
-      Lat:locations[e.target.value].lat,
-      Lng:locations[e.target.value].lng
+    var selected_location = e.target[e.target.value].text;
+    Locations.Location.filter(location_data_row => location_data_row.location === selected_location).map(location_data_row => {
+      this.setState({
+        Location : selected_location,    
+        Lat : location_data_row.lat,
+        Lng : location_data_row.lng
+      })
     });
-    console.log(locations[e.target.value].location);
-    console.log(this.state.Location);
   }
     
   render() {
@@ -35,7 +33,7 @@ export default class FindUs extends React.Component {
         <label className="mdl-layout-title mdl-cell mdl-cell--12-col">Select a cinema location...</label>
         <div className="mdl-cell mdl-cell--12-col">
           <select id="locationList" className="mdl-textfield__input"
-            onChange = {this.getLocationInformation}>
+            onChange = {this.getLocationInformation.bind(this)}>
             <option value = "0">Manchester</option>
             <option value = "1">Scarborough</option>
             <option value = "2">London</option>
