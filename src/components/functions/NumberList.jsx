@@ -9,6 +9,7 @@ export default class NumberList extends React.Component {
     for (let ii = 0; ii < props.films.length; ii++) {
       filmArray[ii].active = false;
     }
+    filmArray[0].active = true;
     this.state = {
       films:filmArray
     };
@@ -25,7 +26,6 @@ export default class NumberList extends React.Component {
       } else {
         filmSlice[0].active = false;
       }
-      console.log(filmSlice);
       filmsTmp[ii] = filmSlice[0];
     }
     this.setState({
@@ -40,8 +40,8 @@ export default class NumberList extends React.Component {
     return (
       <div className="mdl-grid">
         {this.state.films.map((film) =>
-          <ListItem key={film.id}
-            film={film} onClick = {this.changeActiveFilm}/>
+          <div onClick={this.changeActiveFilm.bind(this,film.id-1)}><ListItem key={film.id}
+            film={film} /></div>
         )}
       </div>
     );
