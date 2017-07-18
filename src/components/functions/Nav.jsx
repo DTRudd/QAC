@@ -10,7 +10,7 @@ export default class Nav extends React.Component{
 	
   render(){
     return(
-      <header className="mdl-layout__header mdl-color--black" id="menu">
+      <header className="mdl-layout__header mdl-color--grey-900" id="menu">
         <nav className="mdl-layout__header-row mdl-layout--large-screen-only">
           <IndexLink to="/" className="pageLink mdl-navigation__link mdl-color-text--white" activeClassName="active">QA</IndexLink>
           <nav className="mdl-navigation">

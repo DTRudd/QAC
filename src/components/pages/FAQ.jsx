@@ -3,9 +3,9 @@ import React from 'react';
 export default class FAQ extends React.Component{
   render(){
     return(
-      <div>
-        <h4>Frequently asked questions</h4>
-        <ul>
+      <div className="mdl-color-text--white mdl-color--grey-700" >
+        <h4 className="mdl-layout-title">Frequently asked questions</h4>
+        <ul> 
           <li>How can I contact customer services?</li>
           <li>How do I get a refund?</li>
           <li>How do I complain about my recent experience?</li>

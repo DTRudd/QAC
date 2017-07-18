@@ -5,7 +5,7 @@ export default class Sitemap extends React.Component{
 
   render(){
     return(
-      <div className="mdl-mega-footer">
+      <div className="mdl-mega-footer mdl-color--black">
         <div className="mdl-mega-footer__drop-down-section">
           <h1 className="mdl-mega-footer__heading">Information</h1>
           <ul className="mdl-mega-footer__link-list">
