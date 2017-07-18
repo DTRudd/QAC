@@ -61,7 +61,7 @@ export default class Footer extends React.Component{
             <li>
               <select className="mdl-textfield__input" value={this.state.location} onChange={this.handleLocationChange}>
                 {this.props.locations.map((location) =>
-                  <option className="mdl-textfield__input"  value={location.location}>{location.location}</option>
+                  <option className="mdl-textfield__input" key={location.id} value={location.location}>{location.location}</option>
                 )}
               </select>
             </li>

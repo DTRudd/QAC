@@ -7,6 +7,7 @@ export default class Nav extends React.Component{
       <div className="mdl-layout__drawer">
         <span className="mdl-layout-title">QA</span>
         <nav className="mdl-navigation">
+          <Link to="/" className="pageLink mdl-navigation__link" activeClassName="active">Home</Link>
           <Link to="/Films" className="pageLink mdl-navigation__link" activeClassName="active">Films</Link>
           <Link to="/FindUs" className="pageLink mdl-navigation__link" activeClassName="active">Find us</Link>
           <Link to="/Prices" className="pageLink mdl-navigation__link" activeClassName="active">Pricing</Link>
