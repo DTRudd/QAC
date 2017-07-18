@@ -6,19 +6,11 @@ export default class ListItem extends React.Component{
 	
 	constructor(props){
 		super(props);
-		this.state={
-			isActive:false
-		}
 	}
 	
-  
-  onSelect(){
-	  this.setState({isActive: !this.state.isActive});
-  }
-  
 	render(){
 	  return (    
-		<div className="mdl-cell mdl-card" style={{width:"255px"}} onClick={this.onSelect.bind(this)}>
+		<div className="mdl-cell mdl-card" style={{width:"255px"}}>
 		  <div className="mdl-card__media">
 			<img id="1" className="pic"  src={this.props.film.img}/>
 		  </div>
@@ -28,7 +20,7 @@ export default class ListItem extends React.Component{
 		  </div>
 		  <div className="mdl-card__supporting-text">{this.props.film.quote}</div>
 		  
-		  { this.state.isActive ? <DropDownInfo film_name={this.props.film.film_name} film_description={this.props.film.film_description}/> : ''}
+		  { this.props.film.active ? <DropDownInfo film_name={this.props.film.film_name} film_description={this.props.film.film_description}/> : ''}
 		</div>
 	  );
 	}

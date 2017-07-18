@@ -3,7 +3,7 @@ import Nav from './../functions/Nav';
 import Footer from './../functions/Footer';
 import Drawer from './../functions/Drawer';
 import NumberList from './../functions/NumberList'
-import filmsList from './../../../res/Films.json';
+import filmsList from './../../../res/films.json';
 import Sitemap from './../functions/Sitemap';
 import locsList from './../../../res/Locations.json';
 
