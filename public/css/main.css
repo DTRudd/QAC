@@ -261,3 +261,12 @@ table {
 	color:#fff;
 	padding: 20px 20px 20px 20px;
 }
+
+
+.mdl-list__item-primary-content{
+	color:#FFF;
+}
+
+.extraInfo{
+	color:#FFF;
+}

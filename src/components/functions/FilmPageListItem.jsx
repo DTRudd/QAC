@@ -4,7 +4,7 @@ import React from 'react';
 export default class FilmPageListItem extends React.Component{
 	
   onSelect(){
-	  this.props.onClick(this.props.film.film_name, this.props.film.film_description, this.props.film.trailer);
+	  this.props.onClick(this.props.film.film_name, this.props.film.film_description, this.props.film.trailer, this.props.film.comments);
   }
 	render(){
 	  return (    
