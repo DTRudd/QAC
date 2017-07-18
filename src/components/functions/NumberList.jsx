@@ -31,6 +31,7 @@ export default class NumberList extends React.Component {
     this.setState({
       films:filmsTmp
     });
+    console.log(this.state.films);
   }
 
 
@@ -40,7 +41,7 @@ export default class NumberList extends React.Component {
       <div className="mdl-grid">
         {this.state.films.map((film) =>
           <ListItem key={film.id}
-            film={film} onClick = {() => this.changeActiveFilm(film.id-1)}/>
+            film={film} onClick = {this.changeActiveFilm}/>
         )}
       </div>
     );
