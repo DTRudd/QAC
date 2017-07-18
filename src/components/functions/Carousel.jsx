@@ -3,9 +3,9 @@ import React from 'react';
 
 export default class Carousel extends React.Component{
     render() {
-        let imgLink = "res/img/carousel/spiderman.jpg";
-        let imgLink1 = 'res/img/carousel/apesposter.jpg';
-        let imgLink2 = 'res/img/carousel/despicable.jpg';
+        let imgLink = "/img/carousel/spiderman.jpg";
+        let imgLink1 = '/img/carousel/apesposter.jpg';
+        let imgLink2 = '/img/carousel/despicable.jpg';
     
         
         return(

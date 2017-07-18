@@ -1,6 +1,6 @@
 import React from 'react';
 import FilmPageListItem from './FilmPageListItem';
-import PopUpInfo from './../functions/PopUpInfo';
+import PopUpInfo from './PopUpInfo';
 
 //code to show tiles in order on home page - shouldn't need changing.
   export default class FilmPageList extends React.Component {

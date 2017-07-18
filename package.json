@@ -18,7 +18,6 @@
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "material-design-lite": "^1.3.0",
     "mdl-selectfield": "^1.0.4",
     "nuka-carousel": "^2.0.4",
     "react": "^15.6.1",

@@ -27,6 +27,8 @@ export default class FindUs extends React.Component {
   }
     
   render() {
+	  const { Lat, Lng } = this.state;
+	  console.log(Lat);
     return (
       <div className="mdl-layout-content mdl-grid">
         <h3 className="mdl-layout-title mdl-cell mdl-cell--12-col">Find your nearest QA Cinema</h3>       
@@ -39,7 +41,7 @@ export default class FindUs extends React.Component {
             <option value = "2">London</option>
             <option value = "3">Edinburgh</option>
           </select>
-          <Map lat= {this.state.Lat} lng= {this.state.Lng} zoom="18"/>
+          <Map lat={Lat} lng={Lng} zoom="18"/>
         </div>
       </div>
     );

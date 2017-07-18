@@ -7,7 +7,7 @@ import Booking from './components/pages/Booking';
 import FAQ from './components/pages/FAQ';
 import InformationPage from './components/pages/InformationPage';
 import Home from './components/pages/Home';
-import Contact from './components/pages/Contacts';
+import Contact from './components/pages/Contact';
 import Prices from './components/pages/Prices';
 import Films from './components/pages/Films';
 
