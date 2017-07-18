@@ -13,7 +13,6 @@ export default class NumberList extends React.Component {
       films:filmArray
     };
     this.changeActiveFilm = this.changeActiveFilm.bind(this);
-    this.changeActiveFilm(1);
     console.log(this.state.films);
   }
 
@@ -22,9 +21,9 @@ export default class NumberList extends React.Component {
     for (let ii = 0; ii < filmsTmp.length; ii++) {
       let filmSlice = filmsTmp.slice(ii,ii+1);
       if (ii === index) {
-        filmSlice.active = true;
+        filmSlice[0].active = true;
       } else {
-        filmSlice.active = false;
+        filmSlice[0].active = false;
       }
       console.log(filmSlice);
       filmsTmp[ii] = filmSlice[0];
