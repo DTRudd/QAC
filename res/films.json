@@ -9,13 +9,8 @@
 		
 		{"id":"3", "film_name":"Baby Driver", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg",
 			"img":"./../../res/img/babydriver.jpg", "quote":"All you need is one killer track.",
-<<<<<<< HEAD:res/films.json
 			"film_description":"Baby is a partially hearing impaired getaway driver who can make any wild move while the right track is playing. It's a critical talent he needs to survive his indentured servitude to the crime boss, Doc. However, just when Baby thinks he is finally free and clear, Baby finds himself in terrible danger. To survive and escape the coming maelstrom, it will take all of Baby's skill, but can he make it when life is forcing him to face the music?"},
 
-=======
-			"film_description":"Baby is a young and partially hearing impaired getaway driver who can make any wild move while in motion with the right track playing. It's a critical talent he needs to survive his indentured servitude to the crime boss, Doc, who values his role in his planned robberies. However, just when Baby thinks he is finally free and clear to have his own life, Doc coerces him back for another job. Now saddled with a crew of thugs too violently unstable to keep to Doc's plans, Baby finds himself in terrible danger."},
-		
->>>>>>> origin/Michael:res/Films.json
 		{"id":"4", "film_name":"Lego Batman Movie", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_U_(2002).svg",
 			"img":"./../../res/img/LegoBatman.jpg", "quote":"He's taking them under his wing... of awesomeness!",
 			"film_description":"There are big changes brewing in Gotham City, and if he wants to save the city from The Joker's hostile takeover, Batman may have to drop the lone vigilante thing, try to work with others and maybe, just maybe, learn to lighten up."}

@@ -10,19 +10,8 @@ import PopUpInfo from './../functions/PopUpInfo';
 		this.state={
 			isActive:false,
 			filmName: '',
-<<<<<<< HEAD
-			filmDesc: ''
-		}
-	}
-	
-	onSelect(filmName, filmDesc){
-		this.setState({
-			isActive: !this.state.isActive,
-			filmName: filmName,
-			filmDesc: filmDesc
-=======
 			filmDesc: '',
-			trailer:''
+			trailer:'',
 		}
 	}
 	
@@ -32,7 +21,6 @@ import PopUpInfo from './../functions/PopUpInfo';
 			filmName: filmName,
 			filmDesc: filmDesc,
 			trailer: trailer
->>>>>>> origin/Michael
 		});
 	}
 	
@@ -48,12 +36,8 @@ import PopUpInfo from './../functions/PopUpInfo';
 			  <FilmPageListItem key={film.id}
 					 film={film} onClick={this.onSelect.bind(this)} />
 			  )}
-<<<<<<< HEAD
-			{ this.state.isActive ? <PopUpInfo film_name={this.state.filmName} film_description={this.state.filmDesc} onClose={this.onClose.bind(this)}/> : ''}
-=======
 			{ this.state.isActive ? <PopUpInfo film_name={this.state.filmName} film_description={this.state.filmDesc} 
 										trailer={this.state.trailer} onClose={this.onClose.bind(this)} /> : ''}
->>>>>>> origin/Michael
 			</div>
 		);
 	}

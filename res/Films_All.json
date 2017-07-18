@@ -6,12 +6,9 @@
 			
 		{"id":"2", "film_name":"War for the Planet of the Apes", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg",
 			"img":"./../../res/img/apesposter.jpg", "quote":"Get your stinking paws off me, you damn dirty ape!",
-<<<<<<< HEAD
-			"film_description":"Caesar and his apes are forced into a deadly conflict with an army of humans led by a ruthless Colonel. After the apes suffer unimaginable losses, Caesar wrestles with his darker instincts and begins his own mythic quest to avenge his kind. As the journey finally brings them face to face, Caesar and the Colonel are pitted against each other in an epic battle that will determine the fate of the planet."},
-=======
 			"film_description":"Caesar and his apes are forced into a deadly conflict with an army of humans led by a ruthless Colonel. After the apes suffer unimaginable losses, Caesar wrestles with his darker instincts and begins his own mythic quest to avenge his kind. As the journey finally brings them face to face, Caesar and the Colonel are pitted against each other in an epic battle that will determine the fate of both their species and the future of the planet.",
 			"trailer":"https://www.youtube.com/embed/qxjPjPzQ1iU"},
->>>>>>> origin/Michael
+
 		
 		{"id":"3", "film_name":"Spider-man: Homecoming", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg",
 			"img":"./../../res/img/spiderman.jpg", "quote":"I'm your friendly neighbourhood spider-man!",
@@ -20,14 +17,9 @@
 		
 		{"id":"4", "film_name":"Baby Driver", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_12A_(2002).svg",
 			"img":"./../../res/img/babydriver.jpg", "quote":"All you need is one killer track.",
-<<<<<<< HEAD
-			"film_description":"Baby is a partially hearing impaired getaway driver who can make any wild move while the right track is playing. It's a critical talent he needs to survive his indentured servitude to the crime boss, Doc. However, just when Baby thinks he is finally free and clear, Baby finds himself in terrible danger. To survive and escape the coming maelstrom, it will take all of Baby's skill, but can he make it when life is forcing him to face the music?"},
-
-=======
 			"film_description":"Baby is a young and partially hearing impaired getaway driver who can make any wild move while in motion with the right track playing. It's a critical talent he needs to survive his indentured servitude to the crime boss, Doc, who values his role in his planned robberies. However, just when Baby thinks he is finally free and clear to have his own life with his new girl friend, Doc coerces him back for another job. Now saddled with a crew of thugs too violently unstable to keep to Doc's plans, Baby finds himself in terrible danger.",
 			"trailer":"https://www.youtube.com/embed/z2z857RSfhk"},
 		
->>>>>>> origin/Michael
 		{"id":"5", "film_name":"Fargo", "release_date":"1996","age_rating":"../../res/img/ratings/BBFC_18_(2002).svg",
 			"img":"./../../res/img/fargo.jpg", "quote":"Yah, you betcha.",
 			"film_description":"The all new \"true crime\" case of Fargo's new chapter travels back to 1979 in Sioux Falls, South Dakota where a young State Police Officer Lou Solverson, investigates a case involving a local crime gang and a major Mob syndicate. The investigation will lead them to a colorful cast of characters that includes Karl Weathers, the town lawyer of Luverne, Minnesota. The new face of corporate crime, Joe's bringing a Walmart mentality to small town America.",
@@ -35,13 +27,9 @@
 	
 		{"id":"6", "film_name":"Lego Batman Movie", "release_date":"2017","age_rating":"../../res/img/ratings/BBFC_U_(2002).svg",
 			"img":"./../../res/img/LegoBatman.jpg", "quote":"He's taking them under his wing... of awesomeness!",
-<<<<<<< HEAD
-			"film_description":"There are big changes brewing in Gotham City, and if he wants to save the city from The Joker's hostile takeover, Batman may have to drop the lone vigilante thing, try to work with others and maybe, just maybe, learn to lighten up."}		
 
-=======
 			"film_description":"There are big changes brewing in Gotham City, and if he wants to save the city from The Joker's hostile takeover, Batman may have to drop the lone vigilante thing, try to work with others and maybe, just maybe, learn to lighten up.",
 			"trailer":"https://www.youtube.com/embed/rGQUKzSDhrg"}		
-		
->>>>>>> origin/Michael
+
 	]
 }
