@@ -10,13 +10,12 @@ export default class FindUs extends Component {
       Location : Locations.Location[0].location,
       Lat: Locations.Location[0].lat,
       Lng: Locations.Location[0].lng,
-      locations: Locations.Location
     };
     this.getLocationInformation = this.getLocationInformation.bind(this);
   }
          
   getLocationInformation(e){
-    let locations = this.state.locations;
+    let locations = Locations.Location;
     this.setState({
       Location:locations[e.target.value].location,
       Lat:locations[e.target.value].lat,
