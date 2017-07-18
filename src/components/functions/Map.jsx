@@ -3,20 +3,25 @@ import React from 'react';
 export default class Map extends React.Component {
   
 	componentDidMount() {
-		this.componentWillUpdate();
+		this.loadMap(this.props);
 	}
   
-  	componentWillUpdate() {
+  	componentWillReceiveProps(nextProps) {
+		this.loadMap(nextProps);
+	}
+	
+	loadMap(props) {
+		console.log(props.lat);
 		var maps = new window.GMaps({
 		  el: '#map',
-		  lat: this.props.lat,
-		  lng: this.props.lng,
+		  lat: props.lat,
+		  lng: props.lng,
 		  zoom: 16
 		});
 		
 		maps.addMarker({
-		  lat: this.props.lat,
-		  lng: this.props.lng,
+		  lat: props.lat,
+		  lng: props.lng,
 		  title: 'QA Cinemas',
 		  animation: window.google.maps.Animation.DROP,
 		  label: 'A',
