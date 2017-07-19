@@ -229,7 +229,19 @@ table, tr, th, td {
     padding: 20px 20px 20px 20px;
 }
 
+.filmNameDisplay{
+    background-size: cover;
+    height: 250px;
+}
 
+.bookingHeading{
+    padding-left: 50px;
+}
+
+.bookingHeading2{
+    padding-left: 50px;
+    padding-bottom: 10px;
+}
 .ticketDetailsSelection{
     background: white;
 }
