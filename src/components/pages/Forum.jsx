@@ -29,7 +29,6 @@ export default class Forum extends React.Component {
  }
 
   render() {
-    {console.log(this.state.activeThread)};
     return(
       <div className="mdl-color-text--white">
         {this.state.activeThread.length === 0 ? 
@@ -39,7 +38,7 @@ export default class Forum extends React.Component {
         :
           (
             <div>
-              <button className="mdl-button mdl-js-button mdl-button-accent mdl-color--pink-500" onClick={this.displayThread.bind(this,-1)}>Return home</button>
+              <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.displayThread.bind(this,-1)}>Return home</button>
               <Thread thread={this.state.activeThread} />
             </div>
           )
