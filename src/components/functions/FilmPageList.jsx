@@ -11,19 +11,17 @@ import PopUpInfo from './PopUpInfo';
 			filmName: '',
 			filmDesc: '',
 			trailer:'',
-			comments:'',
-			id:'',
+			comments:''
 		}
 	}
 	
-	onSelect(filmName, filmDesc, trailer, comments, id){
+	onSelect(filmName, filmDesc, trailer, comments){
 		this.setState({
 			isActive: !this.state.isActive,
 			filmName: filmName,
 			filmDesc: filmDesc,
 			trailer: trailer,
 			comments:comments,
-			id:id,
 		});
 	}
 	
@@ -40,8 +38,7 @@ import PopUpInfo from './PopUpInfo';
 					 film={film} onClick={this.onSelect.bind(this)} />
 			  )}
 			{ this.state.isActive ? <PopUpInfo film_name={this.state.filmName} film_description={this.state.filmDesc} 
-										trailer={this.state.trailer} comments={this.state.comments} 
-										id={this.state.id} onClose={this.onClose.bind(this)} /> : ''}
+										trailer={this.state.trailer} comments={this.state.comments} onClose={this.onClose.bind(this)} /> : ''}
 			</div>
 		);
 	}
