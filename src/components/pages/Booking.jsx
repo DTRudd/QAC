@@ -125,9 +125,10 @@ export default class Booking extends React.Component {
   render() {
     return (
           <div className = 'bookingSystem'>
-            <div className = "filmNameDisplay" >
+            
+            <div className = "filmNameDisplay" style = {{backgroundImage : 'url(../../../res/img/back.jpg)'}}><br /><br /><br /><br />
                 <h2 className = 'bookingHeading'>Booking</h2>
-                <h3>Film Name</h3>
+                <h3 className = 'bookingHeading2'>Film Name</h3>
             </div>
             
 <div className = 'ticketDetailsSelection'>           
