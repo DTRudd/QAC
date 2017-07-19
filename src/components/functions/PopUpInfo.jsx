@@ -22,7 +22,7 @@ export default class PopUpInfo extends React.Component{
 				<iframe title="trailer" width="560" height="315" src={this.props.trailer} frameBorder="0"></iframe>
 				<button onClick={this.props.onClose}> close </button>
 				<p></p>
-				<Reviews comments={this.props.comments}/>
+				<Reviews id={this.props.id}/>
 			</div>
 		</div>
 	);
