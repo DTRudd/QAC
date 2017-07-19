@@ -10,6 +10,7 @@ import Home from './components/pages/Home';
 import Contact from './components/pages/Contact';
 import Prices from './components/pages/Prices';
 import Films from './components/pages/Films';
+import Forum from './components/pages/Forum';
 
 ReactDOM.render(
   <Router history={browserHistory}>
@@ -22,6 +23,7 @@ ReactDOM.render(
       <Route path="/Contact" component={Contact} />
       <Route path="/Prices" component={Prices} />
       <Route path="/Films" component={Films} />
+      <Route path="/Forum" component={Forum} />
     </Route>
   </Router>,
   document.querySelector('#app')
