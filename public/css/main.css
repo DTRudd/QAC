@@ -229,3 +229,19 @@ table, tr, th, td {
     padding: 20px 20px 20px 20px;
 }
 
+
+.mdl-list__item-primary-content{
+	color:#FFF;
+}
+
+.reviewInputComment{
+	width:200px;
+}
+
+.ReviewCommentSection{
+	color:#000;
+}
+
+.mdl-list {
+    display: inline-flex;
+}
