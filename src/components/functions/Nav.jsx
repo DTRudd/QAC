@@ -26,7 +26,17 @@ export default class Nav extends React.Component{
           </nav>
           <div className="mdl-layout-spacer"></div>
           <nav className="mdl-navigation">
-            <span id="account_NavButton"><button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onClick={this.propergateAccounts.bind(this)}>Log in/Sign up</button></span> 
+            <span id="account_NavButton">
+								{this.props.isAuth ? 
+										<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onClick={this.propergateAccounts.bind(this)}>
+													My Account
+										</button> :
+										<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onClick={this.propergateAccounts.bind(this)}>
+													Log in/Sign up
+										</button>
+									}
+													
+			</span> 
           </nav>
         </nav>
       </header>

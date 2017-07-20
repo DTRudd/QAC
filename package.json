@@ -2,6 +2,7 @@
   "name": "QAC",
   "version": "1.0.0",
   "private": true,
+  "proxy": "http://localhost:8081/",
   "scripts": {
     "start": "concurrently \"npm run api\" \"npm run web\"",
     "web": "set PORT=8080 && react-scripts start",
@@ -20,6 +21,7 @@
     "babel-preset-react": "^6.24.1",
     "mdl-selectfield": "^1.0.4",
     "nuka-carousel": "^2.0.4",
+	"react-cookies": "0.1.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "^3.0.5",
