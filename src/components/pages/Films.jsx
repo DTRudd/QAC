@@ -22,7 +22,7 @@ export default class Films extends Component {
 
   render() {
     return (
-      <div>
+      <div className="mdl-color--grey-700">
         <FilmPageList films={this.state.films} />
       </div>
     );

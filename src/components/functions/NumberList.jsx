@@ -9,7 +9,6 @@ export default class NumberList extends React.Component {
     for (let ii = 0; ii < props.films.length; ii++) {
       filmArray[ii].active = false;
     }
-    filmArray[0].active = true;
     this.state = {
       films:filmArray
     };
@@ -22,7 +21,11 @@ export default class NumberList extends React.Component {
     for (let ii = 0; ii < filmsTmp.length; ii++) {
       let filmSlice = filmsTmp.slice(ii,ii+1);
       if (ii === index) {
-        filmSlice[0].active = true;
+        if (filmSlice[0].active === true) {
+          filmSlice[0].active = false;
+        } else {
+          filmSlice[0].active = true;
+        }
       } else {
         filmSlice[0].active = false;
       }
@@ -34,14 +37,14 @@ export default class NumberList extends React.Component {
     console.log(this.state.films);
   }
 
-
-//TODO: run changeActiveFilm and re-render when a LI is clicked
   render() {
     return (
-      <div className="mdl-grid">
+      <div className="mdl-grid film-grid">
         {this.state.films.map((film) =>
-          <div onClick={this.changeActiveFilm.bind(this,film.id-1)}><ListItem key={film.id}
-            film={film} /></div>
+          <div onClick={this.changeActiveFilm.bind(this,film.id-1)}>
+            <ListItem key={film.id}
+              film={film} />
+          </div>
         )}
       </div>
     );

@@ -4,13 +4,13 @@ import {Link} from 'react-router';
 
 export default class Nav extends React.Component{
 	
-	propergateAccounts() {
+	propagateAccounts() {
 		this.props.toggleAccountView('LOGIN');
 	}
 	
   render(){
     return(
-      <header className="mdl-layout__header" id="menu">
+      <header className="mdl-layout__header mdl-color--grey-900" id="menu">
         <nav className="mdl-layout__header-row mdl-layout--large-screen-only">
           <IndexLink to="/" className="pageLink mdl-navigation__link" activeClassName="active">QA</IndexLink>
           <nav className="mdl-navigation">
@@ -23,15 +23,16 @@ export default class Nav extends React.Component{
               <li><Link to="/Contact" className="pageLink mdl-menu__item" activeClassName="active">Contact</Link></li>
             </ul>
             <Link to="/Booking" className="pageLink mdl-navigation__link" activeClassName="active">Booking</Link>
+            <Link to="/Forum" className="pageLink mdl-navigation__link" activeClassName="active">Forum</Link>
           </nav>
           <div className="mdl-layout-spacer"></div>
           <nav className="mdl-navigation">
             <span id="account_NavButton">
 								{this.props.isAuth ? 
-										<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onClick={this.propergateAccounts.bind(this)}>
+										<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.propergateAccounts.bind(this)}>
 													My Account
 										</button> :
-										<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onClick={this.propergateAccounts.bind(this)}>
+										<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.propergateAccounts.bind(this)}>
 													Log in/Sign up
 										</button>
 									}

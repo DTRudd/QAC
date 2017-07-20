@@ -30,9 +30,9 @@ export default class Prices extends React.Component{
       
   render(){
     return(
-      <div>
-        <h4>Prices page</h4>
-        <section>  
+      <div className="mdl-color--grey-700">
+        <h4 className="mdl-layout-title mdl-color-text--white">Prices page</h4>
+        <section className="mdl-color-text--white">  
           <table>
             <thead>
               <tr>

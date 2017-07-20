@@ -29,7 +29,9 @@ export default class Home extends React.Component {
         <div id="carousel">
           <Carousel />
         </div>
-        <NumberList films={this.state.films} />
+        <div className="mdl-color--grey-700">
+          <NumberList films={this.state.films} />
+        </div>
       </div>
     );
   }

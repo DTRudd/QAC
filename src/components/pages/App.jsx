@@ -130,7 +130,14 @@ export default class App extends React.Component {
 	  {this.state.loading ? this.loading() : ''}
         <Nav toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} />
         <Drawer />
-        <div className="mdl-layout__content page-content">{this.props.children}<Sitemap /></div>
+        <div className="mdl-layout__content page-content mdl-color--black">
+          <div >
+            {this.props.children}
+          </div>
+          <div >
+            <Sitemap />
+          </div>
+        </div>
         <Footer films={films} locations={locations}/>
 		{displayAccountPage ? <AccountWidget accountsPage={accountPage} navigateTo={this.inlineNavigate.bind(this)} toggleAccountView={this.toggleAccountsPage.bind(this)} authentication={this.authenticateLogin.bind(this)} /> : ''}
       </div>
