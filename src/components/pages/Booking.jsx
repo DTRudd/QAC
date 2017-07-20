@@ -1,6 +1,6 @@
 import React from 'react';
-import PriceList from '../../../res/prices.json';
-import Locations from '../../../res/Locations.json';
+import PriceList from '../../json/prices.json';
+import Locations from '../../json/Locations.json';
 
 export default class Booking extends React.Component {
     
@@ -18,7 +18,7 @@ export default class Booking extends React.Component {
             isSeniorActive: false,
             isTotalActive: false,
             chosenCinema: '',
-            chosenSeats: ''
+            chosenSeats: '',
         };
     }
    
@@ -71,7 +71,7 @@ export default class Booking extends React.Component {
             adultTick: 0,
             isAdultActive: false,
         });
-        totalPrice();
+        this.totalPrice();
     }
     
     clearKids(){
@@ -80,7 +80,7 @@ export default class Booking extends React.Component {
             kidTick: 0,
             isKidActive: false
         });
-       totalPrice();
+       this.totalPrice();
     }
     
     clearSeniors(){
@@ -89,7 +89,7 @@ export default class Booking extends React.Component {
             seniorTick: 0,
             isSeniorActive: false
         });
-        totalPrice();
+        this.totalPrice();
     }
     
     sumTotal(){
@@ -99,7 +99,7 @@ export default class Booking extends React.Component {
             case "Child": this.sumKids(); break;
             case "Senior": this.sumSeniors(); break;
         }; 
-        totalPrice();
+        this.totalPrice();
     }
     
     setTicketType(e){
@@ -115,9 +115,9 @@ export default class Booking extends React.Component {
     }
     
     totalPrice(){
-        var totalAdultPrice = this.state.adultTick * PriceList.Price[0].price;
-        var totalKidPrice = this.state.kidTick * PriceList.Price[1].price;
-        var totalSeniorPrice = this.state.seniorTick * PriceList.Price[2].price;
+        var totalAdultPrice = this.state.adultTick * PriceList.price[0].price;
+        var totalKidPrice = this.state.kidTick * PriceList.price[1].price;
+        var totalSeniorPrice = this.state.seniorTick * PriceList.price[2].price;
         var totalOverallPrice = totalAdultPrice + totalKidPrice + totalSeniorPrice;
         return (parseFloat(totalOverallPrice).toFixed(2));
     }
@@ -126,7 +126,7 @@ export default class Booking extends React.Component {
     return (
           <div className = 'bookingSystem'>
             
-            <div className = "filmNameDisplay" style = {{backgroundImage : 'url(../../../res/img/back.jpg)'}}><br /><br /><br /><br />
+            <div className = "filmNameDisplay" style = {{backgroundImage : 'url(/img/back.jpg)'}}><br /><br /><br /><br />
                 <h2 className = 'bookingHeading'>Booking</h2>
                 <h3 className = 'bookingHeading2'>Film Name</h3>
             </div>
