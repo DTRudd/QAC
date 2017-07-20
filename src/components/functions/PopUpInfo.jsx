@@ -2,14 +2,18 @@ import React from 'react';
 import {Link} from 'react-router';
 import Reviews from './Reviews';
 
+
+//Code to show information, comments and the trailer for a film, this is called when the film tiles are clicked on. _ Michael Green 
 export default class PopUpInfo extends React.Component{
 	
+	//constructor for this class, takes in props from other classes
 	constructor(props){
 		super(props);
 		this.state={
 		}
 	}
 	
+	//render method for this class, showing the film name, description and trailer for the film. 
 	render(){
 		return(
 		<div className="popUpInfoBox">
