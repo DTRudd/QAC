@@ -7,17 +7,15 @@ export default class Thread extends React.Component {
     this.state = {
       thread:this.props.thread
     }
-    console.log(this.state.thread);
   }
   render() {
-    console.log("THREAD.JSX IS BEING CALLED");
-    console.log(this.state.thread.posts);
     return (
-      <div>
-        <h1 className="mdl-layout-title mdl-color-text--white">{this.props.thread.title}</h1>
+      <div> 
+        <h1 className="mdl-cell mdl-cell--12-col mdl-layout-title mdl-color-text--white">{this.props.thread.title}</h1>
         {this.state.thread.posts.map((post) =>
           <Post post={post} key={post.id} />
         )}
+        <button className="mdl-cell mdl-cell--2-col mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500">Reply to thread</button>
       </div>
     );
   }

@@ -34,7 +34,7 @@ table, tr, th, td {
     width:25%;
 }
 
-.mdl-grid{
+.film-grid{
     align-items: center;
     justify-content: center;
     display: -webkit-flex;
