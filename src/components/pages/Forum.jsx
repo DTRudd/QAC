@@ -8,10 +8,30 @@ export default class Forum extends React.Component {
     this.state = {
       threads:threads.threads,
       activeThread:[],
-      createThread:false
+      createThread:false,
+      threadTitle:'',
+      threadContent:''
     }
     this.toggleCreateThreadOn = this.toggleCreateThreadOn.bind(this);
     this.toggleCreateThreadOff = this.toggleCreateThreadOff.bind(this);
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleContentChange = this.handleContentChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleTitleChange(event) {
+    this.setState({
+      threadTitle:event.target.value
+    });
+  }
+  handleContentChange(event) {
+    this.setState({
+      threadContent:event.target.value
+    });
+  }
+  handleSubmit(event) {
+    alert(this.state.threadTitle + '\n' + this.state.threadContent);
+    event.preventDefault();
   }
 
   displayThread(threadID) {
@@ -60,10 +80,10 @@ export default class Forum extends React.Component {
         }
         <div className="mdl-cell mdl-cell--12-col"></div>
         {this.state.createThread === true ?
-          <form id="create_thread" action="#">
+          <form id="create_thread" onSubmit={this.handleSubmit}>
             <div className="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
-              <input placeholder="Thread title" className="mdl-cell mdl-cell--3-col-tablet mdl-cell--2-col-phone mdl-textfield__input mdl-color--grey-800" type="text" id="titleInp" />
-              <textarea placeholder="Post content" className="mdl-cell mdl-cell--8-col mdl-cell--6-col-tablet mdl-cell-4-col-phone mdl-textfield__input mdl-color--grey-800" cols="80" rows="5" type="text" id="contentInp"></textarea>
+              <input placeholder="Thread title" onChange={this.handleTitleChange} className="mdl-cell mdl-cell--3-col-tablet mdl-cell--2-col-phone mdl-textfield__input mdl-color--grey-800" type="text" id="titleInp" />
+              <textarea placeholder="Post content" onChange={this.handleContentChange} className="mdl-cell mdl-cell--8-col mdl-cell--6-col-tablet mdl-cell-4-col-phone mdl-textfield__input mdl-color--grey-800" cols="80" rows="5" type="text" id="contentInp"></textarea>
             </div>
             <button className="mdl-cell mdl-cell--3-col mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500">Post</button>
             <button onClick={this.toggleCreateThreadOff} className="mdl-cell mdl-cell--3-col mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500">Cancel</button>

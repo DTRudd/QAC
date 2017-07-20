@@ -27,6 +27,7 @@ export default class Sitemap extends React.Component{
           <h1 className="mdl-mega-footer__heading">Account Features</h1>
           <ul className="mdl-mega-footer__link-list">
             <li><Link to="/Login">Log in</Link></li>
+            <li><Link to="/Forum">Forums</Link></li>
           </ul>
         </div>
       </div>
