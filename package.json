@@ -21,7 +21,6 @@
     "babel-preset-react": "^6.24.1",
     "commonmark": "^0.27.0",
     "mdl-selectfield": "^1.0.4",
-    "mongoose": "^4.11.3",
     "nuka-carousel": "^2.0.4",
 	"react-cookies": "0.1.0",
     "react": "^15.6.1",
