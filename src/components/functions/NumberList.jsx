@@ -39,7 +39,7 @@ export default class NumberList extends React.Component {
 
   render() {
     return (
-      <div className="mdl-grid">
+      <div className="mdl-grid film-grid">
         {this.state.films.map((film) =>
           <div onClick={this.changeActiveFilm.bind(this,film.id-1)}>
             <ListItem key={film.id}

@@ -32,7 +32,7 @@ import PopUpInfo from './PopUpInfo';
 	render() {
     const films = this.props.films;
 		return (
-			<div className="mdl-grid">
+			<div className="mdl-grid film-grid">
 			  {films.map((film) =>
 			  <FilmPageListItem key={film.id}
 					 film={film} onClick={this.onSelect.bind(this)} />

@@ -14,6 +14,7 @@ export default class Nav extends React.Component{
           <Link to="/FAQ" className="pageLink mdl-navigation__link mdl-color-text--white" activeClassName="active">FAQs</Link>
           <Link to="/contact" className="pageLink mdl-navigation__link mdl-color-text--white" activeClassName="active">Contact</Link>
           <Link to="/Booking" className="pageLink mdl-navigation__link mdl-color-text--white" activeClassName="active">Booking</Link>
+          <Link to="/Forum" className="pageLink mdl-navigation__link mdl-color-text--white" activeClassName="active">Forums</Link>
           <div className="mdl-layout-space"></div>
           <Link to="/Login" className="pageLink mdl-navigation__link mdl-color-text--white" activeClassName="active"><button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500 mdl-color-text--white">Log in/Sign up</button></Link>
         </nav>
