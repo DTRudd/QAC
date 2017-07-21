@@ -15,7 +15,6 @@ export default class Prices extends React.Component{
     var price_list = price;
     var prices_temp_array = [];
     var ticket_temp_array = [];
-    console.log(price_list.price[2].price);
     for (var i = 0; i < price_list.price.length; i++){
       ticket_temp_array.push(price_list.price[i].price_category);
       prices_temp_array.push(price_list.price[i].price);

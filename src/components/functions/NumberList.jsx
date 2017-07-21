@@ -13,7 +13,6 @@ export default class NumberList extends React.Component {
       films:filmArray
     };
     this.changeActiveFilm = this.changeActiveFilm.bind(this);
-    console.log(this.state.films);
   }
 
   changeActiveFilm(index) {
@@ -34,14 +33,13 @@ export default class NumberList extends React.Component {
     this.setState({
       films:filmsTmp
     });
-    console.log(this.state.films);
   }
 
   render() {
     return (
       <div className="mdl-grid film-grid">
         {this.state.films.map((film) =>
-          <div onClick={this.changeActiveFilm.bind(this,film.id-1)}>
+          <div key={film.id} onClick={this.changeActiveFilm.bind(this,film.id-1)}>
             <ListItem key={film.id}
               film={film} />
           </div>
