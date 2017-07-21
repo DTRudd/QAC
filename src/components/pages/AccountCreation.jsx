@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 
+import apiConnect from '../../api/apiConnect';
+
 export default class AccountCreation extends Component {
+	constructor() {
+		super();
+		this.state = {
+			uname: '',
+			email: '',
+			userpass: '',
+			userpass_retype: '',
+			error: ''
+		}
+		
+	}
 	
 	closeAccounts(action) {
 		this.props.toggleAccountView(action);
@@ -10,7 +23,52 @@ export default class AccountCreation extends Component {
 		this.props.navigateTo(action);
 	}
 	
+  handleChange(e) {
+	  this.setState({
+				[e.target.name]: e.target.value
+	  });
+  }
+	
+  authoriseAccountCreation(e) {
+	  const { uname, email, userpass, userpass_retype } = this.state;
+	  
+	  if(userpass === userpass_retype) {
+		  const dateTime = Date.now(),
+				date = new Date(dateTime).toUTCString(),
+				username = uname.toLowerCase(),
+				emailAdd = email.toLowerCase(),
+				data = {
+				username: username,
+				email: emailAdd,
+				password: userpass,
+				date: date
+			},
+			formBody = Object.keys(data)
+							 .map(key=>encodeURIComponent(key)+'='+encodeURIComponent(data[key]))
+							 .join('&');
+				
+		  apiConnect.createAccount(formBody, createAuth => {
+			  if(createAuth.message && createAuth.message === 'Account successfully created!') {
+				  apiConnect.fetchAccounts(username, userpass, dateTime, auth => {
+					  if(auth.sessionId && auth.session) {
+						  if(auth.session.datetime === dateTime && auth.session.username === username) {
+							  this.props.authentication(auth.sessionId, auth.session.datetime, auth.session.username, auth.session.expires);
+						  }
+					  }
+				  });
+			  }
+		  });
+	  } else {
+		  this.setState({
+					error: 'Error: Passwords do not match!'
+		  });
+	  }
+	  e.preventDefault();
+	  
+  }
+	
 	render() {
+		const { uname, email, userpass, userpass_retype } = this.state;
 		return(
 			<div id="account-box">
 				<div className="mdl-layout mdl-js-layout">
@@ -20,26 +78,27 @@ export default class AccountCreation extends Component {
 								<h2 className="mdl-card__title-text">Create an account</h2>
 								<span className="accountClose" onClick={() => this.closeAccounts('CLOSE')}>X</span>
 							</div>
+							{this.state.error !== '' ? this.state.error : ''}
+						<form onSubmit={this.authoriseAccountCreation.bind(this)}>
 						  <div className="mdl-card__supporting-text">
-								<form action="#">
 									<div className="mdl-textfield mdl-js-textfield">
-										<input className="mdl-textfield__input" placeholder="Username" type="text" id="username" />
+										<input className="mdl-textfield__input" placeholder="Username" type="text" id="username" name="uname" value={uname} onChange={this.handleChange.bind(this)} />
 									</div>
 									<div className="mdl-textfield mdl-js-textfield">
-										<input className="mdl-textfield__input" placeholder="Email" type="text" id="email" />
+										<input className="mdl-textfield__input" placeholder="Email" type="text" id="email" name="email" value={email} onChange={this.handleChange.bind(this)} />
 									</div>
 									<div className="mdl-textfield mdl-js-textfield">
-										<input className="mdl-textfield__input" placeholder="Password" type="password" id="userpass" />
+										<input className="mdl-textfield__input" placeholder="Password" type="password" id="userpass" name="userpass" value={userpass} onChange={this.handleChange.bind(this)} />
 									</div>
 									<div className="mdl-textfield mdl-js-textfield">
-										<input className="mdl-textfield__input" placeholder="Retype password" type="password" id="userpass_retype" />
+										<input className="mdl-textfield__input" placeholder="Retype password" type="password" id="userpass_retype" name="userpass_retype" value={userpass_retype} onChange={this.handleChange.bind(this)} />
 									</div>
-								</form>
 							</div>
 							<div className="mdl-card__actions mdl-card--border">
-								<span><button className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Create account</button></span>
+								<span><button className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit" name="submit">Create account</button></span>
 								<span className="account_link" onClick={() => this.navigateAccounts('LOGIN')}>Already got an account? Login</span>
 							</div>
+						</form>
 						</div>
 					</main>
 				</div>

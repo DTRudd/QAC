@@ -60,7 +60,7 @@ router.get('/', function(req, res) {
 });
 
 
-router.route('/accounts').get(function(req, res) {
+router.route('/create-account').get(function(req, res) {
  //looks at our Schema
 Account.find(function(err, accounts) {
 	if (err)
@@ -70,11 +70,10 @@ Account.find(function(err, accounts) {
 })//post new account to the database
 	.post(function(req, res) {
 	var account = new Account();//body parser lets us use the req.body
-	account.account_id = req.body.account_id;
 	account.username = req.body.username;
 	account.email = req.body.email;
 	account.password = req.body.password;
-	console.log(req.body.account_id);
+	account.date = req.body.date;
 	account.save(function(err) {
 		if (err)
 			 res.send(err);
@@ -163,7 +162,7 @@ router.route('/account').get((req, res) => {
 	const r =((username, pass, dateTime) => {
 		return Account.findOne({ username:{ $eq: username }, password: { $eq: pass } }, { _id: 0, account_id: 1, username: 1, password: 1 }, (err, accounts) => {
 			if (err) return res.send(err);
-			if (accounts !== null) {
+			if (accounts !== null) {				
 				const twentyFourHours = 86400000;
 				const expiration = new Date(parseInt(dateTime) + twentyFourHours);
 				res.cookie(`QAC_user-${username}=${req.session.id + dateTime};`, { httpOnly: false, secure: false, maxAge: `${twentyFourHours};`, expires: `${expiration.toUTCString()};`, signed: true });

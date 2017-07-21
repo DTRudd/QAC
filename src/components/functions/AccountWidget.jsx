@@ -14,12 +14,10 @@ const AccountWidget = (props) => {
 			  return <AccountCreation
 							navigateTo={props.navigateTo.bind(this)}
 							toggleAccountView={props.toggleAccountView.bind(this)}
+							authentication={props.authentication.bind(this)}
 						/>;
 			case 'LOADING':
-			  return <AccountLoading 
-							navigateTo={props.navigateTo.bind(this)}
-							toggleAccountView={props.toggleAccountView.bind(this)}
-						/>;
+			  return <AccountLoading />;
 			default:
 			  return <div></div>;	
 		}	
