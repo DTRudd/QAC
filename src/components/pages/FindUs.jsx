@@ -25,7 +25,6 @@ export default class FindUs extends Component {
     
   render() {
 	  const { Lat, Lng } = this.state;
-	  console.log(Lat);
     return (
       <div className="mdl-color-text--white mdl-color--grey-700">
         <div className="mdl-grid">

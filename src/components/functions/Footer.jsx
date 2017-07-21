@@ -16,7 +16,6 @@ export default class Footer extends React.Component{
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
-    console.log(this.state.date);
   }
 
   getSuffix(dayNum) {
