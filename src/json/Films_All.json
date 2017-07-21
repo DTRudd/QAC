@@ -69,7 +69,30 @@
 			"trailer":"https://www.youtube.com/embed/VSB4wGIdDwo",
 			"comments":[
 								"comment 9.1",
-								"comment 9.2"]}
-		
+								"comment 9.2"]},
+								
+		{"id":"10", "film_name":"Deadpool", "release_date":"2016","age_rating":"/img/ratings/BBFC_15_(2002).svg",
+			"img":"img/Deadpool.jpg", "quote":"With great power comes great irresponsibility.",
+			"film_description":"This is the origin story of former Special Forces operative turned mercenary Wade Wilson, who after being subjected to a rogue experiment that leaves him with accelerated healing powers, adopts the alter ego Deadpool. Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life.",
+			"trailer":"https://www.youtube.com/embed/FyKWUTwSYAs",
+			"comments":[
+								"comment 10.1",
+								"comment 10.2"]},
+								
+		{"id":"11", "film_name":"Casablanca", "release_date":"1942","age_rating":"/img/ratings/BBFC_U_(2002).svg",
+			"img":"img/Casablanca.jpg", "quote":"They had a date with fate in Casablanca! ",
+			"film_description":"The story of Rick Blaine, a cynical world-weary ex-patriate who runs a nightclub in Casablanca, Morocco during the early stages of WWII. Despite the pressure he constantly receives from the local authorities, Rick's cafe has become a kind of haven for refugees seeking to obtain illicit letters that will help them escape to America. But when Ilsa, a former lover of Rick's, and her husband, show up to his cafe one day, Rick faces a tough challenge which will bring up unforeseen complications, heartbreak and ultimately an excruciating decision to make.",
+			"trailer":"https://www.youtube.com/embed/BkL9l7qovsE",
+			"comments":[
+								"comment 11.1",
+								"comment 11.2"]},
+								
+		{"id":"12", "film_name":"Star Wars: Episode I - The Phantom Menace", "release_date":"1999","age_rating":"/img/ratings/BBFC_U_(2002).svg",
+			"img":"img/StarWars.jpg", "quote":"One truth, one hate.",
+			"film_description":"The evil Trade Federation, led by Nute Gunray is planning to take over the peaceful world of Naboo. Jedi Knights Qui-Gon Jinn and Obi-Wan Kenobi are sent to confront the leaders. But not everything goes to plan. The two Jedi escape, and along with their new Gungan friend, Jar Jar Binks head to Naboo to warn Queen Amidala, but droids have already started to capture Naboo and the Queen is not safe there. Eventually, they land on Tatooine, where they become friends with a young boy known as Anakin Skywalker. Qui-Gon is curious about the boy, and sees a bright future for him. The group must now find a way of getting to Coruscant and to finally solve this trade dispute, but there is someone else hiding in the shadows. Are the Sith really extinct? Is the Queen really who she says she is? And what's so special about this young boy?",
+			"trailer":"https://www.youtube.com/embed/bD7bpG-zDJQ",
+			"comments":[
+								"comment 12.1",
+								"comment 12.2"]}
 	]
 }
