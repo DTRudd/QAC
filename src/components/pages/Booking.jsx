@@ -7,6 +7,7 @@ export default class Booking extends React.Component {
     constructor(){
         super();
         this.state={
+            filmName: '',
             ticketQuantity : 1,
             adultTick : 0,
             kidTick : 0,
@@ -21,7 +22,16 @@ export default class Booking extends React.Component {
             chosenSeats: '',
         };
     }
+    
+    componentWillMount(){
+        this.setState({filmName: localStorage.getItem('filmName')});
+  
+    }
    
+    componentWillUnmount(){
+      
+    }
+    
     increaseTicketQuantity(){
         if (this.state.ticketQuantity > 0 && this.state.ticketQuantity <5){
         this.setState({ticketQuantity : this.state.ticketQuantity+1});
@@ -128,7 +138,7 @@ export default class Booking extends React.Component {
             
             <div className = "filmNameDisplay" style = {{backgroundImage : 'url(/img/back.jpg)'}}><br /><br /><br /><br />
                 <h2 className = 'bookingHeading'>Booking</h2>
-                <h3 className = 'bookingHeading2'>Film Name</h3>
+                <h3 className = 'bookingHeading2'>{this.state.filmName}</h3>
             </div>
             
 <div className = 'ticketDetailsSelection'>           
@@ -224,7 +234,7 @@ export default class Booking extends React.Component {
                 </div> : ''}
             </div>
                   
-                  
+                <br></br>
                 <hr className = 'pageSplit' width = '75%'/>
 
     <table className = 'setOut2'>      

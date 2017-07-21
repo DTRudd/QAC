@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "startmac": "concurrently \"npm run api\" \"npm run webmac\"",
+    "webmac": "PORT=8080 react-scripts start",
     "start": "concurrently \"npm run api\" \"npm run web\"",
     "web": "set PORT=8080 && react-scripts start",
     "api": "node start-api.js",
@@ -28,7 +30,7 @@
   },
   "devDependencies": {
     "react-scripts": "1.0.10",
-	"concurrently": "3.5.0"
+    "concurrently": "3.5.0"
   },
   "repository": {
     "type": "git",
