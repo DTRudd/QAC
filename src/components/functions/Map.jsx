@@ -11,7 +11,6 @@ export default class Map extends Component {
 	}
 	
 	loadMap(props) {
-		console.log(props.lat);
 		var maps = new window.GMaps({
 		  el: '#map',
 		  lat: props.lat,
