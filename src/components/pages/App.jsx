@@ -25,7 +25,6 @@ export default class App extends React.Component {
 	  authenticated: false,
 	  displayAccountPage: false,
 	  accountPage: '',
-	  loading: false
     }
   }
   
@@ -42,8 +41,6 @@ export default class App extends React.Component {
 			if(session.status === "OK") {
 				const { id, uname, datetime, expires } = session.session;
 				if(cookie.load('QAC_user-'+uname) === id+datetime) {
-					this.setState({ loading: true });
-					setTimeout(() =>
 					  this.setState({
 								userSession: {
 										sessionID: id,
@@ -53,7 +50,8 @@ export default class App extends React.Component {
 								},
 								authenticated: true,
 								loading: false
-					  }), 500);
+					  });
+					setTimeout(() => this.toggleAccountsPage(''), 500);
 				}
 			  
 			}
@@ -83,21 +81,23 @@ export default class App extends React.Component {
   
   //code to sort info from JSON file.
   componentWillMount() {
+	if(this.isAuthenticated() === false) {
+		this.toggleAccountsPage('LOADING');
+		this.authenticateSession();
+	}
     this.getInfo();
   }
   
   componentDidMount() {//@Auther: Greg
-	if(this.isAuthenticated() === false) {
-		this.authenticateSession();
-	}
+
   }
 	  
   
   getInfo(){
-    var myFilmList = filmsList.films;
-    this.setState({films:myFilmList});
-    var myLocsList = locsList.Location;
-    this.setState({locations:myLocsList});
+    this.setState({
+				locations:locsList.Location,
+				films:filmsList.films
+			});
   }
   
   toggleAccountsPage(accountsPage) {//@Auther: Greg
@@ -128,7 +128,6 @@ export default class App extends React.Component {
 	const { films, locations, displayAccountPage, accountPage } = this.state;
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
-	  {this.state.loading ? this.loading() : ''}
         <Nav toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} />
         <Drawer />
         <div className="mdl-layout__content page-content mdl-color--black">
