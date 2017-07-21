@@ -240,19 +240,25 @@ table, tr, th, td {
 
 .filmNameDisplay{
     background-size: cover;
-    height: 250px;
+    height: 275px;
 }
 
 .bookingHeading{
     padding-left: 50px;
+    color: black;
+    
 }
 
 .bookingHeading2{
     padding-left: 50px;
     padding-bottom: 10px;
+    color: black;
+    text-shadow: 1px 1px white;
 }
 .ticketDetailsSelection{
     background: white;
+    padding-top: 50px;
+    padding-bottom: 150px;
 }
 
 .pageSplit{
@@ -263,6 +269,7 @@ table, tr, th, td {
     border: none;
     margin: auto;
     padding: 20px;
+    padding-bottom: 20px;
 }
 
 .setOut tr td:first-child{
