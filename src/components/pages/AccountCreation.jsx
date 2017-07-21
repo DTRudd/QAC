@@ -20,7 +20,7 @@ export default class AccountCreation extends Component {
 								<h2 className="mdl-card__title-text">Create an account</h2>
 								<span className="accountClose" onClick={() => this.closeAccounts('CLOSE')}>X</span>
 							</div>
-						<div className="mdl-card__supporting-text">
+						  <div className="mdl-card__supporting-text">
 								<form action="#">
 									<div className="mdl-textfield mdl-js-textfield">
 										<input className="mdl-textfield__input" placeholder="Username" type="text" id="username" />
@@ -46,5 +46,4 @@ export default class AccountCreation extends Component {
 			</div>
 		);
 	}
-	
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import PriceList from '../../json/prices.json';
-import Locations from '../../json/Locations.json';
 
 export default class Booking extends React.Component {
     
@@ -94,10 +93,10 @@ export default class Booking extends React.Component {
     
     sumTotal(){
         switch (this.state.ticketType){
-            case "blank": break;
-            case "Adult": this.sumAdults();break;
-            case "Child": this.sumKids(); break;
+            case "Adult":  this.sumAdults();break;
+            case "Child":  this.sumKids(); break;
             case "Senior": this.sumSeniors(); break;
+            default:       break;
         }; 
         this.totalPrice();
     }

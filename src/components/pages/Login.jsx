@@ -31,7 +31,7 @@ export default class Login extends Component {
 	  const dateTime = Date.now();
 	  apiConnect.fetchAccounts(uname, pass, dateTime, auth => {
 		  if(auth.sessionId && auth.session) {
-			  if(auth.session.datetime == dateTime && auth.session.username === uname) {
+			  if(auth.session.datetime === dateTime && auth.session.username === uname) {
 				  this.props.authentication(auth.sessionId, auth.session.datetime, auth.session.username, auth.session.expires);
 			  }
 		  }
