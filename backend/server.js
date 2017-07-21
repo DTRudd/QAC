@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Account = require('./schema/accounts');
 var Session = require('./schema/sessions');
+var Thread = require('./schema/forum');
 
 var cookieParser = require('cookie-parser');
 var eSession = require('express-session');
@@ -30,10 +31,10 @@ app.use(eSession({
   resave: true,
   cookie:{ httpOnly: false, secure: false },
   store: new MongoStore({ 
-			mongooseConnection: db,
-			autoRemove: 'interval',
-			autoRemoveInterval: 10
-			})
+    mongooseConnection: db,
+    autoRemove: 'interval',
+    autoRemoveInterval: 10
+  })
 }));
 
 //now we should configure the API to use bodyParser and look for 
@@ -41,65 +42,92 @@ app.use(eSession({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-
 //To prevent errors from Cross Origin Resource Sharing, we will set 
 //our headers to allow CORS with middleware like so:
 app.use(function(req, res, next) {
- res.setHeader('Access-Control-Allow-Origin', '*');
- res.setHeader('Access-Control-Allow-Credentials', 'true');
- res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
- res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
-//and remove cacheing so we get the most recent changes
- res.setHeader('Cache-Control', 'no-cache');
- next();
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
+  //and remove cacheing so we get the most recent changes
+  res.setHeader('Cache-Control', 'no-cache');
+  next();
 });
 //now we can set the route path & initialize the API
 router.get('/', function(req, res) {
- res.json({ message: 'API Initialized!'});
+  res.json({ message: 'API Initialized!'});
 });
 
+router.route('/threads').get(function(req, res) {
+  Thread.find(function(err, accounts) {
+    if (err) {
+      res.send(err);
+    }
+    if (typeof req.query.threadID === 'undefined') {
+      res.json(threads);
+    } else {
+      res.json(threads.find({_id:req.query.threadID});
+    }
+  });
+}).post(function(req, res) {
+  var thread = new Thread();
+  thread._id = req.body._id;
+  thread.title = req.body.title;
+  thread.content = req.body.content;
+  thread.date = new Date();
+  thread.save(function(err) {
+    if (err) {
+      res.send(err);
+    }
+    res.json({ message: 'Thread created.'});
+  });
+});
 
 router.route('/accounts').get(function(req, res) {
- //looks at our Schema
-Account.find(function(err, accounts) {
-	if (err)
-		 res.send(err);//responds with a json object of our database comments.
-	res.json(accounts)
+  //looks at our Schema
+  Account.find(function(err, accounts) {
+	  if (err) {
+	    res.send(err);
+    }
+    //responds with a json object of our database comments.
+	  res.json(accounts)
 	});
-})//post new account to the database
-	.post(function(req, res) {
-	var account = new Account();//body parser lets us use the req.body
-	account.account_id = req.body.account_id;
-	account.username = req.body.username;
-	account.email = req.body.email;
-	account.password = req.body.password;
-	console.log(req.body.account_id);
-	account.save(function(err) {
-		if (err)
-			 res.send(err);
-		res.json({ message: 'Account successfully created!' });
-	});
+})
+
+  //post new account to the database
+.post(function(req, res) {
+  var account = new Account();//body parser lets us use the req.body
+  account.account_id = req.body.account_id;
+  account.username = req.body.username;
+  account.email = req.body.email;
+  account.password = req.body.password;
+  console.log(req.body.account_id);
+  account.save(function(err) {
+    if (err) {
+      res.send(err);
+    }
+    res.json({ message: 'Account successfully created!' });
+  });
 });
 
 router.route('/locate-session').get((req, res) => {
-	const forigenAPIKey = req.query.api;
-	const token = req.session.id
-	const username = req.session.username;
-	const dateTime = req.session.datetime;
-	const expire = req.session.expires;
+  const forigenAPIKey = req.query.api;
+  const token = req.session.id
+  const username = req.session.username;
+  const dateTime = req.session.datetime;
+  const expire = req.session.expires;
 
-	if (localAPIKey !== forigenAPIKey) {
-		res.json({
-		  error: "API key mismatch, Please try again later."
-		});
-		return;
-	}
+  if (localAPIKey !== forigenAPIKey) {
+    res.json({
+      error: "API key mismatch, Please try again later."
+    });
+    return;
+  }
 	
-	const r =((token, username, dateTime, expire) => {
-		return Session.findOne({ _id:{ $eq: token } }, (err, sessions) => {
-			if (err) return res.send(err);
-			if (sessions !== null) {
+  const r =((token, username, dateTime, expire) => {
+    return Session.findOne({ _id:{ $eq: token } }, (err, sessions) => {
+      if (err) return res.send(err);
+      if (sessions !== null) {
 				res.json({ status: "OK", session:{ id: token, uname: username, datetime: dateTime, expires: expire } });
 				return;
 			}
