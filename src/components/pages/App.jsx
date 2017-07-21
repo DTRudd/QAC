@@ -52,7 +52,7 @@ export default class App extends React.Component {
 								authenticated: true,
 								loading: false
 					  });
-					setTimeout(() => this.toggleAccountsPage(''), 500);
+					setTimeout(() => this.toggleAccountsPage(''), 600);
 				}
 			  
 			}
@@ -63,6 +63,7 @@ export default class App extends React.Component {
     if(cookie.load('QAC_user-'+username) === sessionID+dateTime) {
       apiConnect.fetchSession(sessionID, session => {
         if(session.status === "OK") {
+		  this.inlineNavigate('LOADING');
           this.setState({
             userSession: {
               sessionID,
@@ -73,7 +74,7 @@ export default class App extends React.Component {
             authenticated: true,
             loading: false
           });
-          setTimeout(() => this.toggleAccountsPage(''), 500);
+          setTimeout(() => this.toggleAccountsPage(''), 300);
         }
       });
     }    

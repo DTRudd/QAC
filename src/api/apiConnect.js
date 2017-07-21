@@ -28,6 +28,21 @@ function search(query, cb) {
     .then(cb);
 }
 
+
+function createAccount(data, cb) {
+  return fetch(`/api/create-account`, {
+    method: 'post',
+    body: data,
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    }
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(cb);
+}
+
 function fetchAccounts(username, pass, dateTime, cb) {
   return fetch(`/api/account?api=${localAPIKey}&un=${username}&p=${pass}&dt=${dateTime}`, {
 	credentials: 'same-origin',
@@ -74,5 +89,5 @@ function parseJSON(response) {
 }
 
 
-const apiConnect = { search, fetchAccounts, fetchSession, findSession, getThreads, getThreadByID };
+const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount, getThreads, getThreadByID };
 export default apiConnect;
