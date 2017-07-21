@@ -1,22 +1,32 @@
 import React from 'react';
 import Thread from '../functions/Thread.jsx';
-import threads from '../../json/threads.json';
+import apiConnect from '../../api/apiConnect.js';
 
 export default class Forum extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      threads:threads.threads,
-      activeThread:[],
-      createThread:false,
-      threadTitle:'',
-      threadContent:''
+      threads:         [],
+      hasActiveThread: false,
+      activeThread:    [],
+      createThread:    false,
+      threadTitle:     '',
+      threadContent:   ''
     }
+    console.log("ASYNC");
     this.toggleCreateThreadOn = this.toggleCreateThreadOn.bind(this);
     this.toggleCreateThreadOff = this.toggleCreateThreadOff.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleContentChange = this.handleContentChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    apiConnect.getThreads(result => {
+      this.setState({
+        threads: result
+      });
+    });
   }
 
   handleTitleChange(event) {
@@ -35,20 +45,20 @@ export default class Forum extends React.Component {
   }
 
   displayThread(threadID) {
+    this.toggleCreateThreadOff();
     if (threadID === -1) {
       this.setState({
-        activeThread:[]
+        activeThread:    [],
+        hasActiveThread: false
       });
     } else {
-      for (let ii = 0; ii < this.state.threads.length; ii++) {
-        if (this.state.threads[ii]._id === threadID) {
-          this.setState({
-            activeThread:this.state.threads[ii]
-          });
-        }
-      }
+      apiConnect.getThreadByID(threadID, result => {
+        this.setState({
+          activeThread:   result[0],
+          hasActiveThread: true
+        });
+      });
     }
-    this.toggleCreateThreadOff();
   }
 
   toggleCreateThreadOn() {
@@ -66,7 +76,7 @@ export default class Forum extends React.Component {
   render() {
     return(
       <div className="mdl-color-text--white mdl-grid">
-        {this.state.activeThread.length === 0 ? 
+        {this.state.hasActiveThread  === false? 
           (this.state.threads.map((thread) =>
               <h1 onClick={this.displayThread.bind(this,thread._id)} key={thread._id} className="mdl-cell mdl-cell--2-col mdl-layout-title mdl-color-text--white">{thread.title}</h1>
           ))
@@ -79,7 +89,7 @@ export default class Forum extends React.Component {
           )
         }
         <div className="mdl-cell mdl-cell--12-col"></div>
-        {this.state.createThread === true ?
+        {this.state.createThread ?
           <form id="create_thread" onSubmit={this.handleSubmit}>
             <div className="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
               <input placeholder="Thread title" onChange={this.handleTitleChange} className="mdl-cell mdl-cell--3-col-tablet mdl-cell--2-col-phone mdl-textfield__input mdl-color--grey-800" type="text" id="titleInp" />
@@ -89,7 +99,7 @@ export default class Forum extends React.Component {
             <button onClick={this.toggleCreateThreadOff} className="mdl-cell mdl-cell--3-col mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500">Cancel</button>
           </form>
         :
-          this.state.activeThread.length !== 0 ?
+          this.state.hasActiveThread === true ?
             <div></div>
         :
           <button onClick={this.toggleCreateThreadOn} className="mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--2-col-phone mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" >New thread</button>

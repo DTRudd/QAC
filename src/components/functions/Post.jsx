@@ -8,8 +8,8 @@ export default class Post extends React.Component {
     var writer = new HtmlRenderer({smart: true, safe: true});
     return (
       <div className="mdl-cell mdl-cell--10-col mdl-color-text--white mdl-color--grey-800">
-        {renderHTML(writer.render(reader.parse(this.props.post.content)))}
-        <p>{this.props.post.date}</p>
+        {renderHTML(writer.render(reader.parse(this.props.postContent.content)))}
+        <p>{this.props.postContent.date}</p>
       </div>
     );
   }
