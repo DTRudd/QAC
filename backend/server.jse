@@ -59,26 +59,22 @@ router.get('/', function(req, res) {
 });
 
 router.route('/threads').get(function(req, res) {
-  var query;
-  var tID;
-  if (typeof req.query.threadID !== 'undefined') {
-    tID = req.query.threadID;
-    query = Thread.find({"_id":tID});
-  } else {
-    query = Thread.find({});
-  }
-  query.exec(function(err, threads) {
-    res.json(threads);
+  Thread.find(function(err, accounts) {
+    if (err) {
+      res.send(err);
+    }
+    if (typeof req.query.threadID === 'undefined') {
+      res.json(threads);
+    } else {
+      res.json(threads.find({_id:req.query.threadID));
+    }
   });
 }).post(function(req, res) {
   var thread = new Thread();
-  var postDate = new Date();
-  thread._id = req.body.threadID;
+  thread._id = req.body._id;
   thread.title = req.body.title;
-  thread.date = postDate;
-  thread.posts[0]._id = req.body.postID;
-  thread.posts[0].content = req.body.content;
-  thread.posts[0].date = postDate();
+  thread.content = req.body.content;
+  thread.date = new Date();
   thread.save(function(err) {
     if (err) {
       res.send(err);
