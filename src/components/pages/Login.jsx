@@ -12,8 +12,8 @@ export default class Login extends Component {
 		
 	}
   
-  closeAccounts(action) {
-    this.props.toggleAccountView(action);
+  closeAccounts() {
+    this.props.toggleAccountView('CLOSE');
   }
   
   navigateAccounts(action) {
@@ -32,6 +32,7 @@ export default class Login extends Component {
 	  apiConnect.fetchAccounts(uname, pass, dateTime, auth => {
 		  if(auth.sessionId && auth.session) {
 			  if(auth.session.datetime == dateTime && auth.session.username === uname) {
+				  this.navigateAccounts('LOADING');
 				  this.props.authentication(auth.sessionId, auth.session.datetime, auth.session.username, auth.session.expires);
 			  }
 		  }
@@ -50,7 +51,7 @@ export default class Login extends Component {
             <div className="mdl-card mdl-shadow--6dp">
               <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
                 <h2 className="mdl-card__title-text">Login</h2>
-                <span className="accountClose" onClick={() => this.closeAccounts('CLOSE')}>X</span>
+                <span className="accountClose" onClick={() => this.closeAccounts()}>X</span>
               </div>
 			  <form onSubmit={this.authoriseLogin.bind(this)}>
               <div className="mdl-card__supporting-text">
