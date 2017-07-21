@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class Footer extends React.Component{
   constructor(props) {
@@ -7,7 +8,7 @@ export default class Footer extends React.Component{
     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; 
     this.state = {
-      film: 'Goodfellas',
+      film: 'Select a Film',
       location: 'Manchester',
       date: days[d.getDay()] + ' ' + d.getDate() + this.getSuffix(d.getDate()) + ' ' + months[d.getMonth()],
       time: '2:30pm'
@@ -45,6 +46,12 @@ export default class Footer extends React.Component{
     this.setState({date: event.target.value});
   }
 
+  bookNow(){
+        localStorage.setItem('filmName', this.state.film);
+  }
+    
+
+
   render(){
     return(
       <footer className="mdl-mini-footer mdl-color--grey-900">
@@ -79,7 +86,7 @@ export default class Footer extends React.Component{
         <div className="mdl-mini-footer__right-section">
           <ul className="mdl-mini-footer__link-list">
             <li>
-              <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500">Book now!</button>
+              <Link to = '/Booking'><button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick ={this.bookNow.bind(this)}>Book Now</button></Link>
             </li>
           </ul>
         </div>
