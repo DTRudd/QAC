@@ -1,12 +1,13 @@
 import React from 'react';
 import PriceList from '../../json/prices.json';
+import Locations from '../../json/Locations.json';
+import Paypal from '../functions/Paypal';
 
 export default class Booking extends React.Component {
     
     constructor(){
         super();
         this.state={
-            filmName: '',
             ticketQuantity : 1,
             adultTick : 0,
             kidTick : 0,
@@ -21,21 +22,13 @@ export default class Booking extends React.Component {
             chosenSeats: '',
         };
     }
-    
-    componentWillMount(){
-        this.setState({filmName: localStorage.getItem('filmName')});
-  
-    }
    
-    componentWillUnmount(){
-      
-    }
-    
     increaseTicketQuantity(){
         if (this.state.ticketQuantity > 0 && this.state.ticketQuantity <5){
         this.setState({ticketQuantity : this.state.ticketQuantity+1});
         }
     }
+	
     
     decreaseTicketQuantity(){
         if (this.state.ticketQuantity > 1){
@@ -103,10 +96,10 @@ export default class Booking extends React.Component {
     
     sumTotal(){
         switch (this.state.ticketType){
-            case "Adult":  this.sumAdults();break;
-            case "Child":  this.sumKids(); break;
+            case "blank": break;
+            case "Adult": this.sumAdults();break;
+            case "Child": this.sumKids(); break;
             case "Senior": this.sumSeniors(); break;
-            default:       break;
         }; 
         this.totalPrice();
     }
@@ -132,12 +125,13 @@ export default class Booking extends React.Component {
     }
     
   render() {
+	  
     return (
           <div className = 'bookingSystem'>
             
             <div className = "filmNameDisplay" style = {{backgroundImage : 'url(/img/back.jpg)'}}><br /><br /><br /><br />
                 <h2 className = 'bookingHeading'>Booking</h2>
-                <h3 className = 'bookingHeading2'>{this.state.filmName}</h3>
+                <h3 className = 'bookingHeading2'>Film Name</h3>
             </div>
             
 <div className = 'ticketDetailsSelection'>           
@@ -233,7 +227,7 @@ export default class Booking extends React.Component {
                 </div> : ''}
             </div>
                   
-                <br></br>
+                  
                 <hr className = 'pageSplit' width = '75%'/>
 
     <table className = 'setOut2'>      
@@ -251,8 +245,7 @@ export default class Booking extends React.Component {
         </tr>
         <tr>
             <div className = 'reviewAndPayButton'>
-                    <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">REVIEW & PAY
-                    </button>
+                    <Paypal price={this.totalPrice()} /> 
                 </div>
         </tr>
     </table>
@@ -260,6 +253,9 @@ export default class Booking extends React.Component {
             
         
       </div>
+	  
+	  
+	  
     </div>
     );
   }
