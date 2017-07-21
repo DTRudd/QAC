@@ -9,14 +9,18 @@ export default class DropDownInfo extends React.Component{
 			
 		}
 	}
+    
+    bookNow(){
+        localStorage.setItem('filmName', this.props.film_name);
+    }
 	
 	render(){
 		return(
 		<div className="drop-down-information mdl-color-text--white"> 
 			<p>{this.props.film_name}</p>
 			<p>{this.props.film_description}</p>
-			<Link to="/Login" activeClassName="active">
-				<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" > Book now </button>
+			<Link to="/Booking" activeClassName="active">
+				<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick = {this.bookNow.bind(this)}>Book now</button>
 			</Link>
 		</div>
 	);
