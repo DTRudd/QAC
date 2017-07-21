@@ -29,11 +29,11 @@ export default class App extends React.Component {
   }
   
   isAuthenticated() {//@Auther: Greg
-	  return this.isAuthExpired() === false && this.state.authenticated === true ? true : false;
+    return this.isAuthExpired() === false && this.state.authenticated === true ? true : false;
   }
   
   isAuthExpired() {//@Auther: Greg
-	 return this.state.userSession.expires <= Date.now() ? true : false;
+   return this.state.userSession.expires <= Date.now() ? true : false;
   }
   
   authenticateSession() {//@Auther: Greg
@@ -56,27 +56,26 @@ export default class App extends React.Component {
 			  
 			}
 		});
-	  
   }
   
   authenticateLogin(sessionID, dateTime, username, expires) {//@Auther: Greg
-	  if(cookie.load('QAC_user-'+username) === sessionID+dateTime) {
-		apiConnect.fetchSession(sessionID, session => {
-			if(session.status === "OK") {
-			  this.setState({
-						userSession: {
-								sessionID,
-								dateTime,
-								username,
-								expires
-						},
-						authenticated: true,
-						loading: false
-			  });
-			  setTimeout(() => this.toggleAccountsPage(''), 500);
-			}
-		});
-	  }	  
+    if(cookie.load('QAC_user-'+username) === sessionID+dateTime) {
+      apiConnect.fetchSession(sessionID, session => {
+        if(session.status === "OK") {
+          this.setState({
+            userSession: {
+              sessionID,
+              dateTime,
+              username,
+              expires
+            },
+            authenticated: true,
+            loading: false
+          });
+          setTimeout(() => this.toggleAccountsPage(''), 500);
+        }
+      });
+    }    
   }
   
   //code to sort info from JSON file.
@@ -89,9 +88,8 @@ export default class App extends React.Component {
   }
   
   componentDidMount() {//@Auther: Greg
-
   }
-	  
+    
   
   getInfo(){
     this.setState({
@@ -101,45 +99,45 @@ export default class App extends React.Component {
   }
   
   toggleAccountsPage(accountsPage) {//@Auther: Greg
-	  this.setState({
-		displayAccountPage: !this.state.displayAccountPage,
-		accountPage: accountsPage
-	  });
+    this.setState({
+      displayAccountPage: !this.state.displayAccountPage,
+      accountPage: accountsPage
+    });
   }
   
   inlineNavigate(accountsPage) {//@Auther: Greg
-	  this.setState({
-		accountPage: accountsPage
-	  });
+    this.setState({
+      accountPage: accountsPage
+    });
   }
   
   loading() {
-	  return(
-		<div className="loading-outer">
-			<div className="loading-inner">
-						Loading...
-			</div>
-		</div>
-	  );
+    return(
+      <div className="loading-outer">
+        <div className="loading-inner">
+          Loading...
+        </div>
+      </div>
+    );
   }
   
 
   render() {
-	const { films, locations, displayAccountPage, accountPage } = this.state;
+    const { films, locations, displayAccountPage, accountPage } = this.state;
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
         <Nav toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} />
         <Drawer />
         <div className="mdl-layout__content page-content mdl-color--black">
-          <div >
+          <div>
             {this.props.children}
           </div>
-          <div >
+          <div>
             <Sitemap />
           </div>
         </div>
         <Footer films={films} locations={locations}/>
-		{displayAccountPage ? <AccountWidget accountsPage={accountPage} navigateTo={this.inlineNavigate.bind(this)} toggleAccountView={this.toggleAccountsPage.bind(this)} authentication={this.authenticateLogin.bind(this)} /> : ''}
+        {displayAccountPage ? <AccountWidget accountsPage={accountPage} navigateTo={this.inlineNavigate.bind(this)} toggleAccountView={this.toggleAccountsPage.bind(this)} authentication={this.authenticateLogin.bind(this)} /> : ''}
       </div>
     );
   }

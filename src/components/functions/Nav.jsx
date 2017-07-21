@@ -3,18 +3,18 @@ import {IndexLink} from 'react-router';
 import {Link} from 'react-router';
 
 export default class Nav extends React.Component{
-	
-	propagateAccounts() {
-		this.props.toggleAccountView('LOGIN');
-	}
-	
+  
+  propagateAccounts() {
+    this.props.toggleAccountView('LOGIN');
+  }
+  
   render(){
     return(
       <header className="mdl-layout__header mdl-color--grey-900" id="menu">
         <nav className="mdl-layout__header-row mdl-layout--large-screen-only">
           <IndexLink to="/" className="pageLink mdl-navigation__link" activeClassName="active">QA</IndexLink>
           <nav className="mdl-navigation">
-			<Link to="/Films" className="pageLink mdl-navigation__link" activeClassName="active">Films</Link> 
+            <Link to="/Films" className="pageLink mdl-navigation__link" activeClassName="active">Films</Link> 
             <Link to="/FindUs" className="pageLink mdl-navigation__link" activeClassName="active">Find us</Link>         
             <span id="info-menu-lower-left" className="mdl-js-button mdl-navigation__link">Information</span>
             <ul className="mdl-menu mdl-menu--buttom-left mdl-js-menu" htmlFor="info-menu-lower-left">
@@ -28,16 +28,16 @@ export default class Nav extends React.Component{
           <div className="mdl-layout-spacer"></div>
           <nav className="mdl-navigation">
             <span id="account_NavButton">
-								{this.props.isAuth ? 
-										<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.propagateAccounts.bind(this)}>
-													My Account
-										</button> :
-										<button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.propagateAccounts.bind(this)}>
-													Log in/Sign up
-										</button>
-									}
-													
-			</span> 
+              {this.props.isAuth ? 
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.propagateAccounts.bind(this)}>
+                  My Account
+                </button>
+              :
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.propagateAccounts.bind(this)}>
+                  Log in/Sign up
+                </button>
+              }            
+            </span> 
           </nav>
         </nav>
       </header>
