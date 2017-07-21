@@ -375,3 +375,27 @@ table, tr, th, td {
     height: 100px;
     margin: -50px auto 0;
 }
+
+
+.bookNowButtonDiv{
+    display: block;
+    padding-left: 50%;
+	margin-top: 5%;
+	font-size:40px;
+}
+
+.filmInfoCloseButton{
+	margin-top: 20px;
+	margin-left: 80%;   
+	position: absolute;
+    font-size: 20px;
+    color: #fff;
+    border: 2px solid #ffffff;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    box-shadow: 1px 1px 6px 0px #000;
+    cursor: pointer;
+    -moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
