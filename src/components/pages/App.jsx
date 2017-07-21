@@ -75,6 +75,7 @@ export default class App extends React.Component {
 						authenticated: true,
 						loading: false
 			  });
+			  setTimeout(() => this.toggleAccountsPage(''), 500);
 			}
 		});
 	  }	  

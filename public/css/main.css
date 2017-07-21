@@ -113,8 +113,17 @@ table, tr, th, td {
 }
 
 #account-box .mdl-layout__content {
+	  position: absolute;
 	  padding: 24px;
 	  display: grid;
+}
+
+#account-box .account-loading .mdl-layout__content {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    margin: -124px auto 0 -189px;
 }
 
 #account-box .mdl-card {
