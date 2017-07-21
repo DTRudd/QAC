@@ -41,6 +41,7 @@ export default class App extends React.Component {
 			if(session.status === "OK") {
 				const { id, uname, datetime, expires } = session.session;
 				if(cookie.load('QAC_user-'+uname) === id+datetime) {
+					this.toggleAccountsPage('LOADING');
 					  this.setState({
 								userSession: {
 										sessionID: id,
@@ -81,7 +82,6 @@ export default class App extends React.Component {
   //code to sort info from JSON file.
   componentWillMount() {
 	if(this.isAuthenticated() === false) {
-		this.toggleAccountsPage('LOADING');
 		this.authenticateSession();
 	}
     this.getInfo();
