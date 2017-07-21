@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
 
 export default class AccountLoading extends Component {
-  
-  closeAccounts() {
-    this.props.toggleAccountView('CLOSE');
-  }
-  
-  navigateAccounts(action) {
-    this.props.navigateTo(action);
-  }
-  
+    
   render() {
     return (
       <div id="account-box">
@@ -17,7 +9,7 @@ export default class AccountLoading extends Component {
 			      <main className="mdl-layout__content">
 					<div className="mdl-card mdl-shadow--6dp">
 					  <div>
-							Loading...
+							<img src="/img/loading.gif" alt="Loading..." />
 					  </div>
 					</div>
 				  </main>

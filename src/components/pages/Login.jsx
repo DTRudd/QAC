@@ -28,11 +28,11 @@ export default class Login extends Component {
   
   authoriseLogin(e) {
 	  const { uname, pass } = this.state;
+	  const username = uname.toLowerCase();
 	  const dateTime = Date.now();
-	  apiConnect.fetchAccounts(uname, pass, dateTime, auth => {
+	  apiConnect.fetchAccounts(username, pass, dateTime, auth => {
 		  if(auth.sessionId && auth.session) {
-			  if(auth.session.datetime === dateTime && auth.session.username === uname) {
-				  this.navigateAccounts('LOADING');
+			  if(auth.session.datetime === dateTime && auth.session.username === username) {
 				  this.props.authentication(auth.sessionId, auth.session.datetime, auth.session.username, auth.session.expires);
 			  }
 		  }
