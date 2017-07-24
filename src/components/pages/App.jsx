@@ -16,15 +16,15 @@ export default class App extends React.Component {
     this.state={
       films:[],
       locations:[],
-	  userSession: {
-				sessionID: '',
-				dateTime: '',
-				username: '',
-				expires: 0
-			},
-	  authenticated: false,
-	  displayAccountPage: false,
-	  accountPage: '',
+      userSession: {
+        sessionID: '',
+        dateTime: '',
+        username: '',
+        expires: 0
+      },
+      authenticated: false,
+      displayAccountPage: false,
+      accountPage: '',
     }
   }
   
@@ -37,33 +37,33 @@ export default class App extends React.Component {
   }
   
   authenticateSession() {//@Auther: Greg
-		apiConnect.findSession(session => {
-			if(session.status === "OK") {
-				const { id, uname, datetime, expires } = session.session;
-				if(cookie.load('QAC_user-'+uname) === id+datetime) {
-					this.toggleAccountsPage('LOADING');
-					  this.setState({
-								userSession: {
-										sessionID: id,
-										dateTime: datetime,
-										username: uname,
-										expires
-								},
-								authenticated: true,
-								loading: false
-					  });
-					setTimeout(() => this.toggleAccountsPage(''), 600);
-				}
-			  
-			}
-		});
+    apiConnect.findSession(session => {
+      if(session.status === "OK") {
+        const { id, uname, datetime, expires } = session.session;
+        if(cookie.load('QAC_user-'+uname) === id+datetime) {
+          this.toggleAccountsPage('LOADING');
+            this.setState({
+                userSession: {
+                    sessionID: id,
+                    dateTime: datetime,
+                    username: uname,
+                    expires
+                },
+                authenticated: true,
+                loading: false
+            });
+          setTimeout(() => this.toggleAccountsPage(''), 600);
+        }
+        
+      }
+    });
   }
   
   authenticateLogin(sessionID, dateTime, username, expires) {//@Auther: Greg
     if(cookie.load('QAC_user-'+username) === sessionID+dateTime) {
       apiConnect.fetchSession(sessionID, session => {
         if(session.status === "OK") {
-		  this.inlineNavigate('LOADING');
+      this.inlineNavigate('LOADING');
           this.setState({
             userSession: {
               sessionID,
@@ -82,9 +82,9 @@ export default class App extends React.Component {
   
   //code to sort info from JSON file.
   componentWillMount() {
-	if(this.isAuthenticated() === false) {
-		this.authenticateSession();
-	}
+  if(this.isAuthenticated() === false) {
+    this.authenticateSession();
+  }
     this.getInfo();
   }
   
@@ -94,9 +94,9 @@ export default class App extends React.Component {
   
   getInfo(){
     this.setState({
-				locations:locsList.Location,
-				films:filmsList.films
-			});
+        locations:locsList.Location,
+        films:filmsList.films
+      });
   }
   
   toggleAccountsPage(accountsPage) {//@Auther: Greg
@@ -138,7 +138,10 @@ export default class App extends React.Component {
           </div>
         </div>
         <Footer films={films} locations={locations}/>
-        {displayAccountPage ? <AccountWidget accountsPage={accountPage} navigateTo={this.inlineNavigate.bind(this)} toggleAccountView={this.toggleAccountsPage.bind(this)} authentication={this.authenticateLogin.bind(this)} /> : ''}
+        {displayAccountPage ?
+          <AccountWidget accountsPage={accountPage} navigateTo={this.inlineNavigate.bind(this)} toggleAccountView={this.toggleAccountsPage.bind(this)} authentication={this.authenticateLogin.bind(this)} />
+        :
+          ''}
       </div>
     );
   }

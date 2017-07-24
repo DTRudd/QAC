@@ -1,3 +1,4 @@
+//Sophie
 import React from 'react';
 import {IndexLink} from 'react-router';
 import {Link} from 'react-router';

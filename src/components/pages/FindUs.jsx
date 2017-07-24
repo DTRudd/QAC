@@ -1,3 +1,4 @@
+//Sophie
 import React, { Component } from 'react';
 import Locations from '../../json/Locations.json';
 import Map from '../functions/Map';

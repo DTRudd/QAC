@@ -1,3 +1,4 @@
+//Sophie
 import React from 'react';
 import Thread from '../functions/Thread.jsx';
 import apiConnect from '../../api/apiConnect.js';
