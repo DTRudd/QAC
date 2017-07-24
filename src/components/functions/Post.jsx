@@ -12,7 +12,6 @@ export default class Post extends React.Component {
     var date = dateTime[0].split('-');
     var time = dateTime[1].slice(0,5);
     var suffix = this.getSuffix(date[2]);
-    console.log(date[1]);
     return time + ', ' + date[2] + suffix + ' ' + months[+date[1]-1] + ' ' + date[0];
   }
 

@@ -40,17 +40,13 @@ export default class Forum extends React.Component {
     });
   }
   handleSubmit(event) {
-    console.log("getThreads");
     apiConnect.getThreads(result => {
-      console.log("set threadData");
-      console.log("threads === " + result.length);
       var threadData = {
         'threadID': result.length,
         'title': this.state.threadTitle,
         'postID': result.length + '-0',
         'content': this.state.threadContent
       };
-      console.log("createThread");
       apiConnect.createThread(threadData, postResult => {
         if (postResult.message === 'Thread created.') {
           this.displayThread(result.length);
@@ -65,17 +61,22 @@ export default class Forum extends React.Component {
     if (threadID === -1) {
       apiConnect.getThreads(result => {
         this.setState({
-          activeThread:    [],
+      //    activeThread:    [],
+          activeThread: -1,
           hasActiveThread: false,
           threads: result
         });
       });
     } else {
-      apiConnect.getThreadByID(threadID, result => {
+/*      apiConnect.getThreadByID(threadID, result => {
         this.setState({
           activeThread:   result[0],
           hasActiveThread: true
         });
+      });*/
+      this.setState({
+        activeThread:    threadID,
+        hasActiveThread: true
       });
     }
   }

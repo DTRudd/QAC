@@ -13,7 +13,9 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Account = require('./schema/accounts');
 var Session = require('./schema/sessions');
-var Thread = require('./schema/forum');
+var forum = require('./schema/forum'),
+    Thread = forum.Thread,
+    Post = forum.Post;
 
 var cookieParser = require('cookie-parser');
 var eSession = require('express-session');
@@ -78,17 +80,17 @@ router.route('/threads').get(function(req, res) {
     res.json(threads);
   });
 }).post(function(req, res) {
-  console.log(req);
   var thread = new Thread();
   var postDate = new Date();
-  console.log(postDate);
   thread._id = req.body.threadID;
   thread.title = req.body.title;
   thread.date = postDate;
   thread.posts = [{}];
-  thread.posts[0]._id = req.body.postID;
-  thread.posts[0].content = req.body.content;
-  thread.posts[0].date = postDate;
+  var post = new Post();
+  post._id = req.body.postID;
+  post.content = req.body.content;
+  post.date = postDate;
+  thread.posts[0] = post;
   thread.save(function(err) {
     if (err) {
       return res.send(err);
@@ -97,6 +99,27 @@ router.route('/threads').get(function(req, res) {
   });
 });
 
+router.route('/threads/posts').post(function(req, res) {
+  var post = new Post();
+  var postDate = new Date();
+  console.log(req.body);
+  post._id = req.body.postID;
+  post.date = postDate;
+  post.content = req.body.content;
+  var threadID = req.body.threadID;
+  console.log(threadID);
+  Thread.findByIdAndUpdate(
+    threadID,
+    {$push: {"posts": post}},
+    {safe: true, upsert: true},
+    function(err) {
+      if (err) {
+        return res.send(err);
+      }
+      res.json({ message: 'Posted.'});
+    }
+  );
+});
 
 router.route('/create-account').get(function(req, res) {
  //looks at our Schema
