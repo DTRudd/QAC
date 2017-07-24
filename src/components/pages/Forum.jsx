@@ -14,7 +14,6 @@ export default class Forum extends React.Component {
       threadTitle:     '',
       threadContent:   ''
     }
-    console.log("ASYNC");
     this.toggleCreateThreadOn = this.toggleCreateThreadOn.bind(this);
     this.toggleCreateThreadOff = this.toggleCreateThreadOff.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
