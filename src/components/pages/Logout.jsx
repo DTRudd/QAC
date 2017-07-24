@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import apiConnect from '../../api/apiConnect';
 
-export default class Logout extends Component {
+export default class Logout extends React.Component {
   
   componentWillMount() {
 	this.props.performLogout();

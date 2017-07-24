@@ -1,6 +1,11 @@
+//Michael Green
+
 import React, { Component } from 'react';
-import films from '../../json/Films_All.json';
+//import films from '../../json/Films_All.json';
 import FilmPageList from '../functions/FilmPageList';
+
+import apiConnect from '../../api/apiConnect.js';
+
 export default class Films extends Component {
    
   constructor(){
@@ -10,11 +15,20 @@ export default class Films extends Component {
     }
   }
   
+  componentDidMount() {
+	console.log("component did mount");
+	var result = apiConnect.getFilms();
+	this.setState(films : result);
+	this.getInfo();
+	console.log("end of did mount")
+  }
+  
   //code to sort info from JSON file.
+  /*
   componentWillMount() {
     this.getInfo();
   }
-  
+*/
   getInfo(){
     var myFilmList = films;
     this.setState({films: myFilmList.films_All});

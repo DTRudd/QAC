@@ -14,6 +14,7 @@ var bodyParser = require('body-parser');
 var Account = require('./schema/accounts');
 var Session = require('./schema/sessions');
 var Thread = require('./schema/forum');
+var films = require('./schema/FilmSchema');
 
 var cookieParser = require('cookie-parser');
 var eSession = require('express-session');
@@ -243,6 +244,30 @@ router.route('/account').get((req, res) => {
 			res.json({ authStatus: "FAIL" });
 		});
 	})(username, pass, dateTime);
+	
+});
+
+router.route('/films').get((req, res) => {
+	const forigenAPIKey = req.query.api;
+
+	console.log("server")
+	if (localAPIKey !== forigenAPIKey) {
+		res.json({
+		  error: "API key mismatch, Please try again later."
+		});
+		return;
+	}
+	
+	const r =(() => {
+		return Films_All.find({}, (err, films) => {
+			if (err) return res.send(err);
+			if (films !== null) {
+				res.json({ status: "OK", films: });
+				return;
+			}
+			res.json({ status: "FAIL" });
+		});
+	})();
 	
 });
 

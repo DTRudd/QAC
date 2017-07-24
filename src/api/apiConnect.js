@@ -118,5 +118,16 @@ function parseJSON(response) {
   return response.json();
 }
 
-const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount, processLogout, getThreads, getThreadByID, createThread };
+function getFilms(cb) {
+	console.log("api")
+  return fetch(`/api/films`, {
+    accept: 'application/json'
+  })
+  console.log("fetch")
+  .then(checkStatus)
+  .then(parseJSON)
+  .then(cb);
+}
+
+const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount, processLogout, getThreads, getThreadByID, createThread, getFilms};
 export default apiConnect;
