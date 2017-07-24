@@ -63,9 +63,12 @@ export default class Forum extends React.Component {
   displayThread(threadID) {
     this.toggleCreateThreadOff();
     if (threadID === -1) {
-      this.setState({
-        activeThread:    [],
-        hasActiveThread: false
+      apiConnect.getThreads(result => {
+        this.setState({
+          activeThread:    [],
+          hasActiveThread: false,
+          threads: result
+        });
       });
     } else {
       apiConnect.getThreadByID(threadID, result => {
