@@ -1,11 +1,19 @@
-//Sophie
+/*
+*	Sophie
+*	Greg [Added functions for accounts system]
+*/
+
 import React from 'react';
 import {IndexLink} from 'react-router';
 import {Link} from 'react-router';
 
 export default class Nav extends React.Component{
   
-  propagateAccounts() {
+  logoutAccount() {//@Auther: Greg
+    this.props.toggleAccountView('LOGOUT');
+  }
+  
+  propagateAccounts() {//@Auther: Greg
     this.props.toggleAccountView('LOGIN');
   }
   
@@ -31,8 +39,8 @@ export default class Nav extends React.Component{
           <nav className="mdl-navigation">
             <span id="account_NavButton">
               {this.props.isAuth ? 
-                <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.propagateAccounts.bind(this)}>
-                  My Account
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.logoutAccount.bind(this)}>
+                  Logout
                 </button>
               :
                 <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.propagateAccounts.bind(this)}>

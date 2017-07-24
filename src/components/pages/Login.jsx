@@ -1,3 +1,8 @@
+/*
+*	@Auther: Greg
+*	@Description: Component for handling user login, this component will overlay the page it is called upon.
+*/
+
 import React, { Component } from 'react';
 
 import apiConnect from '../../api/apiConnect';

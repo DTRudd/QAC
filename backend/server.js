@@ -1,3 +1,10 @@
+/*
+*	@Auther: Greg
+*	@Description: Created structure of file to respond to client API requests and created fuctions for both get and post methods. 
+*				  Implimented intergration with mongodb, with mongoose using Schema's,
+*				  Setup of Sessions and Cookies to handle users accounts.
+*/
+
 //server.js
 'use strict'
 //first we import our dependencies…
@@ -110,22 +117,6 @@ Account.find(function(err, accounts) {
 			 res.send(err);
 		res.json({ message: 'Account successfully created!' });
 	});
-})
-
-  //post new account to the database
-.post(function(req, res) {
-  var account = new Account();//body parser lets us use the req.body
-  account.account_id = req.body.account_id;
-  account.username = req.body.username;
-  account.email = req.body.email;
-  account.password = req.body.password;
-  console.log(req.body.account_id);
-  account.save(function(err) {
-    if (err) {
-      res.send(err);
-    }
-    res.json({ message: 'Account successfully created!' });
-  });
 });
 
 router.route('/locate-session').get((req, res) => {
@@ -154,6 +145,33 @@ router.route('/locate-session').get((req, res) => {
 	})(token, username, dateTime, expire);
 	
 });
+
+
+router.route('/logout-session').get((req, res) => {
+	const forigenAPIKey = req.query.api;
+	const token = req.session.id;
+	
+	if (localAPIKey !== forigenAPIKey) {
+		res.json({
+		  error: "API key mismatch, Please try again later."
+		});
+		return;
+	}
+	
+	const r =((token) => {
+		return Session.remove({ _id:{ $eq: token } }, (err, sessions) => {
+			if (err) return res.send(err);
+			if (sessions !== null) {
+				req.session.destroy();
+				res.json({ status: "OK" });
+				return;
+			}
+			res.json({ status: "FAIL" });
+		});
+	})(token);
+	
+});
+
 
 
 router.route('/session').get((req, res) => {

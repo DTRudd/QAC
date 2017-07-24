@@ -37,7 +37,7 @@ export default class AccountCreation extends Component {
 				date = new Date(dateTime).toUTCString(),
 				username = uname.toLowerCase(),
 				emailAdd = email.toLowerCase(),
-				data = {
+			data = {
 				username: username,
 				email: emailAdd,
 				password: userpass,

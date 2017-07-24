@@ -1,3 +1,9 @@
+/*
+*	@Auther: Greg
+*	@Description: Created for communicating with the express API, 
+*				  contains functions to fetch relevant data with callbacks in JSON format.
+*/
+
 //Connection to server
 var localAPIKey = '1928DD301uusu73289GSCJ743lask32367DDSS6Fj5j45dspo534po5t4ruwm3cnbj483989843'
 
@@ -43,6 +49,15 @@ function search(query, cb) {
     .then(cb);
 }
 
+function processLogout(cb) {
+  return fetch(`/api/logout-session?api=${localAPIKey}`, {
+	credentials: 'same-origin',
+    accept: "application/json"
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(cb);
+}
 
 function createAccount(data, cb) {
   return fetch(`/api/create-account`, {
@@ -103,6 +118,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-
-const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount, getThreads, getThreadByID, createThread };
+const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount, processLogout, getThreads, getThreadByID, createThread };
 export default apiConnect;
