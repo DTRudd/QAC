@@ -71,17 +71,20 @@ router.route('/threads').get(function(req, res) {
     res.json(threads);
   });
 }).post(function(req, res) {
+  console.log(req);
   var thread = new Thread();
   var postDate = new Date();
+  console.log(postDate);
   thread._id = req.body.threadID;
   thread.title = req.body.title;
   thread.date = postDate;
+  thread.posts = [{}];
   thread.posts[0]._id = req.body.postID;
   thread.posts[0].content = req.body.content;
-  thread.posts[0].date = postDate();
+  thread.posts[0].date = postDate;
   thread.save(function(err) {
     if (err) {
-      res.send(err);
+      return res.send(err);
     }
     res.json({ message: 'Thread created.'});
   });

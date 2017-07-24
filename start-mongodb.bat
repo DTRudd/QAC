@@ -1,4 +1,4 @@
-# Sophie
+# Sophie [returns to original folder]
 @echo off
 if not exist "C:\data\db\" mkdir C:\data\db\
 

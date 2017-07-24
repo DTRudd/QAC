@@ -19,6 +19,21 @@ function getThreadByID(threadID, cb) {
   .then(cb);
 }
 
+function createThread(data, cb) {
+  console.log("APICONNECT" + data);
+  return fetch(`/api/threads`, {
+    method: 'post',
+    body: JSON.stringify(data),
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(checkStatus)
+  .then(parseJSON)
+  .then(cb);
+}
+
 function search(query, cb) {
   return fetch(`/api/films?q=${query}`, {
     accept: 'application/json'
@@ -89,5 +104,5 @@ function parseJSON(response) {
 }
 
 
-const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount, getThreads, getThreadByID };
+const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount, getThreads, getThreadByID, createThread };
 export default apiConnect;

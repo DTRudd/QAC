@@ -40,7 +40,23 @@ export default class Forum extends React.Component {
     });
   }
   handleSubmit(event) {
-    alert(this.state.threadTitle + '\n' + this.state.threadContent);
+    console.log("getThreads");
+    apiConnect.getThreads(result => {
+      console.log("set threadData");
+      console.log("threads === " + result.length);
+      var threadData = {
+        'threadID': result.length,
+        'title': this.state.threadTitle,
+        'postID': result.length + '-0',
+        'content': this.state.threadContent
+      };
+      console.log("createThread");
+      apiConnect.createThread(threadData, postResult => {
+        if (postResult.message === 'Thread created.') {
+          this.displayThread(result.length);
+        }
+      });
+    });
     event.preventDefault();
   }
 
