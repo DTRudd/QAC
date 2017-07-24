@@ -16,15 +16,15 @@ export default class App extends React.Component {
     this.state={
       films:[],
       locations:[],
-	  userSession: {
-				sessionID: '',
-				dateTime: '',
-				username: '',
-				expires: 0
-			},
-	  authenticated: false,
-	  displayAccountPage: false,
-	  accountPage: '',
+      userSession: {
+        sessionID: '',
+        dateTime: '',
+        username: '',
+        expires: 0
+      },
+      authenticated: false,
+      displayAccountPage: false,
+      accountPage: '',
     }
   }
   
@@ -62,7 +62,7 @@ export default class App extends React.Component {
     if(cookie.load('QAC_user-'+username) === sessionID+dateTime) {
       apiConnect.fetchSession(sessionID, session => {
         if(session.status === "OK") {
-		  this.inlineNavigate('LOADING');
+      this.inlineNavigate('LOADING');
           this.setState({
             userSession: {
               sessionID,
@@ -113,9 +113,9 @@ export default class App extends React.Component {
   
   getInfo(){
     this.setState({
-				locations:locsList.Location,
-				films:filmsList.films
-			});
+        locations:locsList.Location,
+        films:filmsList.films
+      });
   }
   
   toggleAccountsPage(accountsPage) {//@Auther: Greg

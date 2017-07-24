@@ -1,14 +1,19 @@
+/*
+*	Sophie
+*	Greg [Added functions for accounts system]
+*/
+
 import React from 'react';
 import {IndexLink} from 'react-router';
 import {Link} from 'react-router';
 
 export default class Nav extends React.Component{
   
-  logoutAccount() {
+  logoutAccount() {//@Auther: Greg
     this.props.toggleAccountView('LOGOUT');
   }
   
-  propagateAccounts() {
+  propagateAccounts() {//@Auther: Greg
     this.props.toggleAccountView('LOGIN');
   }
   

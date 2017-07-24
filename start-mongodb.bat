@@ -1,3 +1,11 @@
+#############################################################################
+# @Greg [Checks if mongodb data folder exists, and creates a new one if not.#
+#		Changes directorys and starts required processes in seperate		#
+#		windows, in addtion to importing a dump pulled from git.]			#
+#																			#
+# @Sophie [returns to original folder]									   	#
+#############################################################################
+
 @echo off
 if not exist "C:\data\db\" mkdir C:\data\db\
 

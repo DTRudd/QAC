@@ -1,3 +1,4 @@
+//Sophie
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import React from 'react';
