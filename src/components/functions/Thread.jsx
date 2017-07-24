@@ -5,7 +5,7 @@ import Post from './Post';
 export default class Thread extends React.Component {
   render() {
     return (
-      <div> 
+      <div className="mdl-cell mdl-cell--12-col"> 
         <h1 className="mdl-cell mdl-cell--12-col mdl-layout-title mdl-color-text--white">{this.props.thread.title}</h1>
         {this.props.thread.posts.map(post => 
           <Post postContent={post} key={post._id} />
