@@ -4,6 +4,10 @@ import {Link} from 'react-router';
 
 export default class Nav extends React.Component{
   
+  logoutAccount() {
+    this.props.toggleAccountView('LOGOUT');
+  }
+  
   propagateAccounts() {
     this.props.toggleAccountView('LOGIN');
   }
@@ -30,8 +34,8 @@ export default class Nav extends React.Component{
           <nav className="mdl-navigation">
             <span id="account_NavButton">
               {this.props.isAuth ? 
-                <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.propagateAccounts.bind(this)}>
-                  My Account
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.logoutAccount.bind(this)}>
+                  Logout
                 </button>
               :
                 <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.propagateAccounts.bind(this)}>

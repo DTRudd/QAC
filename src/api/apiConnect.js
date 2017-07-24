@@ -10,6 +10,15 @@ function search(query, cb) {
     .then(cb);
 }
 
+function processLogout(cb) {
+  return fetch(`/api/logout-session?api=${localAPIKey}`, {
+	credentials: 'same-origin',
+    accept: "application/json"
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(cb);
+}
 
 function createAccount(data, cb) {
   return fetch(`/api/create-account`, {
@@ -70,5 +79,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount };
+const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount, processLogout };
 export default apiConnect;

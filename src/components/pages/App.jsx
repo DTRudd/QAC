@@ -49,8 +49,7 @@ export default class App extends React.Component {
 										username: uname,
 										expires
 								},
-								authenticated: true,
-								loading: false
+								authenticated: true
 					  });
 					setTimeout(() => this.toggleAccountsPage(''), 600);
 				}
@@ -71,8 +70,7 @@ export default class App extends React.Component {
               username,
               expires
             },
-            authenticated: true,
-            loading: false
+            authenticated: true
           });
           setTimeout(() => this.toggleAccountsPage(''), 300);
         }
@@ -80,15 +78,36 @@ export default class App extends React.Component {
     }    
   }
   
-  //code to sort info from JSON file.
-  componentWillMount() {
+  performLogout() {//@Auther: Greg
+	const { userSession, authenticated } = this.state;
+	
+	if(authenticated) {
+  		if(cookie.load('QAC_user-'+userSession.username) === userSession.sessionID+userSession.dateTime) {
+			apiConnect.processLogout(session => {
+				if(session.status === "OK") {
+				this.inlineNavigate('LOADING');
+				cookie.remove('QAC_user-'+userSession.username, userSession.sessionID+userSession.dateTime, { path: '/' });
+					this.setState({
+							userSession: {
+							sessionID: '',
+							dateTime: '',
+							username: '',
+							expires: 0
+							},
+						authenticated: false
+					  });
+					setTimeout(() => this.toggleAccountsPage(''), 600);
+				}
+			});
+		}
+	} 
+  }
+  
+  componentWillMount() {//@Auther: Greg
 	if(this.isAuthenticated() === false) {
 		this.authenticateSession();
 	}
-    this.getInfo();
-  }
-  
-  componentDidMount() {//@Auther: Greg
+    this.getInfo();  //code to sort info from JSON file.
   }
     
   
@@ -112,16 +131,6 @@ export default class App extends React.Component {
     });
   }
   
-  loading() {
-    return(
-      <div className="loading-outer">
-        <div className="loading-inner">
-          Loading...
-        </div>
-      </div>
-    );
-  }
-  
 
   render() {
     const { films, locations, displayAccountPage, accountPage } = this.state;
@@ -138,7 +147,7 @@ export default class App extends React.Component {
           </div>
         </div>
         <Footer films={films} locations={locations}/>
-        {displayAccountPage ? <AccountWidget accountsPage={accountPage} navigateTo={this.inlineNavigate.bind(this)} toggleAccountView={this.toggleAccountsPage.bind(this)} authentication={this.authenticateLogin.bind(this)} /> : ''}
+        {displayAccountPage ? <AccountWidget accountsPage={accountPage} navigateTo={this.inlineNavigate.bind(this)} toggleAccountView={this.toggleAccountsPage.bind(this)} authentication={this.authenticateLogin.bind(this)} performLogout={this.performLogout.bind(this)} /> : ''}
       </div>
     );
   }
