@@ -5,8 +5,6 @@
 
 import React, { Component } from 'react';
 
-import apiConnect from '../../api/apiConnect';
-
 export default class AccountPortal extends Component {
 	
 	componentWillMount() {

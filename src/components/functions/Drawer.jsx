@@ -29,7 +29,7 @@ export default class Nav extends React.Component{
           <Link to="/Booking" className="pageLink mdl-navigation__link mdl-color-text--white" activeClassName="active">Booking</Link>
 		  <Link to="/Forum" className="pageLink mdl-navigation__link mdl-color-text--white" activeClassName="active">Forums</Link>
           <div className="mdl-layout-space"></div>
-          <span className="pageLink mdl-navigation__link mdl-color-text--white" activeClassName="active">
+          <span className="pageLink mdl-navigation__link mdl-color-text--white">
               {this.props.isAuth ? 
 			  <div className="dropdown">
                 <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">

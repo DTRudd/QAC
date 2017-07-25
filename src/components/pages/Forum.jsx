@@ -106,8 +106,8 @@ export default class Forum extends React.Component {
               <div className="mdl-cell--12-col">
                 {this.state.threads.map((thread) =>
                   <div className="mdl-grid" key={thread._id}>
-                    <h1 style={{padding: "10px 10px 10px 10px", margin: "0px 0px 0px 0px", "word-wrap": "break-word"}} onClick={this.displayThread.bind(this,thread._id)} className="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone mdl-layout-title mdl-color--grey-700 mdl-color-text--white">{thread.title}</h1>
-                    <h4 style={{padding: "10px 10px 10px 10px", margin: "0px 0px 0px 0px", "word-wrap": "break-word"}} onClick={this.displayThread.bind(this, thread._id)} className="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone mdl-layout-title mdl-color--grey-800 mdl-color-text--white">{thread.user}</h4>
+                    <h1 style={{padding: "10px 10px 10px 10px", margin: "0px 0px 0px 0px", wordWrap: "break-word"}} onClick={this.displayThread.bind(this,thread._id)} className="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone mdl-layout-title mdl-color--grey-700 mdl-color-text--white">{thread.title}</h1>
+                    <h4 style={{padding: "10px 10px 10px 10px", margin: "0px 0px 0px 0px", wordWrap: "break-word"}} onClick={this.displayThread.bind(this, thread._id)} className="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone mdl-layout-title mdl-color--grey-800 mdl-color-text--white">{thread.user}</h4>
                   </div>
                 )}
                 <div className="mdl-cell--12-col">

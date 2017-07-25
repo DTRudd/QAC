@@ -4,9 +4,7 @@
 *	  			  this component will overlay the page it is called upon.
 */
 
-import React, { Component } from 'react';
-
-import apiConnect from '../../api/apiConnect';
+import { Component } from 'react';
 
 export default class Logout extends Component {
   
