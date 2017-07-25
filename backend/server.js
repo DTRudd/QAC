@@ -10,6 +10,7 @@
 //first we import our dependencies…
 var express = require('express');
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
 var bodyParser = require('body-parser');
 var Account = require('./schema/accounts');
 var Session = require('./schema/sessions');
@@ -54,7 +55,7 @@ app.use(bodyParser.json());
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST');
   res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
   //and remove cacheing so we get the most recent changes
   res.setHeader('Cache-Control', 'no-cache');
@@ -98,24 +99,34 @@ router.route('/threads').get(function(req, res) {
 });
 
 
-router.route('/create-account').get(function(req, res) {
- //looks at our Schema
-Account.find(function(err, accounts) {
-	if (err)
-		 res.send(err);//responds with a json object of our database comments.
-	res.json(accounts)
-	});
-})//post new account to the database
-	.post(function(req, res) {
-	var account = new Account();//body parser lets us use the req.body
-	account.username = req.body.username;
-	account.email = req.body.email;
-	account.password = req.body.password;
-	account.date = req.body.date;
-	account.save(function(err) {
-		if (err)
-			 res.send(err);
-		res.json({ message: 'Account successfully created!' });
+router.route('/create-account').post(function(req, res) {
+	const username = req.body.username;
+	const plaintextPass = req.body.password;
+	const saltRounds = 10;	
+	
+	Account.findOne({ username:{ $eq: username } }, (err, accounts) => {
+	if (err) res.send(err);//responds with a json object of our database comments.
+	    if (accounts !== null) {
+				res.json({ error: 'Username already exists.' });
+				return;
+		}
+		
+		bcrypt.genSalt(saltRounds, function(err, salt) {
+			bcrypt.hash(plaintextPass, salt, function(err, hash) {
+			var account = new Account();//body parser lets us use the req.body
+				account.username = username;
+				account.email = req.body.email;
+				account.date = req.body.date;
+				account.password = hash;
+				
+				account.save(function(err) {
+					if (err) res.send(err);
+					res.json({ message: 'Account successfully created!' });
+				});
+				
+			});
+		});
+	
 	});
 });
 
@@ -139,8 +150,9 @@ router.route('/locate-session').get((req, res) => {
       if (sessions !== null) {
 				res.json({ status: "OK", session:{ id: token, uname: username, datetime: dateTime, expires: expire } });
 				return;
-			}
+			} else {
 			res.json({ status: "FAIL" });
+			}
 		});
 	})(token, username, dateTime, expire);
 	
@@ -165,8 +177,9 @@ router.route('/logout-session').get((req, res) => {
 				req.session.destroy();
 				res.json({ status: "OK" });
 				return;
-			}
+			} else {
 			res.json({ status: "FAIL" });
+			}
 		});
 	})(token);
 	
@@ -198,8 +211,9 @@ router.route('/session').get((req, res) => {
 			if (sessions !== null) {
 				res.json({ status: "OK" });
 				return;
-			}
+			} else {
 			res.json({ status: "FAIL" });
+			}
 		});
 	})(token);
 	
@@ -218,29 +232,35 @@ router.route('/account').get((req, res) => {
 		return;
 	}
 	
-	if (!username) {
+	if (!username || !pass) {
 		res.json({
 		  error: "Missing required parameter."
 		});
 		return;
 	}
+	
 	const r =((username, pass, dateTime) => {
-		return Account.findOne({ username:{ $eq: username }, password: { $eq: pass } }, { _id: 0, account_id: 1, username: 1, password: 1 }, (err, accounts) => {
+		return Account.findOne({ username:{ $eq: username } }, { _id: 0, account_id: 1, username: 1, password: 1 }, (err, accounts) => {
 			if (err) return res.send(err);
-			if (accounts !== null) {				
-				const twentyFourHours = 86400000;
-				const expiration = new Date(parseInt(dateTime) + twentyFourHours);
-				res.cookie(`QAC_user-${username}=${req.session.id + dateTime};`, { httpOnly: false, secure: false, maxAge: `${twentyFourHours};`, expires: `${expiration.toUTCString()};`, signed: true });
-				req.session.username = username;
-				req.session.datetime = parseInt(dateTime);
-				req.session.cookie.maxAge = twentyFourHours;
-				req.session.expires = parseInt(dateTime) + twentyFourHours;
-				req.session.cookie.expires = expiration;
-				req.session.save();
-				res.json({ sessionId: req.session.id,  session: req.session });
-				return;
-			}
+			if (accounts !== null) {
+				bcrypt.compare(pass, accounts.password, function(err, match) {
+					if(match == true) {
+						const twentyFourHours = 86400000;
+						const expiration = new Date(parseInt(dateTime) + twentyFourHours);
+						res.cookie(`QAC_user-${username}=${req.session.id + dateTime};`, { httpOnly: false, secure: false, maxAge: `${twentyFourHours};`, expires: `${expiration.toGMTString()};`, signed: true });
+						req.session.username = username;
+						req.session.datetime = parseInt(dateTime);
+						req.session.cookie.maxAge = twentyFourHours;
+						req.session.expires = parseInt(dateTime) + twentyFourHours;
+						req.session.cookie.expires = expiration;
+						req.session.save();
+						res.json({ sessionId: req.session.id,  session: req.session });
+						return;
+					}
+				});
+			} else {
 			res.json({ authStatus: "FAIL" });
+			}
 		});
 	})(username, pass, dateTime);
 	

@@ -136,14 +136,14 @@ export default class App extends React.Component {
     const { films, locations, displayAccountPage, accountPage } = this.state;
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
-        <Nav toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} />
-        <Drawer />
+        <Nav toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} username={this.state.userSession.username} />
+        <Drawer toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} />
         <div className="mdl-layout__content page-content mdl-color--black">
           <div>
             {this.props.children}
           </div>
           <div>
-            <Sitemap />
+            <Sitemap toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} />
           </div>
         </div>
         <Footer films={films} locations={locations}/>

@@ -424,3 +424,43 @@ textarea, input, button {
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
 }
+
+.clickable-span {
+	cursor: pointer;
+}
+
+.mdl-button--accent.mdl-button--accent.mdl-button--raised img:first-child {
+	width: 26px;
+	margin-right: -2px;
+}
+.mdl-button--accent.mdl-button--accent.mdl-button--raised .userText {
+	display: inline-block;
+    vertical-align: middle;
+}
+
+.dropdown-menu {
+	color: #000;
+	min-width: 116px;
+	max-width: 116px;
+	-moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+.dropdown-menu li {
+    cursor: pointer;
+    margin: 1px 0;
+    background: #ececec;
+    padding: 5px;
+    border-bottom: 1px solid #d8d8d8;
+	-moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+.dropdown-menu li:hover, .dropdown-menu li:active {
+    color: #fff;
+	background: #565656;
+    border-bottom: 1px solid #ff4081;
+}
+
