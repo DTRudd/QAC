@@ -27,22 +27,44 @@ export default class FindUs extends Component {
 	  const { Lat, Lng } = this.state;
 	  console.log(Lat);
     return (
-      <div className="mdl-color-text--white mdl-color--grey-700">
-        <div className="mdl-grid">
-          <h3 className="mdl-layout-title mdl-cell mdl-cell--12-col mdl-cell--6-col-offset">Find your nearest QA Cinema</h3>       
-          <label className="mdl-layout-title mdl-cell mdl-cell--6-col mdl-cell--6-col-offset">Select a cinema location...</label>
-          <div className="mdl-cell mdl-cell--6-col mdl-cell--6-col-offset">
-            <select id="locationList" className="mdl-textfield__input mdl-color--grey-700"
-              onChange = {this.getLocationInformation}>
-              <option value = "0">Manchester</option>
-              <option value = "1">Scarborough</option>
-              <option value = "2">London</option>
-              <option value = "3">Edinburgh</option>
-            </select>
-            <Map lat={Lat} lng={Lng} zoom="18"/>
-          </div>
+      
+        <div className = 'mapDisplay'>
+
+            
+        <div className = "filmNameDisplay" style = {{backgroundImage : 'url(/img/back04.jpg)'}}>
+            <br /><br /><br /><br />
+            <h2 className = 'findUsHeading'>Find Us</h2>
         </div>
-      </div>
+            
+            
+        <div className="mapSetOut" style = {{background: 'white'}}>
+            <h3 className = 'mapHeading'>Find your nearest QA Cinema</h3>
+            
+            
+        <table className = "mapTable" >
+            <tr>
+                <td>
+                    <select className = 'dropdownMap' id="locationList" onChange = {this.getLocationInformation}>
+                    <option value = '4'>Select Cinema Location</option>
+                      <option value = "0">Manchester</option>
+                      <option value = "1">Scarborough</option>
+                      <option value = "2">London</option>
+                      <option value = "3">Edinburgh</option>
+                    </select>
+                </td>
+            </tr> 
+            
+            <tr>
+
+                <td>
+                    <Map lat={Lat} lng={Lng} zoom="18"/>
+                </td>
+            </tr>
+        </table>
+        </div>
+            
+ </div>
+
     );
   }
 }

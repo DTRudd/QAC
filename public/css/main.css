@@ -1,5 +1,5 @@
 table, tr, th, td {
-    border:2px solid white;
+    border: none;
 }
 
 #carousel{
@@ -242,13 +242,26 @@ table, tr, th, td {
 
 .bookingHeading2{
     padding-left: 50px;
-    padding-bottom: 10px;
     color: black;
     text-shadow: 1px 1px white;
 }
+
+.bookingHeading3{
+    padding-left: 50px;
+    color: black;
+    font-size: 18px;
+}
+
+.findUsHeading{
+    padding-left: 50px;
+    color: black;
+    padding-top: 80px;
+    
+}
+
 .ticketDetailsSelection{
     background: white;
-    padding-top: 50px;
+    padding-top: 25px;
     padding-bottom: 150px;
 }
 
@@ -292,6 +305,12 @@ table, tr, th, td {
 
 .setOut2 tr td:first-child{
     width:350px; 
+}
+
+.removeButton {
+    border: none;
+    background: none;
+    color: #ff4081;
 }
 
 .totalTicks{
@@ -342,3 +361,44 @@ table, tr, th, td {
     line-height: 30px;
     font-size: small;
 }
+
+.mapSetOut{
+    padding-bottom: 80px;
+}
+
+.mapHeading{
+    padding-left: 50px;
+}
+
+.mapTable{
+    border: none;
+    margin: auto;
+    padding: 20px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.mapTable tr td{
+    width:400px; 
+    padding: 10px;
+}
+
+.dropdownMap{
+    width: 400px;
+    height: 35px;
+    border-bottom-width: 1px;
+    border-bottom-color: deeppink;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 10px;
+    background: white;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    text-align: center;
+    text-align-last: center;
+    font-size: 18px;
+    background: #fcfcfc
+}
+
+

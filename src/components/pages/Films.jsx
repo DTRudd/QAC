@@ -22,7 +22,7 @@ export default class Films extends Component {
 
   render() {
     return (
-      <div className="mdl-color--grey-700">
+      <div className="mdl-color--grey-700" style = {{backgroundImage : 'url(/img/back01.jpg)'}}>
         <FilmPageList films={this.state.films} />
       </div>
     );

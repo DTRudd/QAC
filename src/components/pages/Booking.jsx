@@ -8,6 +8,8 @@ export default class Booking extends React.Component {
         super();
         this.state={
             filmName: '',
+            date:'',
+            time: '',
             ticketQuantity : 1,
             adultTick : 0,
             kidTick : 0,
@@ -18,13 +20,16 @@ export default class Booking extends React.Component {
             isKidActive: false,
             isSeniorActive: false,
             isTotalActive: false,
-            chosenCinema: '',
+            location: 'Please Select',
             chosenSeats: '',
         };
     }
     
     componentWillMount(){
         this.setState({filmName: localStorage.getItem('filmName')});
+        this.setState({date: localStorage.getItem('date')});
+        this.setState({time: localStorage.getItem('time')});
+        this.setState({location: localStorage.getItem('location')});
   
     }
    
@@ -117,12 +122,21 @@ export default class Booking extends React.Component {
     }
     
     setChosenCinema(e){
-        this.setState({chosenCinema : e.target.value});
+        this.setState({location : e.target.value});
     }
     
     setChosenSeat(e){
         this.setState({chosenSeats : e.target.value});
     }
+    
+     setChosenDate(e){
+        this.setState({date : e.target.value});
+    }
+    
+    setChosenTime(e){
+        this.setState({time : e.target.value});
+    }
+    
     
     totalPrice(){
         var totalAdultPrice = this.state.adultTick * PriceList.price[0].price;
@@ -150,12 +164,46 @@ export default class Booking extends React.Component {
             </td>
             <td>
                 <select className = 'dropdownBooking' onChange = {this.setChosenCinema.bind(this)}>
-                  <option value="Please choose a cinema" selected>Please Select</option>
+                  <option value="Please choose a cinema" selected>{this.state.location}</option>
                   <option value="London">London</option>
                   <option value="Manchester">Manchester</option>
                   <option value="Edinburgh">Edinburgh</option>
                 </select>
             </td>
+            <tr>
+            <td>
+                <label>Day</label>
+            </td>
+            <td>
+                <select className = 'dropdownBooking' onChange = {this.setChosenDate.bind(this)}>
+                <option value="Please choose a cinema" selected>{this.state.date}</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                 <option value="Thursday">Thursday</option>
+                 <option value="Friday">Friday</option>
+                 <option value="Saturday">Saturday</option>
+                 <option value="Sunday">Sunday</option>
+
+                </select>
+            </td>
+            </tr>
+            
+            <tr>
+            <td>
+                <label>Time</label>
+            </td>
+            <td>
+                <select className = 'dropdownBooking' onChange = {this.setChosenTime.bind(this)}>
+                  <option value="Please choose a cinema" selected>{this.state.time}</option>
+                  <option value="12:00pm">12:00pm</option>
+                    <option value="1:00pm">1:00pm</option>
+                    <option value="2:00pm">2:00pm</option>
+                    <option value="3:00pm">3:00pm</option>
+        
+                </select>
+            </td>
+            </tr>
         </div>
     </tr>
     
@@ -202,12 +250,8 @@ export default class Booking extends React.Component {
         </td>
         </div>
     </tr>
-</table>
-
-            
-            
-            
-
+    </table>
+    <br></br>
             
         <div className = "displayTicketSelection">
                   
@@ -215,21 +259,21 @@ export default class Booking extends React.Component {
                 {this.state.isAdultActive ? 
                 <div className = "adultTicks">
                 <p>x {this.state.adultTick} Adult Ticket(s)
-                    <button onClick ={this.clearAdult.bind(this)}>Remove</button>
+                    <button className = "removeButton" onClick ={this.clearAdult.bind(this)}>Remove</button>
                 </p>
                 </div> : ''}
                   
                 {this.state.isKidActive ? 
                 <div className = "kidTicks">  
                 <p>x {this.state.kidTick} Child Ticket(s) 
-                    <button onClick = {this.clearKids.bind(this)}>Remove</button>
+                    <button className = "removeButton" onClick = {this.clearKids.bind(this)}>Remove</button>
                 </p>
                 </div> : ''}
                   
                 {this.state.isSeniorActive ? 
                 <div className = "seniorTicks">
                 <p>x {this.state.seniorTick} Senior Ticket(s) 
-                    <button onClick = {this.clearSeniors.bind(this)}>Remove</button>
+                    <button className = "removeButton" onClick = {this.clearSeniors.bind(this)}>Remove</button>
                 </p>
                 </div> : ''}
             </div>
@@ -244,7 +288,8 @@ export default class Booking extends React.Component {
                     <div className = "totalTicks">
                         <h4>You would like {this.state.finalTicketQuantity} ticket(s).</h4>
                         <div className = 'ticketInfo'>
-                        Cinema: {this.state.chosenCinema}<br />
+                        Cinema: {this.state.location}<br />
+                        Time: {this.state.date} at {this.state.time}<br />
                         Seats: {this.state.chosenSeats}<br />
                         Price: £{this.totalPrice()}
                     </div></div> : <h4>Your basket is empty.</h4>}
@@ -258,7 +303,6 @@ export default class Booking extends React.Component {
         </tr>
     </table>
     </div> 
-            
         
       </div>
     </div>

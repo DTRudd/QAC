@@ -12,6 +12,9 @@ export default class DropDownInfo extends React.Component{
     
     bookNow(){
         localStorage.setItem('filmName', this.props.film_name);
+        localStorage.setItem('location', 'Please Select');
+        localStorage.setItem('date', 'Please Select');
+        localStorage.setItem('time', 'Please Select');
     }
 	
 	render(){

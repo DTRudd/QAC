@@ -32,6 +32,10 @@ export default class Home extends React.Component {
         <div className="mdl-color--grey-700">
           <NumberList films={this.state.films} />
         </div>
+            <a class="twitter-follow-button"
+              href="https://twitter.com/TwitterDev"
+              data-size="large">
+            Follow @TwitterDev</a>
       </div>
     );
   }
