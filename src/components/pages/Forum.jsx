@@ -12,7 +12,7 @@ export default class Forum extends React.Component {
       activeThread:    [],
       createThread:    false,
       threadTitle:     '',
-      threadContent:   ''
+      threadContent:   '',
     }
     this.toggleCreateThreadOn = this.toggleCreateThreadOn.bind(this);
     this.toggleCreateThreadOff = this.toggleCreateThreadOff.bind(this);
@@ -43,9 +43,10 @@ export default class Forum extends React.Component {
     apiConnect.getThreads(result => {
       var threadData = {
         'threadID': result.length,
-        'title': this.state.threadTitle,
-        'postID': 0,
-        'content': this.state.threadContent
+        'title':    this.state.threadTitle,
+        'postID':   0,
+        'content':  this.state.threadContent,
+        'user':     this.props.user
       };
       apiConnect.createThread(threadData, postResult => {
         if (postResult.message === 'Thread created.') {
@@ -89,7 +90,7 @@ export default class Forum extends React.Component {
   render() {
     return(
       <div className="mdl-color-text--white mdl-grid">
-        {this.state.createThread ?
+        {this.state.createThread && this.props.isAuth ?
           <form id="create_thread" className="mdl-cell mdl-cell--12-col" onSubmit={this.handleSubmit}>
             <h4 className="mdl-cell mdl-cell--12-col mdl-layout-title mdl-color-text--white">Create a new thread</h4>
             <div className="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
@@ -104,14 +105,23 @@ export default class Forum extends React.Component {
             {this.state.hasActiveThread  === false ?
               <div className="mdl-cell--12-col">
                 {this.state.threads.map((thread) =>
-                  <h1 style={{padding: "10px 10px 10px 10px"}} onClick={this.displayThread.bind(this,thread._id)} key={thread._id} className="mdl-cell mdl-cell--12-col mdl-layout-title mdl-color--grey-700 mdl-color-text--white">{thread.title}</h1>
+                  <div className="mdl-grid" key={thread._id}>
+                    <h1 style={{padding: "10px 10px 10px 10px", margin: "0px 0px 0px 0px", "word-wrap": "break-word"}} onClick={this.displayThread.bind(this,thread._id)} className="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone mdl-layout-title mdl-color--grey-700 mdl-color-text--white">{thread.title}</h1>
+                    <h4 style={{padding: "10px 10px 10px 10px", margin: "0px 0px 0px 0px", "word-wrap": "break-word"}} onClick={this.displayThread.bind(this, thread._id)} className="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone mdl-layout-title mdl-color--grey-800 mdl-color-text--white">{thread.user}</h4>
+                  </div>
                 )}
-                <button onClick={this.toggleCreateThreadOn} className="mdl-cell mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" >New thread</button>
+                <div className="mdl-cell--12-col">
+                  {this.props.isAuth ?
+                    <button onClick={this.toggleCreateThreadOn} className="mdl-cell mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" >New thread</button>
+                  :
+                    <div></div>
+                  }
+                </div>
               </div>
             :
               <div className="mdl-cell--12-col">
                 <button className="mdl-cell mdl-cell--3-col mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.displayThread.bind(this,-1)}>Return home</button>
-                <Thread thread={this.state.activeThread} />
+                <Thread thread={this.state.activeThread} isAuth={this.props.isAuth} user={this.props.user} />
               </div>
             }
             <div className="mdl-cell mdl-cell--12-col"></div>
