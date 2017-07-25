@@ -39,12 +39,18 @@ export default class Nav extends React.Component{
           <nav className="mdl-navigation">
             <span id="account_NavButton">
               {this.props.isAuth ? 
-                <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.logoutAccount.bind(this)}>
-                  Logout
+			  <div className="dropdown">
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+					<img src="/img/userId.png" alt="User Icon" /><span className="userText">{this.props.username}</span><img src="/img/arrow-down.png" alt="Dropdown arrow" />
                 </button>
+				<ul className="dropdown-menu">
+				  <li className="user-item">My Account</li>
+				  <li className="user-item" onClick={this.logoutAccount.bind(this)}>Logout</li>
+				</ul>
+			</div>
               :
-                <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500" onClick={this.propagateAccounts.bind(this)}>
-                  Log in/Sign up
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={this.propagateAccounts.bind(this)}>
+					Log in
                 </button>
               }            
             </span> 

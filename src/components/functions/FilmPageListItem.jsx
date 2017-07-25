@@ -1,3 +1,5 @@
+//Michael Green
+//restyled by Sophie
 import React from 'react';
 
 //shows the tiles on home page - part of the NumberList function

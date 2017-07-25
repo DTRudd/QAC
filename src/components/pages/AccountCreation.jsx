@@ -56,6 +56,10 @@ export default class AccountCreation extends Component {
 						  }
 					  }
 				  });
+			  } else if(createAuth.error) {
+				this.setState({
+					error: createAuth.error
+				}); 
 			  }
 		  });
 	  } else {
