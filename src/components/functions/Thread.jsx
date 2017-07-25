@@ -34,26 +34,28 @@ export default class Thread extends React.Component {
   }
 
   handleSubmit(event) {
-    var postID = this.props.thread + '-' + this.state.thread.posts.length;
-    var content = this.state.postContent;
-    var threadID = this.props.thread;
-    var postData = {
-      postID: postID,
-      content: content,
-      threadID: threadID
-    };
-    console.log(postData);
-    apiConnect.postReply(postData, result => {
-      if (result.message === "Posted.") {
-        this.setState({
-          createPost: false
-        });
-        apiConnect.getThreadByID(this.props.thread, result => {
+    apiConnect.getThreadByID(this.props.thread, result => {
+      var postID = result[0].length;
+      var content = this.state.postContent;
+      var threadID = this.props.thread;
+      var postData = {
+        postID: postID,
+        content: content,
+        threadID: threadID
+      };
+      console.log(postData);
+      apiConnect.postReply(postData, result => {
+        if (result.message === "Posted.") {
           this.setState({
-            thread: result[0]
+            createPost: false
           });
-        });
-      }
+          apiConnect.getThreadByID(this.props.thread, result => {
+            this.setState({
+              thread: result[0]
+            });
+          });
+        }
+      });
     });
     event.preventDefault();
   }
