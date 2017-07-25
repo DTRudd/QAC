@@ -3,19 +3,22 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
 //create new instance of the mongoose.schema. the schema takes an 
 //object that shows the shape of your database entries.
+var PostSchema = new Schema({
+  _id:     String,
+  date:    Date,
+  content: String
+});
 
 var ThreadSchema = new Schema({
   _id:   Number,
   title: String,
   date:  Date,
-  posts:[{
-    _id:     String,
-    content: String,
-    date:    Date
-  }]
+  posts:[PostSchema]
 });
 
-//export our module to use in server.js
-module.exports = mongoose.model('Thread', ThreadSchema);
+//export our module to use in server.
+module.exports.Thread = mongoose.model('Thread', ThreadSchema);
+module.exports.Post = mongoose.model('Post', PostSchema);

@@ -26,8 +26,21 @@ function getThreadByID(threadID, cb) {
 }
 
 function createThread(data, cb) {
-  console.log("APICONNECT" + data);
   return fetch(`/api/threads`, {
+    method: 'post',
+    body: JSON.stringify(data),
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(checkStatus)
+  .then(parseJSON)
+  .then(cb);
+}
+
+function postReply(data, cb) {
+  return fetch(`/api/threads/posts`, {
     method: 'post',
     body: JSON.stringify(data),
     headers: {
@@ -118,5 +131,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount, processLogout, getThreads, getThreadByID, createThread };
+const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount, processLogout, getThreads, getThreadByID, createThread, postReply };
 export default apiConnect;
