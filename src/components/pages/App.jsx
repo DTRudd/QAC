@@ -135,7 +135,7 @@ export default class App extends React.Component {
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
         <Nav toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} username={this.state.userSession.username} />
-        <Drawer toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} />
+        <Drawer toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} username={this.state.userSession.username} />
         <div className="mdl-layout__content page-content mdl-color--black">
           <div>
             {React.cloneElement(this.props.children, {isAuth: this.isAuthenticated(), user: this.state.userSession.username})}
@@ -145,7 +145,7 @@ export default class App extends React.Component {
           </div>
         </div>
         <Footer films={films} locations={locations}/>
-        {displayAccountPage ? <AccountWidget accountsPage={accountPage} navigateTo={this.inlineNavigate.bind(this)} toggleAccountView={this.toggleAccountsPage.bind(this)} authentication={this.authenticateLogin.bind(this)} performLogout={this.performLogout.bind(this)} /> : ''}
+        {displayAccountPage ? <AccountWidget accountsPage={accountPage} navigateTo={this.inlineNavigate.bind(this)} toggleAccountView={this.toggleAccountsPage.bind(this)} authentication={this.authenticateLogin.bind(this)} performLogout={this.performLogout.bind(this)} isAuth={this.isAuthenticated.bind(this)} username={this.state.userSession.username} /> : ''}
       </div>
     );
   }

@@ -12,10 +12,17 @@ export default class Login extends Component {
 		super();
 		this.state = {
 			uname: '',
-			pass: ''
+			pass: '',
+			error: ''
 		}
 		
 	}
+	
+   componentWillMount() {
+	 if(this.props.isAuth()) {
+		 this.props.navigateTo('MY_ACCOUNT');
+	 }
+   }
   
   closeAccounts() {
     this.props.toggleAccountView('CLOSE');
@@ -34,14 +41,27 @@ export default class Login extends Component {
   authoriseLogin(e) {
 	  const { uname, pass } = this.state;
 	  const username = uname.toLowerCase();
+	  
+	  if(uname.trim().length > 0 && pass.trim().length > 0) {
 	  const dateTime = Date.now();
 	  apiConnect.fetchAccounts(username, pass, dateTime, auth => {
 		  if(auth.sessionId && auth.session) {
 			  if(auth.session.datetime === dateTime && auth.session.username === username) {
 				  this.props.authentication(auth.sessionId, auth.session.datetime, auth.session.username, auth.session.expires);
 			  }
+		  } else if(auth.error) {
+				this.setState({
+					error: auth.error
+				}); 
 		  }
 	  });
+	  } else {
+		this.setState({
+			error: 'Please enter a username and password.'
+		});   
+	  }
+	  
+	  
 	  e.preventDefault();
   }
   
@@ -58,6 +78,7 @@ export default class Login extends Component {
                 <h2 className="mdl-card__title-text">Login</h2>
                 <span className="accountClose" onClick={() => this.closeAccounts()}>X</span>
               </div>
+			  {this.state.error.trim().length > 0 ? <span className="account_error">{this.state.error}</span> : ''}
 			  <form onSubmit={this.authoriseLogin.bind(this)}>
               <div className="mdl-card__supporting-text">
                   <div className="mdl-textfield mdl-js-textfield">

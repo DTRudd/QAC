@@ -18,6 +18,10 @@ export default class Sitemap extends React.Component{
   propagateAccountCreation() {//@Auther: Greg
     this.props.toggleAccountView('ACCOUNT_CREATION');
   }
+  
+  propagateMyAccount() {//@Auther: Greg
+	this.props.toggleAccountView('MY_ACCOUNT');  
+  }
 
 
   render(){
@@ -44,7 +48,10 @@ export default class Sitemap extends React.Component{
           <h1 className="mdl-mega-footer__heading">Account Features</h1>
           <ul className="mdl-mega-footer__link-list">
 		  {this.props.isAuth ?
-				<li><span className="clickable-span" onClick={this.logoutAccount.bind(this)}>Logout</span></li>	
+				<div>
+					<li><span className="clickable-span" onClick={this.propagateMyAccount.bind(this)}>My Account</span></li>	
+					<li><span className="clickable-span" onClick={this.logoutAccount.bind(this)}>Logout</span></li>
+				</div>
 				:
 				<div>
 					<li><span className="clickable-span" onClick={this.propagateLogin.bind(this)}>Log in</span></li>
