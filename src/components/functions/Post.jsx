@@ -2,6 +2,7 @@
 import React from 'react';
 import {Parser, HtmlRenderer} from 'commonmark';
 import renderHTML from 'react-render-html';
+import Emojify from 'react-emojione';
 
 export default class Post extends React.Component {
 
@@ -32,11 +33,12 @@ export default class Post extends React.Component {
     var writer = new HtmlRenderer({smart: true, safe: true});
     return (
       <div className="mdl-grid" >
-        <div style={{padding: "0px 0px 0px 0px", margin: "0px 0px 0px 0px", wordWrap: "break-word"}} className="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone mdl-color--grey-800">
+        <div style={{padding: "10px 0px 10px 10px", margin: "0px 0px 0px 0px", wordWrap: "break-word"}} className="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone mdl-color--grey-800">
           <p><b>{this.props.postContent.user}</b></p>
           <p>{this.prettifyDate(this.props.postContent.date)}</p>
         </div>
-        <div style={{padding: "0px 0px 0px 0px", margin: "0px 0px 0px 0px", wordWrap: "break-word"}} className="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone mdl-color--grey-700">{renderHTML(writer.render(reader.parse(this.props.postContent.content)))}</div>
+          <div style={{padding: "10px 0px 10px 10px", margin: "0px 0px 0px 0px", wordWrap: "break-word"}} className="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone mdl-color--grey-700"><Emojify>{renderHTML(writer.render(reader.parse(this.props.postContent.content)))}</Emojify>
+          </div>
       </div>
     );
   }
