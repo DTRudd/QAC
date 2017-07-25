@@ -1,4 +1,5 @@
 //Michael Green
+//Edited by Greg & Sophie
 import React from 'react';
 import ListItem from './ListItem';
 
