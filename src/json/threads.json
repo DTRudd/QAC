@@ -1,46 +1,46 @@
 {
   "threads":[
     {
-      "_id": "0",
+      "_id":   0,
       "title": "I like Goodfellas especially when they do a killing",
-      "date": "2017-07-19T10:24:18.6Z",
+      "date":  "2017-07-19T10:24:18.6Z",
       "posts": [
         {
-          "_id":"0-0",
+          "_id":     0,
           "content": "When he does a killing on the food man and when they do killings on the plane people especially.",
-          "date": "2017-07-19T10:24:18.6Z"
+          "date":    "2017-07-19T10:24:18.6Z"
         },
         {
-          "_id":"0-1",
+          "_id":     1,
           "content": "I like it when the man goes into the room and he thinks he is going to be made a Top Killer but there's no-one there so he says a swear and then gets done a killing on",
-          "date": "2017-07-19T10:26:55.1Z"
+          "date":    "2017-07-19T10:26:55.1Z"
         },
         {
-          "_id":"0-2",
+          "_id":     2,
           "content": "Yes and then Spanish money man gets an anger and does a killing on a telephone box.  He was not talking Italian then he was talking punching haha lol what a cruel summer",
-          "date": "2017-07-19T:10:27:40.2Z"
+          "date":    "2017-07-19T:10:27:40.2Z"
         },
         {
-          "_id":"0-3",
+          "_id":     3,
           "content": "The killings in this film are rubbish I prefer the ones in Scarface they are much funner",
-          "date": "2017-07-19T10:31:11.0Z"
+          "date":    "2017-07-19T10:31:11.0Z"
         },
         {
-          "_id":"0-4",
+          "_id":     4,
           "content": "I'll do a killing on you you git",
-          "date": "2017-07-19T10:40:00.8Z"
+          "date":    "2017-07-19T10:40:00.8Z"
         }
       ]
     },
     {
-      "_id": "1",
+      "_id":   1,
       "title": "Ban this sick filth!",
-      "date": "2017-06-30T19:22:53.2Z",
+      "date":  "2017-06-30T19:22:53.2Z",
       "posts": [
         {
-          "_id": "1-0",
+          "_id":     0,
           "content": "I saw the film Baby Driver yesterday and it is IRRESPONSIBLE!  I decided to let my baby drive me home in the film -- result: *TWO* burst airbags, a collapsed wing and a VERY EXPENSIVE EXCESS!  How can we let these Hollywood types get away with this?",
-          "date": "2017-06-30T19:22:53.2Z"
+          "date":    "2017-06-30T19:22:53.2Z"
         }
       ]
     }

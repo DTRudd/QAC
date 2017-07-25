@@ -44,7 +44,7 @@ export default class Forum extends React.Component {
       var threadData = {
         'threadID': result.length,
         'title': this.state.threadTitle,
-        'postID': result.length + '-0',
+        'postID': 0,
         'content': this.state.threadContent
       };
       apiConnect.createThread(threadData, postResult => {
@@ -61,19 +61,12 @@ export default class Forum extends React.Component {
     if (threadID === -1) {
       apiConnect.getThreads(result => {
         this.setState({
-      //    activeThread:    [],
           activeThread: -1,
           hasActiveThread: false,
           threads: result
         });
       });
     } else {
-/*      apiConnect.getThreadByID(threadID, result => {
-        this.setState({
-          activeThread:   result[0],
-          hasActiveThread: true
-        });
-      });*/
       this.setState({
         activeThread:    threadID,
         hasActiveThread: true

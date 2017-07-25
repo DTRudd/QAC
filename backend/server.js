@@ -78,16 +78,19 @@ router.route('/threads').get(function(req, res) {
     query = Thread.find({});
   }
   query.exec(function(err, threads) {
+    if (err) {
+      return res.send(err);
+    }
     res.json(threads);
   });
 }).post(function(req, res) {
   var thread = new Thread();
+  var post = new Post();
   var postDate = new Date();
   thread._id = req.body.threadID;
   thread.title = req.body.title;
   thread.date = postDate;
   thread.posts = [{}];
-  var post = new Post();
   post._id = req.body.postID;
   post.content = req.body.content;
   post.date = postDate;

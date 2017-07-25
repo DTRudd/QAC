@@ -32,8 +32,8 @@ export default class Post extends React.Component {
     var writer = new HtmlRenderer({smart: true, safe: true});
     return (
       <div className="mdl-grid">
-        <div style={{padding: "0px 0px 0px 0px", margin: "0px 0px 0px 0px"}} className="mdl-cell mdl-cell--2-col mdl-color--grey-800">{this.prettifyDate(this.props.postContent.date)}</div>
-        <div style={{padding: "0px 0px 0px 0px", margin: "0px 0px 0px 0px"}} className="mdl-cell mdl-cell--10-col mdl-color--grey-700">{renderHTML(writer.render(reader.parse(this.props.postContent.content)))}</div>
+        <div style={{padding: "0px 0px 0px 0px", margin: "0px 0px 0px 0px"}} className="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone mdl-color--grey-800">{this.prettifyDate(this.props.postContent.date)}</div>
+        <div style={{padding: "0px 0px 0px 0px", margin: "0px 0px 0px 0px"}} className="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--3-col-phone mdl-color--grey-700">{renderHTML(writer.render(reader.parse(this.props.postContent.content)))}</div>
       </div>
     );
   }

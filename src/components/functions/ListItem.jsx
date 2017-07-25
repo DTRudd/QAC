@@ -1,3 +1,5 @@
+//Michael Green
+//resytled by Sophie
 import React from 'react';
 import DropDownInfo from './DropDownInfo';
 
