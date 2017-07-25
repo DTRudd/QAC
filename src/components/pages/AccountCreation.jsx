@@ -1,3 +1,7 @@
+/*
+*	@Auther: Greg
+*	@Description: Component for handling user account creation, this component will overlay the page it is called upon.
+*/
 import React, { Component } from 'react';
 
 import apiConnect from '../../api/apiConnect';
@@ -13,6 +17,12 @@ export default class AccountCreation extends Component {
 			error: ''
 		}
 		
+	}
+	
+	componentWillMount() {
+		if(this.props.isAuth()) {
+			this.props.navigateTo('MY_ACCOUNT');
+		}
 	}
 	
 	closeAccounts(action) {
@@ -31,6 +41,9 @@ export default class AccountCreation extends Component {
 	
   authoriseAccountCreation(e) {
 	  const { uname, email, userpass, userpass_retype } = this.state;
+	  
+	  if(uname.trim().length > 0 && email.trim().length > 0 && 
+		userpass.trim().length > 0 && userpass_retype.trim().length > 0) {
 	  
 	  if(userpass === userpass_retype) {
 		  const dateTime = Date.now(),
@@ -64,7 +77,12 @@ export default class AccountCreation extends Component {
 		  });
 	  } else {
 		  this.setState({
-					error: 'Error: Passwords do not match!'
+			error: 'Passwords do not match!'
+		  });
+	  }
+	  } else {
+		  this.setState({
+			error: 'Please complete all fields!'
 		  });
 	  }
 	  e.preventDefault();
@@ -82,7 +100,7 @@ export default class AccountCreation extends Component {
 								<h2 className="mdl-card__title-text">Create an account</h2>
 								<span className="accountClose" onClick={() => this.closeAccounts('CLOSE')}>X</span>
 							</div>
-							{this.state.error !== '' ? this.state.error : ''}
+							{this.state.error.trim().length > 0 ? <span className="account_error">{this.state.error}</span> : ''}
 						<form onSubmit={this.authoriseAccountCreation.bind(this)}>
 						  <div className="mdl-card__supporting-text">
 									<div className="mdl-textfield mdl-js-textfield">

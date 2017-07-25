@@ -98,7 +98,7 @@ textarea, input, button {
 }
 
 #account-box {
-	  position: absolute;
+	position: absolute;
     display: block;
     z-index: 1000;
     top: 0;
@@ -138,6 +138,59 @@ textarea, input, button {
     border-radius: 0px;
 	border: 1px solid rgb(70, 70, 70);
     box-shadow: 1px 1px 10px -1px rgba(0, 0, 0, 0.5);
+}
+
+#account-box.my_account .mdl-card,
+#account-box.view_account .mdl-card {
+	margin: -100px auto auto;
+    max-width: 450px;
+	width: auto;
+    top: 50%;
+	background: #efefef;
+}
+
+#account-box.my_account .mdl-card__title,
+#account-box.view_account .mdl-card__title {
+	color: #EEE;
+	background: #000;
+	margin-bottom: 2px;
+}
+
+#account-box.my_account .mdl-card__title.accounts-block {
+	color: #656565;
+    background: #fff;
+    border: 1px solid #d2d2d2;
+    border-bottom: 3px solid rgba(255, 255, 255, 0);
+    margin: 0;
+}
+
+#account-box.my_account .mdl-card__title.accounts-block:hover,
+#account-box.my_account .mdl-card__title.accounts-block:active {
+    border-bottom: 3px solid #ff4081;
+    background: #d8d8d8;
+    color: #000;
+	cursor:pointer;
+	-moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+#account-box.my_account .mdl-card__title.accounts-block i {
+	position: absolute;
+    right: 0;
+    margin: auto 10px;
+}
+
+#account-box.my_account .uname_text,
+#account-box.view_account .uname_text {
+    margin: auto 0 auto 5px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-shadow: 0px 0px 2px rgb(255, 255, 255);
+}
+
+#account-box.view_account .uname_text {
+	    margin: 0;
 }
 
 #account-box .mdl-button.mdl-button--colored {
@@ -195,6 +248,35 @@ textarea, input, button {
     box-shadow: 0px 0px 6px -2px #000;
 	  display: grid;
     width: 100%;
+}
+
+#account-box.my_account .mdl-button.mdl-button--colored,
+#account-box.view_account .mdl-button.mdl-button--colored {
+    width: 115px;
+    float: right;
+}
+
+#account-box.view_account table {
+	width: 100%;
+}
+
+#account-box.view_account table tr td:nth-child(1n) {
+	font-size: 15px;
+    border: 2px solid #f1f1f1;
+}
+
+#account-box.view_account table tr td:first-child {
+	font-weight: 600;
+}
+
+#account-box .account_error {
+	color: #d83a3a;
+    background: #e6e6e6;
+    border-bottom: 1px solid #c1c1c1;
+    margin-top: 2px;
+    padding: 5px 2px;
+    text-align: -webkit-center;
+    text-align: center;
 }
 
 #account-box .account_link {
@@ -440,6 +522,7 @@ textarea, input, button {
 
 .dropdown-menu {
 	color: #000;
+	background: #efefef;
 	min-width: 116px;
 	max-width: 116px;
 	-moz-transition: all .2s ease-in;
@@ -447,20 +530,29 @@ textarea, input, button {
     transition: all .2s ease-in;
 }
 
+.dropdown-menu li.user-item i, .dropdown .mdl-button .material-icons {
+	padding-right: 3px;
+	font-size: 23px;
+}
+
 .dropdown-menu li {
+	display: flex;
+    font-size: 13px;
+    color: #656565;
+    background: #fff;
+    border-top: 2px solid rgba(230, 230, 230, 0.42);
+    border-bottom: 2px solid rgba(183, 183, 183, 0.42);
+    margin: 0;
     cursor: pointer;
-    margin: 1px 0;
-    background: #ececec;
     padding: 5px;
-    border-bottom: 1px solid #d8d8d8;
-	-moz-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
 }
 
 .dropdown-menu li:hover, .dropdown-menu li:active {
-    color: #fff;
-	background: #565656;
-    border-bottom: 1px solid #ff4081;
+    border-bottom: 2px solid #ff4081;
+    background: #d8d8d8;
+    color: #000;
 }
 

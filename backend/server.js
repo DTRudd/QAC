@@ -279,10 +279,13 @@ router.route('/account').get((req, res) => {
 						req.session.save();
 						res.json({ sessionId: req.session.id,  session: req.session });
 						return;
+					} else if(match == false) {
+						res.json({ error: 'The username or password is incorrect!' });
+						return;
 					}
 				});
 			} else {
-			res.json({ authStatus: "FAIL" });
+				res.json({ error: 'The username or password is incorrect!' });
 			}
 		});
 	})(username, pass, dateTime);
