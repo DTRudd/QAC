@@ -90,9 +90,11 @@ router.route('/threads').get(function(req, res) {
   thread._id = req.body.threadID;
   thread.title = req.body.title;
   thread.date = postDate;
+  thread.user = req.body.user;
   thread.posts = [{}];
   post._id = req.body.postID;
   post.content = req.body.content;
+  post.user = req.body.user;
   post.date = postDate;
   thread.posts[0] = post;
   thread.save(function(err) {
@@ -110,6 +112,7 @@ router.route('/threads/posts').post(function(req, res) {
   post._id = req.body.postID;
   post.date = postDate;
   post.content = req.body.content;
+  post.user = req.body.user;
   var threadID = req.body.threadID;
   console.log(threadID);
   Thread.findByIdAndUpdate(
@@ -282,10 +285,13 @@ router.route('/account').get((req, res) => {
 						req.session.save();
 						res.json({ sessionId: req.session.id,  session: req.session });
 						return;
+					} else if(match == false) {
+						res.json({ error: 'The username or password is incorrect!' });
+						return;
 					}
 				});
 			} else {
-			res.json({ authStatus: "FAIL" });
+				res.json({ error: 'The username or password is incorrect!' });
 			}
 		});
 	})(username, pass, dateTime);

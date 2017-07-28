@@ -37,25 +37,24 @@ export default class App extends React.Component {
   }
   
   authenticateSession() {//@Auther: Greg
-		apiConnect.findSession(session => {
-			if(session.status === "OK") {
-				const { id, uname, datetime, expires } = session.session;
-				if(cookie.load('QAC_user-'+uname) === id+datetime) {
-					this.toggleAccountsPage('LOADING');
-					  this.setState({
-								userSession: {
-										sessionID: id,
-										dateTime: datetime,
-										username: uname,
-										expires
-								},
-								authenticated: true
-					  });
-					setTimeout(() => this.toggleAccountsPage(''), 600);
-				}
-			  
-			}
-		});
+    apiConnect.findSession(session => {
+      if(session.status === "OK") {
+        const { id, uname, datetime, expires } = session.session;
+        if(cookie.load('QAC_user-'+uname) === id+datetime) {
+          this.toggleAccountsPage('LOADING');
+            this.setState({
+                userSession: {
+                    sessionID: id,
+                    dateTime: datetime,
+                    username: uname,
+                    expires
+                },
+                authenticated: true
+            });
+          setTimeout(() => this.toggleAccountsPage(''), 600);
+        }
+      }
+    });
   }
   
   authenticateLogin(sessionID, dateTime, username, expires) {//@Auther: Greg
@@ -79,34 +78,33 @@ export default class App extends React.Component {
   }
   
   performLogout() {//@Auther: Greg
-	const { userSession, authenticated } = this.state;
-	
-	if(authenticated) {
-  		if(cookie.load('QAC_user-'+userSession.username) === userSession.sessionID+userSession.dateTime) {
-			apiConnect.processLogout(session => {
-				if(session.status === "OK") {
-				this.inlineNavigate('LOADING');
-				cookie.remove('QAC_user-'+userSession.username, userSession.sessionID+userSession.dateTime, { path: '/' });
-					this.setState({
-							userSession: {
-							sessionID: '',
-							dateTime: '',
-							username: '',
-							expires: 0
-							},
-						authenticated: false
-					  });
-					setTimeout(() => this.toggleAccountsPage(''), 600);
-				}
-			});
-		}
-	} 
+  const { userSession, authenticated } = this.state;
+    if(authenticated) {
+      if(cookie.load('QAC_user-'+userSession.username) === userSession.sessionID+userSession.dateTime) {
+        apiConnect.processLogout(session => {
+          if(session.status === "OK") {
+            this.inlineNavigate('LOADING');
+            cookie.remove('QAC_user-'+userSession.username, userSession.sessionID+userSession.dateTime, { path: '/' });
+            this.setState({
+              userSession: {
+                sessionID: '',
+                dateTime: '',
+                username: '',
+                expires: 0
+              },
+              authenticated: false
+            });
+            setTimeout(() => this.toggleAccountsPage(''), 600);
+          }
+        });
+      }
+    } 
   }
   
   componentWillMount() {//@Auther: Greg
-	if(this.isAuthenticated() === false) {
-		this.authenticateSession();
-	}
+  if(this.isAuthenticated() === false) {
+    this.authenticateSession();
+  }
     this.getInfo();  //code to sort info from JSON file.
   }
     
@@ -137,17 +135,17 @@ export default class App extends React.Component {
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
         <Nav toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} username={this.state.userSession.username} />
-        <Drawer toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} />
+        <Drawer toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} username={this.state.userSession.username} />
         <div className="mdl-layout__content page-content mdl-color--black">
           <div>
-            {this.props.children}
+            {React.cloneElement(this.props.children, {isAuth: this.isAuthenticated(), user: this.state.userSession.username})}
           </div>
           <div>
             <Sitemap toggleAccountView={this.toggleAccountsPage.bind(this)} isAuth={this.isAuthenticated()} />
           </div>
         </div>
         <Footer films={films} locations={locations}/>
-        {displayAccountPage ? <AccountWidget accountsPage={accountPage} navigateTo={this.inlineNavigate.bind(this)} toggleAccountView={this.toggleAccountsPage.bind(this)} authentication={this.authenticateLogin.bind(this)} performLogout={this.performLogout.bind(this)} /> : ''}
+        {displayAccountPage ? <AccountWidget accountsPage={accountPage} navigateTo={this.inlineNavigate.bind(this)} toggleAccountView={this.toggleAccountsPage.bind(this)} authentication={this.authenticateLogin.bind(this)} performLogout={this.performLogout.bind(this)} isAuth={this.isAuthenticated.bind(this)} username={this.state.userSession.username} /> : ''}
       </div>
     );
   }

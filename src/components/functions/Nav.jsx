@@ -13,8 +13,12 @@ export default class Nav extends React.Component{
     this.props.toggleAccountView('LOGOUT');
   }
   
-  propagateAccounts() {//@Auther: Greg
+  propagateLogin() {//@Auther: Greg
     this.props.toggleAccountView('LOGIN');
+  }
+  
+  propagateMyAccount() {//@Auther: Greg
+	this.props.toggleAccountView('MY_ACCOUNT');  
   }
   
   render(){
@@ -41,15 +45,15 @@ export default class Nav extends React.Component{
               {this.props.isAuth ? 
 			  <div className="dropdown">
                 <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-					<img src="/img/userId.png" alt="User Icon" /><span className="userText">{this.props.username}</span><img src="/img/arrow-down.png" alt="Dropdown arrow" />
+					<i className="material-icons">account_circle</i><span className="userText">{this.props.username}</span><img src="/img/arrow-down.png" alt="Dropdown arrow" />
                 </button>
 				<ul className="dropdown-menu">
-				  <li className="user-item">My Account</li>
-				  <li className="user-item" onClick={this.logoutAccount.bind(this)}>Logout</li>
+				  <li className="user-item" onClick={this.propagateMyAccount.bind(this)}><i className="material-icons">supervisor_account</i> My Account</li>
+				  <li className="user-item" onClick={this.logoutAccount.bind(this)}><i className="material-icons">exit_to_app</i> Logout</li>
 				</ul>
 			</div>
               :
-                <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={this.propagateAccounts.bind(this)}>
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={this.propagateLogin.bind(this)}>
 					Log in
                 </button>
               }            

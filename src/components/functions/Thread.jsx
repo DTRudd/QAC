@@ -6,6 +6,7 @@ import apiConnect from '../../api/apiConnect';
 export default class Thread extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.user);
     this.state = {
       thread: [],
       createPost: false,
@@ -35,15 +36,18 @@ export default class Thread extends React.Component {
 
   handleSubmit(event) {
     apiConnect.getThreadByID(this.props.thread, result => {
-      var postID = result[0].length;
+      var postID = result[0].posts.length;
       var content = this.state.postContent;
       var threadID = this.props.thread;
+      console.log(this.props.user);
+      var user = this.props.user;
       var postData = {
-        postID: postID,
-        content: content,
-        threadID: threadID
+        postID:   postID,
+        content:  content,
+        threadID: threadID,
+        user:     user
       };
-      console.log(postData);
+      console.log(postData.user);
       apiConnect.postReply(postData, result => {
         if (result.message === "Posted.") {
           this.setState({
@@ -79,18 +83,24 @@ export default class Thread extends React.Component {
           <div className="mdl-cell mdl-cell--12-col">
             <h1 className="mdl-cell mdl-cell--12-col mdl-layout-title mdl-color-text--white">{this.props.thread.title}</h1>
             {this.state.thread.posts.map(post => 
-             <Post postContent={post} key={post._id} />
+              <Post key={post._id} postContent={post}/>
             )}
-            {this.state.createPost ?
-              <form id="create_post" className="mdl-cell--12-col" onSubmit={this.handleSubmit}>
-                <div className="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
-                  <textarea placeholder="Post content" onChange={this.handleContentChange} className="mdl-cell mdl-cell--12-col mdl-textfield__input mdl-color--grey-800" rows="5" type="text" id="contentInp"></textarea>
-                </div>
-                <button className="mdl-cell mdl-cell--3-col mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500">Post</button>
-                <button onClick={this.toggleCreatePostOff} className="mdl-cell mdl-cell--3-col mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500">Cancel</button>
-              </form>
+            {this.props.isAuth ?
+              <div className="mdl-cell mdl-cell--12-col">
+                {this.state.createPost ?
+                  <form id="create_post" className="mdl-cell--12-col" onSubmit={this.handleSubmit}>
+                    <div className="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
+                      <textarea placeholder="Post content" onChange={this.handleContentChange} className="mdl-cell mdl-cell--12-col mdl-textfield__input mdl-color--grey-800" rows="5" type="text" id="contentInp"></textarea>
+                    </div>
+                    <button className="mdl-cell mdl-cell--3-col mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500">Post</button>
+                    <button onClick={this.toggleCreatePostOff} className="mdl-cell mdl-cell--3-col mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500">Cancel</button>
+                  </form>
+                :
+                  <button onClick={this.toggleCreatePostOn} className="mdl-cell mdl-cell--2-col mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500">Reply to thread</button>
+                }
+              </div>
             :
-              <button onClick={this.toggleCreatePostOn} className="mdl-cell mdl-cell--2-col mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--pink-500">Reply to thread</button>
+              <div></div>
             }
           </div>
         :
