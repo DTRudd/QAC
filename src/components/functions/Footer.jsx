@@ -9,7 +9,7 @@ export default class Footer extends React.Component{
     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; 
     this.state = {
-      film: 'Select a Film',
+      film: 'War for the Planet of the Apes',
       location: 'Manchester',
       date: days[d.getDay()] + ' ' + d.getDate() + this.getSuffix(d.getDate()) + ' ' + months[d.getMonth()],
       time: '2:30pm'
