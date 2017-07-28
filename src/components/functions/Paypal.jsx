@@ -29,7 +29,7 @@ render(){
 									<input type="hidden" name="button_subtype" value="services" />
 									<input type="hidden" name="no_note" value="0" />
 									<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest" />
-									<input type="image" src="img/pay.png" 
+									<input className="payButton" type="image" src="img/pay.png" 
 									border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"  />
 
 								</form>
