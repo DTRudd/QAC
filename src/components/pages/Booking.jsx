@@ -1,6 +1,7 @@
 import React from 'react';
 import PriceList from '../../json/prices.json';
 import Locations from '../../json/Locations.json';
+import Paypal from '../functions/Paypal';
 
 export default class Booking extends React.Component {
     
@@ -296,9 +297,9 @@ export default class Booking extends React.Component {
             </td>
         </tr>
         <tr>
-            <div className = 'reviewAndPayButton'>
-                    <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">REVIEW & PAY
-                    </button>
+            
+              <div className = 'reviewAndPayButton'>
+                    <Paypal price={this.totalPrice()} /> 
                 </div>
         </tr>
     </table>
