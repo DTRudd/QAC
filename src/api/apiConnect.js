@@ -96,6 +96,17 @@ function fetchAccounts(username, pass, dateTime, cb) {
     .then(cb);
 }
 
+
+function fetchAccountDetails(username, cb) {
+  return fetch(`/api/account-details?api=${localAPIKey}&un=${username}`, {
+	credentials: 'same-origin',
+    accept: 'application/json'
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(cb);
+}
+
 function findSession(cb) {
   return fetch(`/api/locate-session?api=${localAPIKey}`, {
 	credentials: 'same-origin',
@@ -131,5 +142,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount, processLogout, getThreads, getThreadByID, createThread, postReply };
+const apiConnect = { search, fetchAccounts, fetchSession, findSession, createAccount, processLogout, getThreads, getThreadByID, createThread, postReply, fetchAccountDetails };
 export default apiConnect;

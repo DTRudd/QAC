@@ -559,3 +559,26 @@ textarea, input, button {
 .mdl-grid.thread h1, .mdl-grid.thread h4 {
 	cursor:pointer;
 }
+
+.mdl-mini-footer {
+	padding: 25px 0 27px;
+    display: block;
+    width: 100%;
+}
+
+.mdl-mini-footer .footer-container {
+    display: table;
+    max-width: 1280px;
+    margin: auto;
+    height: auto;
+}
+.mdl-mini-footer .footer-container .mdl-mini-footer__left-section,
+.mdl-mini-footer .footer-container .mdl-mini-footer__right-section {
+	margin: 0 20px;
+}
+
+@media screen and (max-width: 1024px) {
+	.mdl-mini-footer {
+		display: none;
+	}
+}
