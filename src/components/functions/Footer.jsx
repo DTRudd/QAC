@@ -18,6 +18,7 @@ export default class Footer extends React.Component{
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
+    console.log(this.state.date);
   }
 
   getSuffix(dayNum) {
@@ -49,6 +50,9 @@ export default class Footer extends React.Component{
 
   bookNow(){
         localStorage.setItem('filmName', this.state.film);
+        localStorage.setItem('date', this.state.date);
+        localStorage.setItem('time',  this.state.time);
+        localStorage.setItem('location',  this.state.location);
   }
     
 
@@ -59,7 +63,7 @@ export default class Footer extends React.Component{
         <div className="mdl-mini-footer__left-section">
           <ul className="mdl-mini-footer__link-list">
             <li>
-              <select className="mdl-textfield__input mdl-color--grey-900 mdl-color-text--white" value={this.state.value} onChange={this.handleFilmChange}>
+              <select className="mdl-textfield__input mdl-color--grey-900 mdl-color-text--white" value={this.state.film} onChange={this.handleFilmChange}>
                 {this.props.films.map((film) => 
                   <option className="mdl-textfield__input" key={film.id} value={film.film_name}>{film.film_name}</option>
 		)}
