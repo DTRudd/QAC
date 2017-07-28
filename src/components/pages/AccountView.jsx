@@ -5,13 +5,38 @@
 
 import React, { Component } from 'react';
 
+import apiConnect from '../../api/apiConnect.js';
+
 export default class AccountView extends Component {
+	constructor() {
+		super();
+		this.state = {
+			username: '',
+			email: ''
+		}
+	}
 	
-	componentWillMount() {
+   componentWillMount() {
 		if(!this.props.isAuth()) {
 			this.props.navigateTo('LOGIN');
 		}
-	}
+   }
+   
+   componentDidMount() {
+	  this.getAccountDetail(this.props.username);
+   }
+   
+   getAccountDetail(username) {
+	   apiConnect.fetchAccountDetails(username, account => {
+		   if(account.details.email && account.details.username) {
+			   this.setState({
+					email: account.details.email,
+					username: account.details.username
+			   });
+			   
+		   }
+	   });
+   }
 	
   
   closeAccounts() {
@@ -23,6 +48,7 @@ export default class AccountView extends Component {
   }
   
   render() {
+	  const { email, username } = this.state;
     return (
       <div id="account-box" className="view_account">
 			<div className="user-card-wide mdl-card mdl-shadow--2dp">
@@ -35,11 +61,11 @@ export default class AccountView extends Component {
 				  <tbody>
 					<tr>
 					  <td className="mdl-data-table__cell--non-numeric">Username:</td>
-					  <td className="mdl-data-table__cell--non-numeric">{this.props.username}</td>
+					  <td className="mdl-data-table__cell--non-numeric">{username}</td>
 					</tr>
 					<tr>
 					  <td className="mdl-data-table__cell--non-numeric">Email:</td>
-					  <td className="mdl-data-table__cell--non-numeric">example@example.com(Not Complete)</td>
+					  <td className="mdl-data-table__cell--non-numeric">{email}</td>
 					</tr>
 				  </tbody>
 				</table>

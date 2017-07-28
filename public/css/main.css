@@ -2,6 +2,11 @@ table, tr, th, td {
     border:2px solid white;
 }
 
+.payButton {
+	width:40%;
+	
+}
+
 textarea, input, button { 
 			outline: none;
 }
@@ -556,3 +561,47 @@ textarea, input, button {
     color: #000;
 }
 
+.mdl-grid.thread h1, .mdl-grid.thread h4 {
+	cursor:pointer;
+}
+
+.mdl-mini-footer {
+	padding: 25px 0 27px;
+    display: block;
+    width: 100%;
+}
+
+.dropdownMap{
+    width: 400px;
+    height: 35px;
+    border-bottom-width: 1px;
+    border-bottom-color: deeppink;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 10px;
+    background: white;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    text-align: center;
+    text-align-last: center;
+    font-size: 18px;
+    background: #fcfcfc
+}
+
+.mdl-mini-footer .footer-container {
+    display: table;
+    max-width: 1280px;
+    margin: auto;
+    height: auto;
+}
+.mdl-mini-footer .footer-container .mdl-mini-footer__left-section,
+.mdl-mini-footer .footer-container .mdl-mini-footer__right-section {
+	margin: 0 20px;
+}
+
+@media screen and (max-width: 1024px) {
+	.mdl-mini-footer {
+		display: none;
+	}
+}

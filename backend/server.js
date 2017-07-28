@@ -37,7 +37,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(eSession({
   name: 'QA_Cinemas',
   secret: 'h32kj4SDFSs34a23fDSF3SDhfF3j22hkjhakjh2kjsadasSDFsj3j2j3h42',
-  saveUninitialized: true,
+  saveUninitialized: false,
   resave: true,
   cookie:{ httpOnly: false, secure: false },
   store: new MongoStore({ 
@@ -248,6 +248,48 @@ router.route('/session').get((req, res) => {
 	
 });
 
+router.route('/account-details').get((req, res) => {
+	const forigenAPIKey = req.query.api;
+	const username = req.query.un;
+	const uname = req.session.username;
+
+	if (localAPIKey !== forigenAPIKey) {
+		res.json({
+		  error: "API key mismatch, Please try again later."
+		});
+		return;
+	}
+	
+	if (!username || !uname) {
+		res.json({
+		  error: "Missing required parameter."
+		});
+		return;
+	}
+	
+	if (username !== uname) {
+		res.json({
+		  error: "Invalid request!"
+		});
+		return;
+	}
+	
+	const r =((username) => {
+		return Account.findOne({ username:{ $eq: username } }, { _id: 0, username: 1, email: 1 }, (err, account) => {
+			if (err) return res.send(err);
+			if (account !== null) {
+				res.json({ details: account });
+			} else {
+				res.json({ error: 'There was an erorr processing your request!' });
+			}
+		});
+	})(username);
+	
+});
+
+
+
+
 router.route('/account').get((req, res) => {
 	const username = req.query.un;
 	const pass = req.query.p;
@@ -269,7 +311,7 @@ router.route('/account').get((req, res) => {
 	}
 	
 	const r =((username, pass, dateTime) => {
-		return Account.findOne({ username:{ $eq: username } }, { _id: 0, account_id: 1, username: 1, password: 1 }, (err, accounts) => {
+		return Account.findOne({ username:{ $eq: username } }, { _id: 0, username: 1, password: 1 }, (err, accounts) => {
 			if (err) return res.send(err);
 			if (accounts !== null) {
 				bcrypt.compare(pass, accounts.password, function(err, match) {
