@@ -8,7 +8,7 @@ export default class Booking extends React.Component {
     constructor(){
         super();
         this.state={
-            filmName: '',
+            filmName: 'War for the Planet of the Apes',
             date:'',
             time: '',
             ticketQuantity : 1,
